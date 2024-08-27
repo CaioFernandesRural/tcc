@@ -15,12 +15,13 @@ int
 main(void)
 {
 		  char nome[100], nome_out[100];
-		  Mat img, img_sobel;
+		  Mat img, img_sobel, imgO;
 		  int ksize=0;
 
 		  cout << "Digite o nome da imagem: ";
 		  cin >> nome;
 
+		  imgO=imread(nome);
 		  img=imread(nome,0);
 
 		  cout << "X =" << img.rows << " Y = " << img.cols << 
@@ -42,8 +43,9 @@ main(void)
 		  cout << "Digite o nome da imagem de saida: ";
 		  cin >> nome_out;
 
-		  imshow("Original", img);
-		  imshow("Sobel", img);
+		  imshow("Original", imgO);
+		  imshow("P&B", img);
+		  imshow("Sobel", img_sobel);
 		  waitKey(0);
 
 		  imwrite(nome_out,img_sobel);
