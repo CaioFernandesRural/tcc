@@ -22,7 +22,17 @@ main(void)
 		  cin >> nome;
 
 		  imgO=imread(nome);
+		  if ( imgO.empty() )
+		  {
+					 cout << "Erro aberturra de imagem: " << nome << " Nao existe" << endl;
+					 exit( - 1);
+		  }
 		  img=imread(nome,0);
+		  if ( img.empty() )
+		  {
+					 cout << "Erro aberturra de imagem: " << nome << " Nao existe" << endl;
+					 exit( - 1);
+		  }
 
 		  cout << "X =" << img.rows << " Y = " << img.cols << 
 					 " Depth = " << img.depth() << " Channels = " << 
@@ -43,10 +53,12 @@ main(void)
 		  cout << "Digite o nome da imagem de saida: ";
 		  cin >> nome_out;
 
+		  cout << "Pixel = " << imgO.at<Vec3b>(0,0) << endl;
 		  imshow("Original", imgO);
 		  imshow("P&B", img);
 		  imshow("Sobel", img_sobel);
 		  waitKey(0);
+
 
 		  imwrite(nome_out,img_sobel);
 
