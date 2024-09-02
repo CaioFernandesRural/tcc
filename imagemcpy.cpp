@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-#include <bitset>  // Necessário para a conversão de bits
+#include <bitset>
 #include <opencv2/core.hpp>
 #include <opencv2/imgcodecs.hpp>
 #include <opencv2/imgproc.hpp>
@@ -9,55 +9,45 @@
 using namespace cv;
 using namespace std;
 
-int main(void);
-
 int main(void)
 {
     char nome[100], nome_out[100];
-    Mat img, img_sobel, imgO;
+    Mat img, img_sobel, img_gray;
     int ksize = 0;
 
     cout << "Digite o nome da imagem: ";
     cin >> nome;
 
-    imgO = imread(nome);
+    // Carrega a imagem original
+    Mat imgO = imread(nome);
     if (imgO.empty())
     {
-        cout << "Erro abertura de imagem: " << nome << " Nao existe" << endl;
-        exit(-1);
-    }
-    img = imread(nome, 0);
-    if (img.empty())
-    {
-        cout << "Erro abertura de imagem: " << nome << " Nao existe" << endl;
+        cout << "Erro ao abrir a imagem: " << nome << " Nao existe" << endl;
         exit(-1);
     }
 
-    cout << "X =" << img.rows << " Y = " << img.cols << " Depth = " << img.depth() << " Channels = " << img.channels() << endl;
+    // Converte para escala de cinza
+    cvtColor(imgO, img_gray, COLOR_BGR2GRAY);
 
-    /*
-     * A funcao Sobel, o kernel deve ser um valor impar entre 3 e 31
-     */
+    cout << "X =" << img_gray.rows << " Y = " << img_gray.cols << " Depth = " << img_gray.depth() << " Channels = " << img_gray.channels() << endl;
+
+    // Define o tamanho do kernel do Sobel
     do
     {
-        cout << "Digite o tamanho do kernel do sobel: ";
+        cout << "Digite o tamanho do kernel do Sobel: ";
         cin >> ksize;
     } while (ksize < 3 || ksize > 31);
 
-    Sobel(img, img_sobel, CV_8U, 1, 0, ksize, 1, 1, BORDER_DEFAULT);
+    // Aplica o filtro Sobel para detectar bordas
+    Sobel(img_gray, img_sobel, CV_8U, 1, 0, ksize, 1, 1, BORDER_DEFAULT);
+
+    // Salvar a imagem Sobel
+    imwrite("imagem_sobel.png", img_sobel);
 
     cout << "Digite o nome da imagem de saida: ";
     cin >> nome_out;
 
-    cout << "Pixel = " << imgO.at<Vec3b>(0, 0) << endl;
-    imshow("Original", imgO);
-    imshow("P&B", img);
-    imshow("Sobel", img_sobel);
-    waitKey(0);
-
-    imwrite(nome_out, img_sobel);
-
-    // Solicitar a mensagem do usuário
+    // Solicita a mensagem do usuário
     string message;
     cout << "Digite a mensagem para inserir na imagem: ";
     cin.ignore(); // Limpa o buffer do cin
@@ -74,15 +64,19 @@ int main(void)
         }
     }
 
-    // Inserir a mensagem na imagem original
+    // Inserir a mensagem apenas onde o Sobel detectou bordas
     int bitIndex = 0;
-    for (int i = 0; i < imgO.rows; ++i)
+    Mat imgWithMessage = imgO.clone();
+    for (int i = 0; i < img_sobel.rows; ++i)
     {
-        for (int j = 0; j < imgO.cols; ++j)
+        for (int j = 0; j < img_sobel.cols; ++j)
         {
-            if (bitIndex < messageBits.size())
+            uchar sobelValue = img_sobel.at<uchar>(i, j);
+
+            // Se o pixel é uma borda (valor de Sobel maior que um limiar, como 0)
+            if (sobelValue > 0 && bitIndex < messageBits.size())
             {
-                Vec3b& pixel = imgO.at<Vec3b>(i, j);
+                Vec3b& pixel = imgWithMessage.at<Vec3b>(i, j);
                 // Alterar o último bit do primeiro canal (azul)
                 pixel[0] = (pixel[0] & ~1) | messageBits[bitIndex];
                 bitIndex++;
@@ -91,34 +85,27 @@ int main(void)
     }
 
     // Salvar a imagem com a mensagem inserida
-    imwrite("imagem_com_mensagem.png", imgO);
+    imwrite(nome_out, imgWithMessage);
 
-    // Verificar a mensagem inserida na imagem
-    string recoveredMessage;
-    bitIndex = 0;
-    char currentChar = 0;
+    // Comparar a imagem original com a imagem com mensagem para visualizar a diferença
+    Mat diffImage = Mat::zeros(imgO.size(), CV_8UC1); // Imagem de comparação inicializada como preta
 
     for (int i = 0; i < imgO.rows; ++i)
     {
         for (int j = 0; j < imgO.cols; ++j)
         {
-            if (bitIndex < messageBits.size())
-            {
-                Vec3b pixel = imgO.at<Vec3b>(i, j);
-                int bit = pixel[0] & 1;  // Recupera o último bit
-                currentChar |= (bit << (7 - (bitIndex % 8)));
-                bitIndex++;
+            uchar originalBit = imgO.at<Vec3b>(i, j)[0] & 1; // Último bit da imagem original
+            uchar messageBit = imgWithMessage.at<Vec3b>(i, j)[0] & 1; // Último bit da imagem com mensagem
 
-                if (bitIndex % 8 == 0)
-                {
-                    recoveredMessage += currentChar;
-                    currentChar = 0;
-                }
-            }
+            // Se o bit for diferente, coloca um ponto branco; se for igual, ponto preto
+            diffImage.at<uchar>(i, j) = (originalBit != messageBit) ? 255 : 0;
         }
     }
 
-    cout << "Mensagem recuperada: " << recoveredMessage << endl;
+    // Salvar e exibir a imagem de comparação
+    imwrite("imagem_diferenca.png", diffImage);
+    imshow("Diferenca entre imagens", diffImage);
+    waitKey(0);
 
     return 0;
 }
