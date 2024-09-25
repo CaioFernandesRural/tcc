@@ -7,11 +7,23 @@ INCLUDE+=
 LIBINCLUDE+=
 .endif
 
-iamge: imagem.cpp
+BINS= 	image 	\
+			decode	\
+		  	denovo
+
+all: $(BINS)
+
+image: imagem.cpp
 	clang++ -o image imagem.cpp $(INCLUDE)  $(LIBINCLUDE) -lopencv_imgcodecs -lopencv_imgproc -lopencv_highgui -lopencv_core
 
+decode: decode.cpp
+	clang++ -o decode decode.cpp $(INCLUDE)  $(LIBINCLUDE) -lopencv_imgcodecs -lopencv_imgproc -lopencv_highgui -lopencv_core
+
+denovo: denovo.cpp
+	clang++ -o denovo denovo.cpp $(INCLUDE)  $(LIBINCLUDE) -lopencv_imgcodecs -lopencv_imgproc -lopencv_highgui -lopencv_core
 
 clean:
-	@ rm -rf image
+	@ rm -rf $(BINS)
 	@ rm -rf *.o
 	@ rm -rf *.core
+
