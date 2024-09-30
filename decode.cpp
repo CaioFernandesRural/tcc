@@ -7,6 +7,20 @@
 using namespace cv;
 using namespace std;
 
+// Função para binarizar a imagem Sobel com base no threshold ou em uma faixa de valores
+void binarizeImage(const Mat &sobelImage, Mat &binaryImage, int threshold, int lowerBound = -1, int upperBound = -1) {
+    for (int i = 0; i < sobelImage.rows; ++i) {
+        for (int j = 0; j < sobelImage.cols; ++j) {
+            uchar pixel = sobelImage.at<uchar>(i, j);
+            if (lowerBound != -1 && upperBound != -1) {
+                binaryImage.at<uchar>(i, j) = (pixel >= lowerBound && pixel <= upperBound) ? 255 : 0;
+            } else {
+                binaryImage.at<uchar>(i, j) = (pixel >= threshold) ? 255 : 0;
+            }
+        }
+    }
+}
+
 // Função para decodificar a mensagem da imagem com delimitador
 string decodeMessage(const Mat &image, const Mat &binaryImage) {
     string message;
@@ -88,47 +102,45 @@ int main() {
         // Aplicar o filtro Sobel
         Sobel(img_gray, img_sobel, CV_8U, 1, 0, ksize, 1, 1, BORDER_DEFAULT);
 
-        // Oferecer ao usuário a escolha entre threshold ou faixa de valores
-        cout << "Escolha o método de binarização:" << endl;
-        cout << "1. Usar Threshold" << endl;
-        cout << "2. Usar Faixa de Valores" << endl;
-        cout << "Digite sua escolha (1 ou 2): ";
-        cin >> escolhaFiltro;
+        // Inicializar a imagem binarizada
+        img_binarizada = Mat::zeros(img_sobel.size(), CV_8U);
 
-        if (escolhaFiltro == 1) {
-            // Aplicar Threshold
-            cout << "Digite o valor do Threshold (0 a 255): ";
-            cin >> thresholdValue;
-            threshold(img_sobel, img_binarizada, thresholdValue, 255, THRESH_BINARY);
+        // Opção de binarização
+        int option;
+        cout << "Escolha a opção de binarização:\n1. Usar threshold\n2. Usar faixa de valores\nEscolha: ";
+        cin >> option;
 
-        } else if (escolhaFiltro == 2) {
-            // Aplicar Faixa de Valores
-            cout << "Digite o valor mínimo da faixa: ";
-            cin >> faixaMin;
-            cout << "Digite o valor máximo da faixa: ";
-            cin >> faixaMax;
-
-            // Criar a máscara binária com base na faixa de valores
-            inRange(img_sobel, faixaMin, faixaMax, img_binarizada);
-
-        } else {
-            cout << "Escolha de método de binarização inválida!" << endl;
-            return -1;
+        if (option == 1) {
+            int threshold;
+            do {
+                cout << "Digite o valor do threshold (0 a 255): ";
+                cin >> threshold;
+            } while (threshold < 0 || threshold > 255);
+            binarizeImage(img_sobel, img_binarizada, threshold);
+        } else if (option == 2) {
+            int lowerBound, upperBound;
+            do {
+                cout << "Digite o valor mínimo da faixa (0 a 255): ";
+                cin >> lowerBound;
+                cout << "Digite o valor máximo da faixa (0 a 255): ";
+                cin >> upperBound;
+            } while (lowerBound < 0 || upperBound > 255 || lowerBound > upperBound);
+            binarizeImage(img_sobel, img_binarizada, 0, lowerBound, upperBound);
         }
 
+        // Salvar a imagem Sobel binarizada
+        imwrite("imagem_binarizada_decode.png", img_binarizada);
+
+        // Decodificar a mensagem da imagem gerada e binarizada
+        string recoveredMessage = decodeMessage(imgWithMessage, img_binarizada);
+
+        // Mostrar a mensagem decodificada
+        cout << "Mensagem decodificada: " << recoveredMessage << endl;
+
     } else {
-        cout << "Escolha inválida!" << endl;
+        cout << "Escolha inválida." << endl;
         return -1;
     }
-
-    // Salvar a imagem binarizada (apenas para conferência)
-    imwrite("imagem_binarizada_decode.png", img_binarizada);  // Corrigido o nome do arquivo
-
-    // Decodificar a mensagem da imagem gerada e binarizada
-    string recoveredMessage = decodeMessage(imgWithMessage, img_binarizada);
-
-    // Mostrar a mensagem decodificada
-    cout << "Mensagem decodificada: " << recoveredMessage << endl;
 
     return 0;
 }
