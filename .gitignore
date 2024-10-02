@@ -2,3 +2,5 @@
 *.core
 *.bak
 *.vscode
+*.png
+!cg.png

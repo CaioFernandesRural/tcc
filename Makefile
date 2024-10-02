@@ -1,17 +1,22 @@
-WHERE!=uname -m
-.if $(WHERE) == "amd64"
-INCLUDE+=-I/usr/local/include/opencv4
-LIBINCLUDE+=-L/usr/local/lib
-.else
-INCLUDE+=
-LIBINCLUDE+=
-.endif
+CXX = g++
+CXXFLAGS = -std=c++11 -Wall
+LIBS = `pkg-config --cflags --libs opencv4`
 
-iamge: imagem.cpp
-	clang++ -o image imagem.cpp $(INCLUDE)  $(LIBINCLUDE) -lopencv_imgcodecs -lopencv_imgproc -lopencv_highgui -lopencv_core
+# Alvos para cada programa
+all: compara decode denovo imagem
 
+compara: compara.cpp
+	$(CXX) $(CXXFLAGS) compara.cpp -o compara $(LIBS)
 
+decode: decode.cpp
+	$(CXX) $(CXXFLAGS) decode.cpp -o decode $(LIBS)
+
+denovo: denovo.cpp
+	$(CXX) $(CXXFLAGS) denovo.cpp -o denovo $(LIBS)
+
+imagem: imagem.cpp
+	$(CXX) $(CXXFLAGS) imagem.cpp -o imagem $(LIBS)
+
+# Limpar arquivos executáveis
 clean:
-	@ rm -rf image
-	@ rm -rf *.o
-	@ rm -rf *.core
+	rm -f compara decode denovo imagem
