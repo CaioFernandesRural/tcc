@@ -41,10 +41,8 @@ void encodeMessage(Mat& image, const vector<Point>& edges, const string& message
     int messageBitLength = messageWithDelimiter.size() * 8;
     int progressStep = edges.size() / 10; // Define progresso a cada 10%
 
-    cout << "a";
     // Percorrer as bordas e codificar a mensagem
     for (size_t i = 0; i < edges.size(); i++) {
-        cout << 'a';
         if (bit >= messageBitLength) break; // Se todos os bits da mensagem foram codificados
 
         // Codificar o bit no canal azul (LSB)
@@ -105,8 +103,14 @@ string decodeMessage(const Mat& image, const vector<Point>& edges) {
         int nextX = pixel[2]; // Canal Red (x)
         int nextY = pixel[1]; // Canal Green (y)
 
-        if (nextX == 0 && nextY == 0) {
+        // Verificar se as coordenadas são válidas (dentro dos limites da imagem)
+        if (nextX <= 0 && nextY <= 0) {
             break; // Fim da mensagem (último bloco)
+        }
+
+        if (nextX < 0 || nextX >= image.cols || nextY < 0 || nextY >= image.rows) {
+            cerr << "Erro: Coordenadas fora dos limites da imagem (" << nextX << ", " << nextY << ")." << endl;
+            break;
         }
 
         // Continuar no próximo bloco
@@ -115,6 +119,7 @@ string decodeMessage(const Mat& image, const vector<Point>& edges) {
 
     return message;
 }
+
 
 int main() {
     // Carregar a imagem
