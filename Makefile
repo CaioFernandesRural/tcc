@@ -1,29 +1,29 @@
-WHERE!=uname -m
-.if $(WHERE) == "amd64"
-INCLUDE+=-I/usr/local/include/opencv4
-LIBINCLUDE+=-L/usr/local/lib
-.else
-INCLUDE+=
-LIBINCLUDE+=
-.endif
+CXX = g++
+CXXFLAGS = -std=c++11 -Wall -g
+LIBS = `pkg-config --cflags --libs opencv4`
+TARGETS = compara decode encode encodeFAT imagem
 
-BINS= 	image 	\
-			decode	\
-		  	denovo
+# Alvos para cada programa
+all: compara decode encode encodeFAT imagem
 
-all: $(BINS)
-
-image: imagem.cpp
-	clang++ -o image imagem.cpp $(INCLUDE)  $(LIBINCLUDE) -lopencv_imgcodecs -lopencv_imgproc -lopencv_highgui -lopencv_core
+compara: compara.cpp
+	$(CXX) $(CXXFLAGS) compara.cpp -o compara $(LIBS)
 
 decode: decode.cpp
-	clang++ -o decode decode.cpp $(INCLUDE)  $(LIBINCLUDE) -lopencv_imgcodecs -lopencv_imgproc -lopencv_highgui -lopencv_core
+	$(CXX) $(CXXFLAGS) decode.cpp -o decode $(LIBS)
 
-denovo: denovo.cpp
-	clang++ -o denovo denovo.cpp $(INCLUDE)  $(LIBINCLUDE) -lopencv_imgcodecs -lopencv_imgproc -lopencv_highgui -lopencv_core
+encode: encode.cpp
+	$(CXX) $(CXXFLAGS) encode.cpp -o encode $(LIBS)
 
+encodeFAT: encodeFAT.cpp
+	$(CXX) $(CXXFLAGS) encodeFAT.cpp -o encodeFAT $(LIBS)
+
+imagem: imagem.cpp
+	$(CXX) $(CXXFLAGS) imagem.cpp -o imagem $(LIBS)
+
+# Limpar arquivos executáveis
 clean:
-	@ rm -rf $(BINS)
-	@ rm -rf *.o
-	@ rm -rf *.core
+	rm -f $(TARGETS)
+	find . -type f -name '*.png' ! -name 'cg.png' -delete
 
+.PHONY: all clean
