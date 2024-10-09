@@ -22,6 +22,12 @@ string charToBits(char c) {
 }
 
 // Função para encontrar todas as bordas (pixels onde Sobel == 255)
+// Sugestão:
+// 1) Procurar por blocos de tamanho fixo, por exemplo, 64 pixels
+// Verificar se achou a quantidade suficiente para a mensagem e para os
+// indexes
+// 2) Armazenar os bits, nos 3 canais (LSB de cada canal), pode armazenar
+// uma mensagem maior
 vector<Point> findEdges(const Mat& sobelMap) {
     vector<Point> edges;
     for (int row = 0; row < sobelMap.rows; row++) {

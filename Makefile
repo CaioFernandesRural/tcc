@@ -23,7 +23,9 @@ imagem: imagem.cpp
 
 # Limpar arquivos executáveis
 clean:
-	@ rm -f $(TARGETS)
-	@ find . -type f -name '*.png' ! -name 'cg.png' -delete
+	@ rm -rf $(TARGETS)
+	@ rm -rf *.o
+	@ rm -rf *.core
+	find . -type f -name '*.png' ! -name 'cg.png' -delete
 
 .PHONY: all clean
