@@ -1,4 +1,11 @@
+WHERE != ( uname -s )
+
+.if $(WHERE) == "FreeBSD"
 CXX = clang++
+.else
+CXX = g++
+.endif
+
 CXXFLAGS = -std=c++11 -Wall -g
 LIBS = `pkg-config --cflags --libs opencv4`
 TARGETS = compara decode encode encodeFAT imagem
@@ -26,6 +33,6 @@ clean:
 	@ rm -rf $(TARGETS)
 	@ rm -rf *.o
 	@ rm -rf *.core
-	find . -type f -name '*.png' ! -name 'cg.png' -delete
+	@ find . -type f -name '*.png' ! -name 'cg.png' -delete
 
 .PHONY: all clean
