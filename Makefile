@@ -1,4 +1,4 @@
-CXX = g++
+CXX = clang++
 CXXFLAGS = -std=c++11 -Wall -g
 LIBS = `pkg-config --cflags --libs opencv4`
 TARGETS = compara decode encode encodeFAT imagem
@@ -23,7 +23,7 @@ imagem: imagem.cpp
 
 # Limpar arquivos executáveis
 clean:
-	rm -f $(TARGETS)
-	find . -type f -name '*.png' ! -name 'cg.png' -delete
+	@ rm -f $(TARGETS)
+	@ find . -type f -name '*.png' ! -name 'cg.png' -delete
 
 .PHONY: all clean
