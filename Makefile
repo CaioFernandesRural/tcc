@@ -1,20 +1,10 @@
-CXX = g++
+CXX = clang++
 CXXFLAGS = -std=c++11 -Wall -g
 LIBS = `pkg-config --cflags --libs opencv4`
 TARGETS = compara decode encode encodeFAT imagem
 
-<<<<<<< HEAD
-all: imagem denovo
-
-imagem: imagem.cpp
-	clang++ -o imagem imagem.cpp -g $(INCLUDE)  $(LIBINCLUDE) -lopencv_imgcodecs -lopencv_imgproc -lopencv_highgui -lopencv_core
-
-denovo: denovo.cpp
-	clang++ -o denovo denovo.cpp -g $(INCLUDE)  $(LIBINCLUDE) -lopencv_imgcodecs -lopencv_imgproc -lopencv_highgui -lopencv_core
-=======
 # Alvos para cada programa
 all: compara decode encode encodeFAT imagem
->>>>>>> 5806a7dd036f253639dce05598b301dddb273c8e
 
 compara: compara.cpp
 	$(CXX) $(CXXFLAGS) compara.cpp -o compara $(LIBS)
@@ -33,13 +23,9 @@ imagem: imagem.cpp
 
 # Limpar arquivos executáveis
 clean:
-<<<<<<< HEAD
-	@ rm -rf imagem denovo
+	@ rm -rf $(TARGETS)
 	@ rm -rf *.o
 	@ rm -rf *.core
-=======
-	rm -f $(TARGETS)
 	find . -type f -name '*.png' ! -name 'cg.png' -delete
 
 .PHONY: all clean
->>>>>>> 5806a7dd036f253639dce05598b301dddb273c8e
