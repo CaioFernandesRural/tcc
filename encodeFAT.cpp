@@ -95,7 +95,6 @@ string decodeMessage(const Mat& image, const vector<Point>& edges) {
 
         // Recuperar o bit do canal azul (LSB)
         currentChar = (currentChar << 1) | (pixel[0] & 1); // Obter o bit LSB
-			cout << "Bits = " << bit << endl;
         bit++;
 
         if (bit % 8 == 0) { // Se completamos um caractere
@@ -115,7 +114,7 @@ string decodeMessage(const Mat& image, const vector<Point>& edges) {
             break; // Fim da mensagem (último bloco)
         }
 
-        if (nextX >= image.cols && nextY >= image.rows) {
+        if (nextX < 0 || nextX >= image.cols || nextY < 0 || nextY >= image.rows) {
             cerr << "Erro: Coordenadas fora dos limites da imagem (" << nextX << ", " << nextY << ")." << endl;
             break;
         }
@@ -137,23 +136,19 @@ int main() {
     }
 
     // Aplicar o filtro de Sobel e binarizar
-	 cout << "Sobel" << endl;
     Mat sobelBin = applySobelBinarization(image);
 
     // Encontrar todas as bordas (áreas para armazenar dados)
-	 cout << "Edges" << endl;
     vector<Point> edges = findEdges(sobelBin);
 
     // Mensagem a ser escondida
     string mensagem = "Segredo escondido usando Sobel, LSB e FAT";
 
     // Codificar a mensagem na imagem
-	 cout << "Encode" << endl;
     encodeMessage(image, edges, mensagem);
     imwrite("encoded_image.png", image); // Salvar a imagem codificada
 
     // Decodificar a mensagem da imagem
-	 cout << "Decode" << endl;
     Mat encodedImage = imread("encoded_image.png");
     string decodedMessage = decodeMessage(encodedImage, edges);
 

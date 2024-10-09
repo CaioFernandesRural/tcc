@@ -1,17 +1,17 @@
-WHERE != ( uname -s )
+WHERE := $(shell uname -s)
 
-.if $(WHERE) == "FreeBSD"
+ifeq ($(WHERE), FreeBSD)
 CXX = clang++
-.else
+else
 CXX = g++
-.endif
+endif
 
 CXXFLAGS = -std=c++11 -Wall -g
 LIBS = `pkg-config --cflags --libs opencv4`
 TARGETS = compara decode encode encodeFAT imagem
 
 # Alvos para cada programa
-all: compara decode encode encodeFAT imagem
+all: $(TARGETS)
 
 compara: compara.cpp
 	$(CXX) $(CXXFLAGS) compara.cpp -o compara $(LIBS)
