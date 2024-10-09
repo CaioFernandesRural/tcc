@@ -12,7 +12,7 @@ using namespace cv;
 using namespace std;
 
 // Função para codificar a mensagem na imagem
-void encodeMessage(Mat &image, const Mat &sobelImage, const string &message) {
+int encodeMessage(Mat &image, const Mat &sobelImage, const string &message) {
     int bit = 0;
     for (int i = 0; i < sobelImage.rows; ++i) {
         for (int j = 0; j < sobelImage.cols; ++j) {
@@ -31,6 +31,10 @@ void encodeMessage(Mat &image, const Mat &sobelImage, const string &message) {
             }
         }
     }
+	 if ( bit == 0 || bit != message.size() * 8 )
+				return bit? bit: -1;
+	 else
+				return 0;
 }
 
 // Função para decodificar a mensagem da imagem
@@ -77,6 +81,7 @@ int main()
     char nome[100], nome_out[100];
     Mat img, img_sobel, img_gray;
     int ksize = 0;
+	 int merror;
 
     cout << "Digite o nome da imagem: ";
     cin >> nome;
@@ -133,7 +138,11 @@ int main()
     }
     // Codificar a mensagem na imagem
     Mat imgWithMessage = imgO.clone();
-    encodeMessage(imgWithMessage, img_sobel, message);
+    if ((merror =  encodeMessage(imgWithMessage, img_sobel, message)) != 0)
+	 {
+				printf("Erro %d\n", merror);
+				exit (-1);
+	 }
 
     // Salvar a imagem com a mensagem inserida
     imwrite(nome_out, imgWithMessage);
@@ -145,8 +154,8 @@ int main()
     {
         for (int j = 0; j < imgO.cols; ++j)
         {
-            uchar originalBit = imgO.at<Vec3b>(i, j)[0] & 1; // Último bit da imagem original
-            uchar messageBit = imgWithMessage.at<Vec3b>(i, j)[0] & 1; // Último bit da imagem com mensagem
+            uchar originalBit = imgO.at<Vec3b>(i, j)[0] & 0x01; // Último bit da imagem original
+            uchar messageBit = imgWithMessage.at<Vec3b>(i, j)[0] & 0x01; // Último bit da imagem com mensagem
 
             // Se o bit for diferente, coloca um ponto branco; se for igual, ponto preto
             diffImage.at<uchar>(i, j) = (originalBit != messageBit) ? 255 : 0;
