@@ -1,0 +1,13 @@
+steganousaur.us : dissertação de mestrado de uma aplicação de esteganografia em vídeo
+
+https://www.youtube.com/watch?v=Tldj_qlTVrE: esconde um vídeo dentro de outro
+
+https://steghide.sourceforge.net/index.php: aplicação de esteganografia de audio e video
+
+https://www.axios.com/2023/12/14/terrorism-watchlist-two-million-people: watchlist
+
+steganografia em jpeg: https://wiki.bi0s.in/steganography/jsteg/
+
+DCT: https://coehuman.uodiyala.edu.iq/uploads/Coehuman%20library%20pdf/%D9%83%D8%AA%D8%A8%20%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6%D9%8A%D8%A7%D8%AA%20Mathematics%20books/Wavelets/25%20(2).pdf
+
+video dct do caralho: https://www.youtube.com/watch?v=0me3guauqOU

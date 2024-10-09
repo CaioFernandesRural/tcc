@@ -1,3 +1,6 @@
 *.out
 *.core
 *.bak
+*.vscode
+*.png
+!cg.png
