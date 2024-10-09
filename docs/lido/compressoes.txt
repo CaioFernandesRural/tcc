@@ -1,0 +1,5 @@
+x/twitter: JPG, PNG, GIF, WebP: com redução de tamanho: https://soona.co/image-resizer/twitter-spec-guide
+
+*qualidade da compressão jpeg depende da table de quantitização
+
+DCT: https://coehuman.uodiyala.edu.iq/uploads/Coehuman%20library%20pdf/%D9%83%D8%AA%D8%A8%20%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6%D9%8A%D8%A7%D8%AA%20Mathematics%20books/Wavelets/25%20(2).pdf
