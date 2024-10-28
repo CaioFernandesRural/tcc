@@ -8,7 +8,7 @@ endif
 
 CXXFLAGS = -std=c++11 -Wall -g
 LIBS = `pkg-config --cflags --libs opencv4`
-TARGETS = compara decode encode encodeFAT imagem
+TARGETS = compara decode encode fatAttempt imagem tentativaFat
 
 # Alvos para cada programa
 all: $(TARGETS)
@@ -22,8 +22,11 @@ decode: decode.cpp
 encode: encode.cpp
 	$(CXX) $(CXXFLAGS) encode.cpp -o encode $(LIBS)
 
-encodeFAT: encodeFAT.cpp
-	$(CXX) $(CXXFLAGS) encodeFAT.cpp -o encodeFAT $(LIBS)
+tentativaFat: tentativaFat.cpp
+	$(CXX) $(CXXFLAGS) tentativaFat.cpp -o tentativaFat $(LIBS)
+
+fatAttempt: fatAttempt.cpp
+	$(CXX) $(CXXFLAGS) fatAttempt.cpp -o fatAttempt $(LIBS)
 
 imagem: imagem.cpp
 	$(CXX) $(CXXFLAGS) imagem.cpp -o imagem $(LIBS)
