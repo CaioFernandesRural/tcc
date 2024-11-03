@@ -22,34 +22,29 @@ void binarizeImage(Mat &sobelImage, int threshold) {
     }
 }
 
-// Função para verificar se há 32 pixels contínuos de borda
-// Função para verificar se há 32 pixels contínuos de borda
 bool checaSequencia(const Mat &sobelImage, int &startY, int &startX, int length, 
                     int &initY, int &initX) {
     int contaSequencia = 0;
-    bool encontrouPrimeiro = false;
 
     for (int i = startY; i < sobelImage.rows; i++) {
-        for (int j = (encontrouPrimeiro ? 0 : startX); j < sobelImage.cols; j++) {
+        for (int j = (i == startY ? startX : 0); j < sobelImage.cols; j++) {
             if (sobelImage.at<uchar>(i, j) == 255) {
                 // Armazena a posição do início da sequência
-                if (!encontrouPrimeiro) {
+                if (contaSequencia == 0) {
                     initY = i;
                     initX = j;
-                    encontrouPrimeiro = true;
                 }
                 contaSequencia++;
             } else {
                 // Reseta a contagem se a sequência for interrompida
                 contaSequencia = 0;
-                encontrouPrimeiro = false;
             }
 
             // Verifica se a sequência foi encontrada
             if (contaSequencia == length) {
                 startY = i;
                 startX = j;
-                cout << "Sequência de " << length << " pixels encontrada.\n";
+                cout << "\n\n" << "Sequência de " << length << " pixels encontrada.\n";
                 return true;
             }
         }
@@ -60,26 +55,88 @@ bool checaSequencia(const Mat &sobelImage, int &startY, int &startX, int length,
 
 
 // Função auxiliar para definir o LSB de um pixel
-void setLSB(Mat &image, int location, int bitValue) {
-    
+void setLSB(Mat &image, Point local, int bitValue) {
+    Vec3b &pixel = image.at<Vec3b>(local.y, local.x);
+    // Define o valor do LSB de acordo com o valor de bitValue
+    if (bitValue == 1) {
+        pixel[0] |= 1;  // Força o LSB para 1
+    } else {
+        pixel[0] &= ~1; // Força o LSB para 0
+    }  // Altera apenas o LSB do canal azul
+    cout << "\n" << pixel << "\n";
 }
 
-// Função para inserir um bloco de 32 bits nos pixels da imagem
-void insertBlock(Mat &image, char carga, int loc1, int loc2, size_t &bitIndex) {
-    static bool firstBlock = true;
+// Função para inserir um bloco de 8 + 20 bits nos pixels da imagem
+void insertBlock(Mat &image, char carga, Point ptoInicial) {
 
-    cout << "\nInserindo bloco para o caractere: '" << carga << "'\n";
-    cout << "Localização do bloco atual: " << loc2 << "\n";
-    cout << "Localização do bloco anterior: " << loc1 << "\n";
+    vector<int> bitValues(8);
 
-    
+    int i = ptoInicial.x;
+    int j = ptoInicial.y;
+
+    cout << "\n" << "Inserindo bloco para o caractere: '" << carga << "'\n";
+    cout << "Localização inicial do bloco atual: " << ptoInicial << "\n";
+    // cout << "Localização do bloco anterior: " << loc1 << "\n";
+
+    cout << "Bits de carga: ";
+    for (int k = 7; k >= 0; --k) {
+        bitValues[7 - k] = (carga >> k) & 1;
+        cout << bitValues[7 - k];
+    }
+    cout << "\n";
+
+    // Loop para inserir os bits na imagem
+    int bitIndex = 0;
+    while (bitIndex < 8) {
+        if (i >= image.cols) {  // Se atingir o fim da coluna, passa para a próxima linha
+            i = 0;
+            j++;
+        }
+        if (j >= image.rows) {  // Se atingir o fim da linha, para de inserir (fora dos limites da imagem)
+            cout << "Erro: imagem muito pequena para inserir todos os bits." << endl;
+            return;
+        }
+        setLSB(image, Point(i, j), bitValues[bitIndex]);
+        bitIndex++;
+        i++;  // Avança para o próximo pixel na coluna
+    }
+    cout << "\n";
+
+    //declara y converte
+    int loc = ptoInicial.y * image.cols + ptoInicial.x;
+    vector<int> locBits(20);
+
+    cout << "\nBits de loc (" << loc << "): ";
+    for (int k = 19; k >= 0; --k) {
+        locBits[19 - k] = (loc >> k) & 1;
+        cout << locBits[19 - k];
+    }
+    cout << "\n";
+
+    bitIndex = 0;
+    while (bitIndex < 20){
+        if (i >= image.cols) {
+            i = 0;
+            j++;
+        }
+        if (j >= image.rows) {
+            cout << "Erro: imagem muito pequena para inserir todos os bits." << endl;
+            return;
+        }
+        setLSB(image, Point(i, j), locBits[bitIndex]);
+        bitIndex++;
+        i++;
+    }
+
 }
 
 
 void encodeMessage(Mat &image, const Mat &sobelImage, const string &message) {
 
-    int locAnt = -1;
-    int locAtu = 0;
+    Point locAnt;
+    Point locAtu;
+
+    vector<Point> positions;
 
     string delimitada = message + '\0';
 
@@ -92,7 +149,6 @@ void encodeMessage(Mat &image, const Mat &sobelImage, const string &message) {
     int startY = 0;
 
     for(int i = 0; i < delimitada.length(); i++){
-        char caractere = delimitada[i];
         
         int initY, initX;
 
@@ -100,15 +156,21 @@ void encodeMessage(Mat &image, const Mat &sobelImage, const string &message) {
             cout << "Início da sequência: (" << initY << ", " << initX << ")\n";
             cout << "Fim da sequência: (" << startY << ", " << startX << ")\n";
 
-            //calcula loc de inserção (Atual)
-
-            //insere bloco, passa locAtual
-
-            //atualiza locAnt para = locAtual
+            //vetor de posições inicias dos blocos
+            positions.push_back(Point(initX, initY));
 
             blocksInserted++;
 
         }
+    }
+    int i = 0;
+    for (const auto& pos : positions) {
+        char caractere = delimitada[i];
+
+        cout << "\n" << "Bloco em posição inicial: (" << pos.x << ", " << pos.y << ")\n";
+        insertBlock(image, caractere, pos);
+
+        i++;
     }
 
     bool endOfMessage = false;
@@ -193,6 +255,20 @@ int main() {
 
     // // Mostrar a mensagem recuperada
     // cout << "Mensagem decodificada: " << recoveredMessage << endl;
+
+    // Comparar a imagem original com a imagem com mensagem para visualizar a diferença
+    Mat diffImage = Mat::zeros(imgOri.size(), CV_8UC1); // Imagem de comparação inicializada como preta
+
+    for (int i = 0; i < imgOri.rows; ++i) {
+        for (int j = 0; j < imgOri.cols; ++j) {
+            uchar originalBit = imgOri.at<Vec3b>(i, j)[0] & 0x01; // Último bit da imagem original
+            uchar messageBit = imgWithMessage.at<Vec3b>(i, j)[0] & 0x01; // Último bit da imagem com mensagem
+
+            // Se o bit for diferente, coloca um ponto branco; se for igual, ponto preto
+            diffImage.at<uchar>(i, j) = (originalBit != messageBit) ? 255 : 0;
+        }
+    }
+    imwrite("imagem_diferenca.png", diffImage);
 
     return 0;
 }
