@@ -1,10 +1,17 @@
+WHERE := $(shell uname -s)
+
+ifeq ($(WHERE), FreeBSD)
 CXX = clang++
+else
+CXX = g++
+endif
+
 CXXFLAGS = -std=c++11 -Wall -g
 LIBS = `pkg-config --cflags --libs opencv4`
-TARGETS = compara decode encode encodeFAT imagem
+TARGETS = compara decode encode fatAttempt outra  imagem tentativaFat
 
 # Alvos para cada programa
-all: compara decode encode encodeFAT imagem
+all: $(TARGETS)
 
 compara: compara.cpp
 	$(CXX) $(CXXFLAGS) compara.cpp -o compara $(LIBS)
@@ -15,8 +22,14 @@ decode: decode.cpp
 encode: encode.cpp
 	$(CXX) $(CXXFLAGS) encode.cpp -o encode $(LIBS)
 
-encodeFAT: encodeFAT.cpp
-	$(CXX) $(CXXFLAGS) encodeFAT.cpp -o encodeFAT $(LIBS)
+tentativaFat: tentativaFat.cpp
+	$(CXX) $(CXXFLAGS) tentativaFat.cpp -o tentativaFat $(LIBS)
+
+fatAttempt: fatAttempt.cpp
+	$(CXX) $(CXXFLAGS) fatAttempt.cpp -o fatAttempt $(LIBS)
+
+outra: outra.cpp
+	$(CXX) $(CXXFLAGS) outra.cpp -o outra $(LIBS)
 
 imagem: imagem.cpp
 	$(CXX) $(CXXFLAGS) imagem.cpp -o imagem $(LIBS)
@@ -26,6 +39,6 @@ clean:
 	@ rm -rf $(TARGETS)
 	@ rm -rf *.o
 	@ rm -rf *.core
-	find . -type f -name '*.png' ! -name 'cg.png' -delete
+	@ find . -type f -name '*.png' ! -name 'cg.png' -delete
 
 .PHONY: all clean
