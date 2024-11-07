@@ -176,6 +176,85 @@ void encodeMessage(Mat &image, const Mat &sobelImage, const string &message) {
     bool endOfMessage = false;
 }
 
+// Função para extrair o LSB de um pixel em uma imagem
+int extractLSB(const Vec3b &pixel) {
+    return pixel[0] % 2;  // Retorna o LSB do canal azul
+}
+
+char decodeBloco(const Mat &image, int &N) {
+    int y = N / image.cols;
+    int x = N % image.cols;
+
+    char caractere = 0;
+    int newN = 0;
+
+    for (int i = 0 ; i < 8; ++i) {
+        if (x >= image.cols) {
+            x = 0;
+            ++y;
+        }
+        if (y >= image.rows) {
+            throw runtime_error("Fim da imagem atingido durante a decodificação.");
+        }
+
+        Vec3b pixel = image.at<Vec3b>(y, x);
+        int lsb = extractLSB(pixel);
+
+        caractere = (caractere << 1) | lsb;
+
+        // Debugging: print the values at each step
+        cout << "[Caractere] Bit " << i << ": LSB = " << lsb 
+        << ", Caractere (parcial) = " << caractere << endl;
+
+        ++x;
+    }
+
+    for (int i = 8; i < 28; ++i) {
+        if (x >= image.cols) {
+            x = 0;
+            ++y;
+        }
+        if (y >= image.rows) {
+            throw runtime_error("Fim da imagem atingido durante a decodificação.");
+        }
+
+        Vec3b pixel = image.at<Vec3b>(y, x);
+        int lsb = extractLSB(pixel);
+
+        newN = (newN << 1) | lsb;
+
+        // Debugging: print the values at each step
+        cout << "[newN] Bit " << (i) << ": LSB = " << lsb 
+        << ", newN (parcial) = " << newN << endl;
+        
+        ++x;
+    }
+
+    N = newN;
+    return caractere;
+}
+
+string decodeImagem(const Mat &image, int inicialN) {
+    string mensagem;
+    int N = inicialN; int cont = 0;
+    char caractere;
+
+    do {
+
+        if(cont >= 2000){return "erro menor";}
+
+        cout << caractere;
+        caractere = decodeBloco(image, N);
+
+        mensagem += caractere;
+
+        cont ++;
+
+    } while (caractere != '\0');
+
+    return mensagem;
+}
+
 
 int main() {
     //char nome[100], nome_out[100];
@@ -246,15 +325,15 @@ int main() {
 
     // Decodificar a mensagem no final
 
-    // int N;
+    int N = 0;
 
     // cin.ignore();
     // cout << "Digite o valor de N do primeiro bloco: ";
     // cin >> N;
-    // string recoveredMessage = decodeMessage(imgWithMessage, N);
+    string recoveredMessage = decodeImagem(imgWithMessage, N);
 
     // // Mostrar a mensagem recuperada
-    // cout << "Mensagem decodificada: " << recoveredMessage << endl;
+    cout << "Mensagem decodificada: " << recoveredMessage << endl;
 
     // Comparar a imagem original com a imagem com mensagem para visualizar a diferença
     Mat diffImage = Mat::zeros(imgOri.size(), CV_8UC1); // Imagem de comparação inicializada como preta
