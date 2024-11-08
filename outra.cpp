@@ -67,7 +67,7 @@ void setLSB(Mat &image, Point local, int bitValue) {
 }
 
 // Função para inserir um bloco de 8 + 20 bits nos pixels da imagem
-void insertBlock(Mat &image, char carga, Point ptoInicial) {
+void insertBlock(Mat &image, char carga, Point ptoInicial, Point ptoSeguinte) {
 
     vector<int> bitValues(8);
 
@@ -103,18 +103,18 @@ void insertBlock(Mat &image, char carga, Point ptoInicial) {
     cout << "\n";
 
     //declara y converte
-    int loc = ptoInicial.y * image.cols + ptoInicial.x;
+    int loc = ptoSeguinte.y * image.cols + ptoSeguinte.x;
     vector<int> locBits(20);
 
     cout << "\nBits de loc (" << loc << "): ";
     for (int k = 19; k >= 0; --k) {
         locBits[19 - k] = (loc >> k) & 1;
-        cout << locBits[19 - k];
+        cout << locBits[19 - k]; // Exibe cada bit após calcular
     }
     cout << "\n";
 
     bitIndex = 0;
-    while (bitIndex < 20){
+    while (bitIndex < 20) {
         if (i >= image.cols) {
             i = 0;
             j++;
@@ -123,18 +123,17 @@ void insertBlock(Mat &image, char carga, Point ptoInicial) {
             cout << "Erro: imagem muito pequena para inserir todos os bits." << endl;
             return;
         }
+        cout << "Inserindo locBit[" << bitIndex << "] = " << locBits[bitIndex]
+            << " na posição (" << i << ", " << j << ")" << endl;
+
         setLSB(image, Point(i, j), locBits[bitIndex]);
         bitIndex++;
-        i++;
+        i++;  // Avança para o próximo pixel na coluna
     }
-
 }
 
 
 void encodeMessage(Mat &image, const Mat &sobelImage, const string &message) {
-
-    Point locAnt;
-    Point locAtu;
 
     vector<Point> positions;
 
@@ -152,7 +151,7 @@ void encodeMessage(Mat &image, const Mat &sobelImage, const string &message) {
         
         int initY, initX;
 
-        if (checaSequencia(sobelImage, startY, startX, 32, initY, initX)) {
+        if (checaSequencia(sobelImage, startY, startX, 29, initY, initX)) {
             cout << "Início da sequência: (" << initY << ", " << initX << ")\n";
             cout << "Fim da sequência: (" << startY << ", " << startX << ")\n";
 
@@ -163,17 +162,102 @@ void encodeMessage(Mat &image, const Mat &sobelImage, const string &message) {
 
         }
     }
-    int i = 0;
-    for (const auto& pos : positions) {
+
+    for (int i = 0; i < delimitada.length(); i++){
         char caractere = delimitada[i];
-
+        Point pos = positions[i];
+        Point posProx = positions[i+1];
+        
         cout << "\n" << "Bloco em posição inicial: (" << pos.x << ", " << pos.y << ")\n";
-        insertBlock(image, caractere, pos);
-
-        i++;
-    }
+        insertBlock(image, caractere, pos, posProx);
+    }  
 
     bool endOfMessage = false;
+}
+
+// Função para extrair o LSB de um pixel em uma imagem
+int extractLSB(const Vec3b &pixel) {
+    return pixel[0] % 2;  // Retorna o LSB do canal azul
+}
+
+char decodeBloco(const Mat image, int &N) {
+    int y = N / image.cols;
+    int x = N % image.cols;
+
+    char caractere = 0;
+    int newN = 0;
+
+    for (int i = 0 ; i < 8; ++i) {
+        if (x >= image.cols) {
+            x = 0;
+            ++y;
+        }
+        if (y >= image.rows) {
+            throw runtime_error("Fim da imagem atingido durante a decodificação.");
+        }
+
+        Vec3b pixel = image.at<Vec3b>(y, x);
+        int lsb = extractLSB(pixel);
+
+        caractere = (caractere << 1) | lsb;
+
+        // Debugging: print the values at each step
+        cout << "[Caractere] Bit " << i << ": LSB = " << lsb 
+        << ", Caractere (parcial) = " << caractere << endl;
+
+        ++x;
+    }
+
+    if(caractere == '\0'){
+        return caractere;
+    }
+
+    for (int i = 8; i < 28; ++i) {
+        if (x >= image.cols) {
+            x = 0;
+            ++y;
+        }
+        if (y >= image.rows) {
+            throw runtime_error("Fim da imagem atingido durante a decodificação.");
+        }
+
+        Vec3b pixel = image.at<Vec3b>(y, x);
+        int lsb = extractLSB(pixel);
+
+        newN = (newN << 1) | lsb;
+
+        // Debugging: print the values at each step
+        cout << "[newN] Bit " << i << ": LSB = " << lsb 
+        << ", newN (parcial) = " << newN << endl;
+
+        ++x;
+    }
+
+    if (newN == 0) {
+    throw runtime_error("newN decodificado como 0, o que causa loop infinito.");
+    }
+
+    N = newN;
+    return caractere;
+}
+
+string decodeImagem(const Mat &image, int inicialN) {
+    string mensagem;
+    int N = inicialN;
+    char caractere;
+
+    do {
+
+        cout << caractere;
+        caractere = decodeBloco(image, N);
+
+        if(N == inicialN){return "erro menor";}
+
+        mensagem += caractere;
+
+    } while (caractere != '\0');
+
+    return mensagem;
 }
 
 
@@ -246,15 +330,15 @@ int main() {
 
     // Decodificar a mensagem no final
 
-    // int N;
+    int N = 0;
 
     // cin.ignore();
     // cout << "Digite o valor de N do primeiro bloco: ";
     // cin >> N;
-    // string recoveredMessage = decodeMessage(imgWithMessage, N);
+    string recoveredMessage = decodeImagem(imgWithMessage, N);
 
     // // Mostrar a mensagem recuperada
-    // cout << "Mensagem decodificada: " << recoveredMessage << endl;
+    cout << "Mensagem decodificada: " << recoveredMessage << endl;
 
     // Comparar a imagem original com a imagem com mensagem para visualizar a diferença
     Mat diffImage = Mat::zeros(imgOri.size(), CV_8UC1); // Imagem de comparação inicializada como preta
