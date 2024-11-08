@@ -67,7 +67,7 @@ void setLSB(Mat &image, Point local, int bitValue) {
 }
 
 // Função para inserir um bloco de 8 + 20 bits nos pixels da imagem
-void insertBlock(Mat &image, char carga, Point ptoInicial) {
+void insertBlock(Mat &image, char carga, Point ptoInicial, Point ptoSeguinte) {
 
     vector<int> bitValues(8);
 
@@ -103,18 +103,18 @@ void insertBlock(Mat &image, char carga, Point ptoInicial) {
     cout << "\n";
 
     //declara y converte
-    int loc = ptoInicial.y * image.cols + ptoInicial.x;
+    int loc = ptoSeguinte.y * image.cols + ptoSeguinte.x;
     vector<int> locBits(20);
 
     cout << "\nBits de loc (" << loc << "): ";
     for (int k = 19; k >= 0; --k) {
         locBits[19 - k] = (loc >> k) & 1;
-        cout << locBits[19 - k];
+        cout << locBits[19 - k]; // Exibe cada bit após calcular
     }
     cout << "\n";
 
     bitIndex = 0;
-    while (bitIndex < 20){
+    while (bitIndex < 20) {
         if (i >= image.cols) {
             i = 0;
             j++;
@@ -123,18 +123,17 @@ void insertBlock(Mat &image, char carga, Point ptoInicial) {
             cout << "Erro: imagem muito pequena para inserir todos os bits." << endl;
             return;
         }
+        cout << "Inserindo locBit[" << bitIndex << "] = " << locBits[bitIndex]
+            << " na posição (" << i << ", " << j << ")" << endl;
+
         setLSB(image, Point(i, j), locBits[bitIndex]);
         bitIndex++;
-        i++;
+        i++;  // Avança para o próximo pixel na coluna
     }
-
 }
 
 
 void encodeMessage(Mat &image, const Mat &sobelImage, const string &message) {
-
-    Point locAnt;
-    Point locAtu;
 
     vector<Point> positions;
 
@@ -152,7 +151,7 @@ void encodeMessage(Mat &image, const Mat &sobelImage, const string &message) {
         
         int initY, initX;
 
-        if (checaSequencia(sobelImage, startY, startX, 32, initY, initX)) {
+        if (checaSequencia(sobelImage, startY, startX, 29, initY, initX)) {
             cout << "Início da sequência: (" << initY << ", " << initX << ")\n";
             cout << "Fim da sequência: (" << startY << ", " << startX << ")\n";
 
@@ -163,15 +162,15 @@ void encodeMessage(Mat &image, const Mat &sobelImage, const string &message) {
 
         }
     }
-    int i = 0;
-    for (const auto& pos : positions) {
+
+    for (int i = 0; i < delimitada.length(); i++){
         char caractere = delimitada[i];
-
+        Point pos = positions[i];
+        Point posProx = positions[i+1];
+        
         cout << "\n" << "Bloco em posição inicial: (" << pos.x << ", " << pos.y << ")\n";
-        insertBlock(image, caractere, pos);
-
-        i++;
-    }
+        insertBlock(image, caractere, pos, posProx);
+    }  
 
     bool endOfMessage = false;
 }
@@ -181,7 +180,7 @@ int extractLSB(const Vec3b &pixel) {
     return pixel[0] % 2;  // Retorna o LSB do canal azul
 }
 
-char decodeBloco(const Mat &image, int &N) {
+char decodeBloco(const Mat image, int &N) {
     int y = N / image.cols;
     int x = N % image.cols;
 
@@ -209,6 +208,10 @@ char decodeBloco(const Mat &image, int &N) {
         ++x;
     }
 
+    if(caractere == '\0'){
+        return caractere;
+    }
+
     for (int i = 8; i < 28; ++i) {
         if (x >= image.cols) {
             x = 0;
@@ -224,10 +227,14 @@ char decodeBloco(const Mat &image, int &N) {
         newN = (newN << 1) | lsb;
 
         // Debugging: print the values at each step
-        cout << "[newN] Bit " << (i) << ": LSB = " << lsb 
+        cout << "[newN] Bit " << i << ": LSB = " << lsb 
         << ", newN (parcial) = " << newN << endl;
-        
+
         ++x;
+    }
+
+    if (newN == 0) {
+    throw runtime_error("newN decodificado como 0, o que causa loop infinito.");
     }
 
     N = newN;
@@ -236,19 +243,17 @@ char decodeBloco(const Mat &image, int &N) {
 
 string decodeImagem(const Mat &image, int inicialN) {
     string mensagem;
-    int N = inicialN; int cont = 0;
+    int N = inicialN;
     char caractere;
 
     do {
 
-        if(cont >= 2000){return "erro menor";}
-
         cout << caractere;
         caractere = decodeBloco(image, N);
 
-        mensagem += caractere;
+        if(N == inicialN){return "erro menor";}
 
-        cont ++;
+        mensagem += caractere;
 
     } while (caractere != '\0');
 
