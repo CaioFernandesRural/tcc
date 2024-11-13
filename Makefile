@@ -29,7 +29,7 @@ fatAttempt: fatAttempt.cpp
 	$(CXX) $(CXXFLAGS) fatAttempt.cpp -o fatAttempt $(LIBS)
 
 outra: outra.cpp
-	$(CXX) $(CXXFLAGS) outra.cpp -o outra $(LIBS)
+	$(CXX) $(CXXFLAGS) outra.cpp -o outra $(LIBS) -g
 
 imagem: imagem.cpp
 	$(CXX) $(CXXFLAGS) imagem.cpp -o imagem $(LIBS)
