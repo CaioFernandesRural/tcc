@@ -151,7 +151,7 @@ void encodeMessage(Mat &image, const Mat &sobelImage, const string &message) {
         
         int initY, initX;
 
-        if (checaSequencia(sobelImage, startY, startX, 5, initY, initX)) {
+        if (checaSequencia(sobelImage, startY, startX, 29, initY, initX)) {
             cout << "Início da sequência: (" << initY << ", " << initX << ")\n";
             cout << "Fim da sequência: (" << startY << ", " << startX << ")\n";
 				startX ++; // proximo elemento após fim de bloco - Rizzo
@@ -270,8 +270,7 @@ int main() {
     // cout << "Digite o nome da imagem original: ";
     // cin >> nome;
     //comentei pra não ter que ficar digitando toda hora
-    //string nome = "cg.png";
-    string nome = "img_teste.png";
+    string nome = "cg.png";
 
     // Carregar a imagem original
     imgOri = imread(nome);

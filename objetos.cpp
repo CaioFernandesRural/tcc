@@ -1,63 +1,29 @@
 #include <iostream>
+#include <fstream>
 #include <string>
 #include <opencv2/core.hpp>
 #include <opencv2/imgcodecs.hpp>
 #include <opencv2/imgproc.hpp>
 #include <opencv2/highgui.hpp>
-#include <stdexcept> // Para runtime_error
+#include <nlohmann/json.hpp> // Biblioteca para manipulação de JSON
+#include <stdexcept>         // Para runtime_error
 
 using namespace cv;
 using namespace std;
 
-/*
-Estrutura Proposta
-
-    Classe ImageProcessor
-        Responsável por carregar a imagem, aplicar filtros e processar operações básicas como binarização.
-        Funções:
-            loadImage()
-            convertToGray()
-            applySobel()
-            binarizeImage()
-
-    Classe SequenceFinder
-        Responsável pela verificação de sequências de pixels na imagem binarizada.
-        Funções:
-            checaSequencia()
-
-    Classe Steganography
-        Responsável pela codificação e decodificação de mensagens na imagem.
-        Funções:
-            encodeMessage()
-            decodeMessage()
-            setLSB()
-            extractLSB()
-            insertBlock()
-            decodeBlock()
-
-    Classe Block
-        Representa um bloco de dados na imagem, incluindo carga e localização.
-        Funções:
-            insertData()
-            extractData()
-
-    Classe Application
-        Responsável pela interface e controle do fluxo principal do programa.
-        Funções:
-            run()
-*/
+using json = nlohmann::json;
 
 class ProcessadorImagem
 {
 public:
-    static Mat converteCinza(const Mat &image)
+    static Mat converteCinza(const Mat image)
     {
         Mat img_cinza;
         cvtColor(image, img_cinza, COLOR_BGR2GRAY);
         return img_cinza;
     }
 
-    static Mat aplicaSobel(const Mat &img_cinza, int ksize)
+    static Mat aplicaSobel(const Mat img_cinza, int ksize)
     {
         Mat img_sobel;
         Sobel(img_cinza, img_sobel, CV_8U, 1, 0, ksize, 1, 1, BORDER_DEFAULT);
@@ -84,6 +50,7 @@ public:
     // Função auxiliar para definir o LSB de um pixel
     static void setLSB(Mat &image, Point local, int bitValue)
     {
+        // pixel é alterado diretamente na imagem
         Vec3b &pixel = image.at<Vec3b>(local.y, local.x);
         // Define o valor do LSB de acordo com o valor de bitValue
         if (bitValue == 1)
@@ -98,14 +65,13 @@ public:
              << pixel << "\n";
     }
 
-    static void encodeMessage(Mat &image, const Mat &sobelImage, const string &message)
+    static void encodeMessage(Mat &image, const Mat img_bin, const string message, json conf)
     {
-
         vector<Point> positions;
 
-        string delimitada = message + '\0';
+        int blockLen = conf["blockLen"];
 
-        int blocksInserted = 0;
+        string delimitada = message + '\0';
 
         // coordenadas atuais da sequência de busca de blocos
         int startX = 0;
@@ -113,20 +79,40 @@ public:
 
         for (size_t i = 0; i < delimitada.length(); i++)
         {
+            int initX;
+            int initY;
 
-            int initY, initX;
+            if (startX != 0 || startY != 0)
+            {
+                startX++;
+                if (startX > image.cols)
+                {
+                    startX = 0;
+                    startY++;
+                }
+                if (startY > image.rows)
+                {
+                    cerr << "deu pau";
+                }
+            }
 
-            if (checaSequencia(sobelImage, startY, startX, 29, initY, initX))
+            if (checaSequencia(img_bin, startY, startX, blockLen, initY, initX))
             {
                 cout << "Início da sequência: (" << initY << ", " << initX << ")\n";
                 cout << "Fim da sequência: (" << startY << ", " << startX << ")\n";
 
                 // vetor de posições inicias dos blocos
                 positions.push_back(Point(initX, initY));
-
-                blocksInserted++;
+            }
+            else
+            {
+                cerr << "\nA imagem não tem blocos o suficiente\n";
+                abort();
             }
         }
+
+        // printa o N inicial (para testes)
+        cout << "\n N inicial: " << positions[0].y * image.cols + positions[0].x << "\n";
 
         for (size_t i = 0; i < delimitada.length(); i++)
         {
@@ -141,12 +127,12 @@ public:
     }
 
     // Função para extrair o LSB de um pixel em uma imagem
-    static int extractLSB(const Vec3b &pixel)
+    static int extractLSB(const Vec3b pixel)
     {
         return pixel[0] % 2; // Retorna o LSB do canal azul
     }
 
-    static string decodeImagem(const Mat &image, int inicialN)
+    static string decodeImagem(const Mat image, int inicialN)
     {
         string mensagem;
         int N = inicialN;
@@ -158,10 +144,10 @@ public:
             cout << caractere;
             caractere = decodeBloco(image, N);
 
-            if (N == inicialN)
-            {
-                return "erro menor";
-            }
+            // if (N == inicialN)
+            // {
+            //     return "erro menor";
+            // }
 
             mensagem += caractere;
 
@@ -214,6 +200,12 @@ public:
         // declara y converte
         int loc = ptoSeguinte.y * image.cols + ptoSeguinte.x;
         vector<int> locBits(20);
+
+        // se chegar no final não precisa inserir o N
+        if (carga == '\0')
+        {
+            return;
+        }
 
         cout << "\nBits de loc (" << loc << "): ";
         for (int k = 19; k >= 0; --k)
@@ -315,7 +307,7 @@ public:
         return caractere;
     }
 
-    static bool checaSequencia(const Mat &sobelImage, int &startY, int &startX, int length,
+    static bool checaSequencia(const Mat sobelImage, int &startY, int &startX, int blockLen,
                                int &initY, int &initX)
     {
         int contaSequencia = 0;
@@ -341,17 +333,16 @@ public:
                 }
 
                 // Verifica se a sequência foi encontrada
-                if (contaSequencia == length)
+                if (contaSequencia == blockLen)
                 {
                     startY = i;
                     startX = j;
                     cout << "\n\n"
-                         << "Sequência de " << length << " pixels encontrada.\n";
+                         << "Sequência de " << blockLen << " pixels encontrada.\n";
                     return true;
                 }
             }
         }
-        // Se chegou ao fim da imagem sem encontrar a sequência
         return false;
     }
 };
@@ -359,16 +350,32 @@ public:
 class App
 {
 public:
+    static json lerConfig(const std::string &caminhoArquivo)
+    {
+        std::ifstream arquivo(caminhoArquivo);
+        if (!arquivo.is_open())
+        {
+            throw std::runtime_error("Erro ao abrir o arquivo config.json");
+        }
+        json config;
+        arquivo >> config;
+        arquivo.close();
+        return config;
+    }
+
     void run()
     {
-        // char nome[100], nome_out[100];
-        int ksize = 0;
+        int ksize = 0, N;
         Mat img, img_sobel, img_gray, imgOri, img_Bin;
+        string nome, nome_out, mensagem;
+
+        json conf = lerConfig("config.json");
+        nome = conf["nome"];
+        ksize = conf["ksize"];
 
         // cout << "Digite o nome da imagem original: ";
         // cin >> nome;
         // comentei pra não ter que ficar digitando toda hora
-        string nome = "cg.png";
 
         // Carregar a imagem original
         imgOri = imread(nome);
@@ -380,14 +387,13 @@ public:
         }
 
         // Converter para escala de cinza
-        cvtColor(imgOri, img_gray, COLOR_BGR2GRAY);
+        img_gray = ProcessadorImagem::converteCinza(imgOri);
 
         // Solicitar o tamanho do kernel do Sobel
         try
         {
             // cout << "Digite o tamanho do kernel do Sobel (ímpar entre 3 e 31): ";
             // cin >> ksize;
-            ksize = 3;
 
             if (ksize < 3 || ksize > 31 || (ksize % 2 == 0))
             {
@@ -401,7 +407,7 @@ public:
         }
 
         // Aplicar o filtro Sobel para detectar bordas
-        Sobel(img_gray, img_sobel, CV_8U, 1, 0, ksize, 1, 1, BORDER_DEFAULT);
+        img_sobel = ProcessadorImagem::aplicaSobel(img_gray, ksize);
 
         // Salvar a imagem Sobel original antes da binarização
 
@@ -411,7 +417,7 @@ public:
 
         // cout << "Digite o valor do threshold (0 a 255): ";
         // cin >> threshold;
-        threshold = 0;
+        threshold = conf["threshold"];
 
         // Recebe endereço da img_sobel
 
@@ -419,23 +425,23 @@ public:
         // Salvar a imagem Sobel binarizada
         imwrite("imagem_binarizada.png", img_Bin);
 
-        string nome_out = "teste.png";
+        nome_out = conf["nome_out"];
         // cin.ignore();
         // cout << "Digite o nome da imagem de saida: ";
         // cin >> nome_out;
 
-        string mensagem = "caio";
+        mensagem = conf["mensagem"];
 
         // Codificar a mensagem na imagem
         Mat imgWithMessage = imgOri.clone();
-        Steg::encodeMessage(imgWithMessage, img_Bin, mensagem);
+        Steg::encodeMessage(imgWithMessage, img_Bin, mensagem, conf);
 
         // Salvar a imagem com a mensagem inserida
         imwrite(nome_out, imgWithMessage);
 
         // Decodificar a mensagem no final
 
-        int N = 0;
+        N = conf["Ninicial"];
 
         // cin.ignore();
         // cout << "Digite o valor de N do primeiro bloco: ";

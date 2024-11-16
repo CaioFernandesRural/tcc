@@ -14,7 +14,7 @@ TARGETS = compara objetos decode encode fatAttempt outra imagem tentativaFat
 all: $(TARGETS)
 
 objetos: objetos.cpp
-	$(CXX) $(CXXFLAGS) objetos.cpp -o objetos $(LIBS)
+	$(CXX) $(CXXFLAGS) objetos.cpp -o objetos $(LIBS) && ./objetos
 
 compara: compara.cpp
 	$(CXX) $(CXXFLAGS) compara.cpp -o compara $(LIBS)
