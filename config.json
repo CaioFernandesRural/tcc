@@ -1,9 +1,9 @@
 {
     "nome": "cg.png",
-    "ksize": 3,
+    "ksize": 9,
     "nome_out": "teste.png",
-    "mensagem": "caio",
-    "Ninicial": 0,
+    "mensagem": "caiocaiocaiocaiocaiocaiocaiocaiocaiocaiocaiocaiocaiocaiocaiocaiocaiocaiocaiocaiocaiocaiocaiocaio",
+    "Ninicial": 607,
     "blockLen": 28,
-    "treshold": 100
+    "threshold": 10
 }

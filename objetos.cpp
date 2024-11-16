@@ -6,7 +6,7 @@
 #include <opencv2/imgproc.hpp>
 #include <opencv2/highgui.hpp>
 #include <nlohmann/json.hpp> // Biblioteca para manipulação de JSON
-#include <stdexcept> // Para runtime_error
+#include <stdexcept>         // Para runtime_error
 
 using namespace cv;
 using namespace std;
@@ -50,7 +50,7 @@ public:
     // Função auxiliar para definir o LSB de um pixel
     static void setLSB(Mat &image, Point local, int bitValue)
     {
-        //pixel é alterado diretamente na imagem
+        // pixel é alterado diretamente na imagem
         Vec3b &pixel = image.at<Vec3b>(local.y, local.x);
         // Define o valor do LSB de acordo com o valor de bitValue
         if (bitValue == 1)
@@ -61,12 +61,12 @@ public:
         {
             pixel[0] &= ~1; // Força o LSB para 0
         } // Altera apenas o LSB do canal azul
-        cout << "\n" << pixel << "\n";
+        cout << "\n"
+             << pixel << "\n";
     }
 
     static void encodeMessage(Mat &image, const Mat img_bin, const string message, json conf)
     {
-
         vector<Point> positions;
 
         int blockLen = conf["blockLen"];
@@ -82,13 +82,18 @@ public:
             int initX;
             int initY;
 
-            if(startX != 0 || startY != 0){
-                startX ++;
-                if(startX > image.cols){
+            if (startX != 0 || startY != 0)
+            {
+                startX++;
+                if (startX > image.cols)
+                {
                     startX = 0;
-                    startY ++;
+                    startY++;
                 }
-                if(startY > image.rows){cerr << "deu pau";}
+                if (startY > image.rows)
+                {
+                    cerr << "deu pau";
+                }
             }
 
             if (checaSequencia(img_bin, startY, startX, blockLen, initY, initX))
@@ -98,9 +103,16 @@ public:
 
                 // vetor de posições inicias dos blocos
                 positions.push_back(Point(initX, initY));
-
+            }
+            else
+            {
+                cerr << "\nA imagem não tem blocos o suficiente\n";
+                abort();
             }
         }
+
+        // printa o N inicial (para testes)
+        cout << "\n N inicial: " << positions[0].y * image.cols + positions[0].x << "\n";
 
         for (size_t i = 0; i < delimitada.length(); i++)
         {
@@ -189,8 +201,11 @@ public:
         int loc = ptoSeguinte.y * image.cols + ptoSeguinte.x;
         vector<int> locBits(20);
 
-        //se chegar no final não precisa inserir o N
-        if (carga == '\0'){return;}
+        // se chegar no final não precisa inserir o N
+        if (carga == '\0')
+        {
+            return;
+        }
 
         cout << "\nBits de loc (" << loc << "): ";
         for (int k = 19; k >= 0; --k)
@@ -292,7 +307,7 @@ public:
         return caractere;
     }
 
-    static bool checaSequencia(const Mat &sobelImage, int &startY, int &startX, int blockLen,
+    static bool checaSequencia(const Mat sobelImage, int &startY, int &startX, int blockLen,
                                int &initY, int &initX)
     {
         int contaSequencia = 0;
@@ -328,7 +343,6 @@ public:
                 }
             }
         }
-        // Se chegou ao fim da imagem sem encontrar a sequência
         return false;
     }
 };
@@ -336,10 +350,11 @@ public:
 class App
 {
 public:
-
-    static json lerConfig(const std::string& caminhoArquivo) {
+    static json lerConfig(const std::string &caminhoArquivo)
+    {
         std::ifstream arquivo(caminhoArquivo);
-        if (!arquivo.is_open()) {
+        if (!arquivo.is_open())
+        {
             throw std::runtime_error("Erro ao abrir o arquivo config.json");
         }
         json config;
@@ -354,11 +369,9 @@ public:
         Mat img, img_sobel, img_gray, imgOri, img_Bin;
         string nome, nome_out, mensagem;
 
-
         json conf = lerConfig("config.json");
         nome = conf["nome"];
         ksize = conf["ksize"];
-
 
         // cout << "Digite o nome da imagem original: ";
         // cin >> nome;
@@ -404,7 +417,7 @@ public:
 
         // cout << "Digite o valor do threshold (0 a 255): ";
         // cin >> threshold;
-        threshold = conf["treshold"];
+        threshold = conf["threshold"];
 
         // Recebe endereço da img_sobel
 
