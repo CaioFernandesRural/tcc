@@ -12,7 +12,6 @@ LIBS = `pkg-config --cflags --libs opencv4`
 SRCPATH = src/
 BINPATH = bin/
 ARCHIVEPATH = archive/
-OBJPATH = obj/
 
 # Detectar arquivos .cpp no diretório src/ e archive/
 SRCFILES := $(wildcard $(SRCPATH)*.cpp)
@@ -22,13 +21,10 @@ ARCHIVEFILES := $(wildcard $(ARCHIVEPATH)*.cpp)
 SRCTARGETS := $(SRCFILES:$(SRCPATH)%.cpp=$(BINPATH)%)
 ARCHIVETARGETS := $(ARCHIVEFILES:$(ARCHIVEPATH)%.cpp=$(BINPATH)%)
 
-#SRCTARGETS = objetos ResourceManager
-#ARCHIVETARGETS = compara decode encode fatAttempt outra imagem tentativaFat
-
 TARGETS := $(SRCTARGETS) $(ARCHIVETARGETS)
 
-# Criação do diretório de objetos e binários, caso não existam
-$(shell mkdir -p $(BINPATH) $(OBJPATH))
+# Criação do diretório de binários, caso não existam
+$(shell mkdir -p $(BINPATH))
 
 # Regras para compilar arquivos .cpp
 $(BINPATH)%: $(SRCPATH)%.cpp
