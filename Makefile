@@ -25,6 +25,7 @@ TARGETS := $(SRCTARGETS) $(ARCHIVETARGETS)
 
 # Criação do diretório de binários, caso não existam
 $(shell mkdir -p $(BINPATH))
+$(shell mkdir -p resources/output_images)
 
 # Regras para compilar arquivos .cpp
 $(BINPATH)%: $(SRCPATH)%.cpp
