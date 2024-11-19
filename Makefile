@@ -10,36 +10,40 @@ CXXFLAGS = -std=c++11 -Wall -g
 LIBS = `pkg-config --cflags --libs opencv4`
 TARGETS = compara objetos decode encode fatAttempt outra imagem tentativaFat
 
+SRCPATH = src/
+BINPATH = bin/
+ARCHIVEPATH = archive/
+
 # Alvos para cada programa
 all: $(TARGETS)
 
-objetos: objetos.cpp
-	$(CXX) $(CXXFLAGS) objetos.cpp -o objetos $(LIBS) && ./objetos
+objetos: $(SRCPATH)objetos.cpp
+	$(CXX) $(CXXFLAGS) $(SRCPATH)objetos.cpp -o $(BINPATH)objetos $(LIBS) && ./$(BINPATH)objetos
 
-compara: compara.cpp
-	$(CXX) $(CXXFLAGS) compara.cpp -o compara $(LIBS)
+compara: $(ARCHIVEPATH)compara.cpp
+	$(CXX) $(CXXFLAGS) $(ARCHIVEPATH)compara.cpp -o $(BINPATH)compara $(LIBS)
 
-decode: decode.cpp
-	$(CXX) $(CXXFLAGS) decode.cpp -o decode $(LIBS)
+decode: $(ARCHIVEPATH)decode.cpp
+	$(CXX) $(CXXFLAGS) $(ARCHIVEPATH)decode.cpp -o $(BINPATH)decode $(LIBS)
 
-encode: encode.cpp
-	$(CXX) $(CXXFLAGS) encode.cpp -o encode $(LIBS)
+encode: $(ARCHIVEPATH)encode.cpp
+	$(CXX) $(CXXFLAGS) $(ARCHIVEPATH)encode.cpp -o $(BINPATH)encode $(LIBS)
 
-tentativaFat: tentativaFat.cpp
-	$(CXX) $(CXXFLAGS) tentativaFat.cpp -o tentativaFat $(LIBS)
+tentativaFat: $(ARCHIVEPATH)tentativaFat.cpp
+	$(CXX) $(CXXFLAGS) $(ARCHIVEPATH)tentativaFat.cpp -o $(BINPATH)tentativaFat $(LIBS)
 
-fatAttempt: fatAttempt.cpp
-	$(CXX) $(CXXFLAGS) fatAttempt.cpp -o fatAttempt $(LIBS)
+fatAttempt: $(ARCHIVEPATH)fatAttempt.cpp
+	$(CXX) $(CXXFLAGS) $(ARCHIVEPATH)fatAttempt.cpp -o $(BINPATH)fatAttempt $(LIBS)
 
-outra: outra.cpp
-	$(CXX) $(CXXFLAGS) outra.cpp -o outra $(LIBS) -g
+outra: $(ARCHIVEPATH)outra.cpp
+	$(CXX) $(CXXFLAGS) $(ARCHIVEPATH)outra.cpp -o $(BINPATH)outra $(LIBS) -g
 
-imagem: imagem.cpp
-	$(CXX) $(CXXFLAGS) imagem.cpp -o imagem $(LIBS)
+imagem: $(ARCHIVEPATH)imagem.cpp
+	$(CXX) $(CXXFLAGS) $(ARCHIVEPATH)imagem.cpp -o $(BINPATH)imagem $(LIBS)
 
 # Limpar arquivos executáveis
 clean:
-	@ rm -rf $(TARGETS)
+	@ rm -rf $(BINPATH)*
 	@ rm -rf *.o
 	@ rm -rf *.core
 	@ find . -type f -name '*.png' ! -name 'cg.png' -delete

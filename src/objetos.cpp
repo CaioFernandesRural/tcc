@@ -369,7 +369,7 @@ public:
         Mat img, img_sobel, img_gray, imgOri, img_Bin;
         string nome, nome_out, mensagem;
 
-        json conf = lerConfig("config.json");
+        json conf = lerConfig("resources/config.json");
         nome = conf["nome"];
         ksize = conf["ksize"];
 
@@ -411,7 +411,7 @@ public:
 
         // Salvar a imagem Sobel original antes da binarização
 
-        imwrite("sobel_original.png", img_sobel);
+        imwrite("resources/output_images/sobel_original.png", img_sobel);
 
         int threshold;
 
@@ -423,7 +423,7 @@ public:
 
         img_Bin = ProcessadorImagem::binarizaImagem(img_sobel, threshold);
         // Salvar a imagem Sobel binarizada
-        imwrite("imagem_binarizada.png", img_Bin);
+        imwrite("resources/output_images/imagem_binarizada.png", img_Bin);
 
         nome_out = conf["nome_out"];
         // cin.ignore();
@@ -465,7 +465,7 @@ public:
                 diffImage.at<uchar>(i, j) = (originalBit != messageBit) ? 255 : 0;
             }
         }
-        imwrite("imagem_diferenca.png", diffImage);
+        imwrite("resources/output_images/imagem_diferenca.png", diffImage);
     }
 };
 
