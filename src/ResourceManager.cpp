@@ -1,19 +1,18 @@
-#include "include/ResourceManager.h"
+#include "../include/ResourceManager.h"
+#include <iostream>
 
-// Diretórios base (ajuste conforme sua estrutura de pastas)
-const std::string INPUT_DIR = "resources/input_images/";
-const std::string OUTPUT_DIR = "resources/output_images/";
-const std::string CONFIG_FILE = "resources/config.json";
+int main() {
+    // Exemplo de como usar os métodos da classe ResourceManager
+    std::string inputPath = ResourceManager::getInputImagePath("image1.jpg");
+    std::string outputPath = ResourceManager::getOutputImagePath("image1_processed.jpg");
+    std::string configPath = ResourceManager::getConfigPath();
 
-// Implementação dos métodos
-std::string ResourceManager::getInputImagePath(const std::string& imageName) {
-    return INPUT_DIR + imageName;
+    // Agora você pode usar essas variáveis conforme necessário
+    // Exemplo:
+    std::cout << "Input Path: " << inputPath << std::endl;
+    std::cout << "Output Path: " << outputPath << std::endl;
+    std::cout << "Config Path: " << configPath << std::endl;
+
+    return 0;
 }
 
-std::string ResourceManager::getOutputImagePath(const std::string& imageName) {
-    return OUTPUT_DIR + imageName;
-}
-
-std::string ResourceManager::getConfigPath() {
-    return CONFIG_FILE;
-}
