@@ -1,16 +1,14 @@
+#ifndef RESOURCE_MANAGER_H
+#define RESOURCE_MANAGER_H
+
 #include <string>
 
 class ResourceManager {
 public:
-    static std::string getImagePath(const std::string& imageName) {
-        return "resources/input_images/" + imageName;
-    }
-
-    static std::string getOutputPath(const std::string& outputName) {
-        return "resources/output_images/" + outputName;
-    }
-
-    static std::string getConfigPath() {
-        return "resources/config.json";
-    }
+    // Métodos para obter os caminhos
+    static std::string getInputImagePath(const std::string& imageName);
+    static std::string getOutputImagePath(const std::string& imageName);
+    static std::string getConfigPath();
 };
+
+#endif // RESOURCE_MANAGER_H
