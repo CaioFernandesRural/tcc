@@ -7,7 +7,8 @@ CXX = g++
 endif
 
 CXXFLAGS = -std=c++11 -Wall -g
-LIBS = `pkg-config --cflags --libs opencv4`
+LIBS += `pkg-config --libs opencv4 --libs exiv2`
+CFLAGS += -g `pkg-config --cflags  opencv4 --cflags exiv2`
 
 SRCPATH = src/
 BINPATH = bin/
@@ -29,10 +30,10 @@ $(shell mkdir -p resources/output_images)
 
 # Regras para compilar arquivos .cpp
 $(BINPATH)%: $(SRCPATH)%.cpp
-	-$(CXX) $(CXXFLAGS) $< -o $@ $(LIBS)
+	-$(CXX) $(CXXFLAGS) $< -o $@ $(CFLAGS) $(LIBS)
 
 $(BINPATH)%: $(ARCHIVEPATH)%.cpp
-	-$(CXX) $(CXXFLAGS) $< -o $@ $(LIBS)
+	-$(CXX) $(CXXFLAGS) $< -o $@ $(CFLAGS) $(LIBS)
 
 # Compilar apenas os arquivos de src/
 src: $(SRCTARGETS)

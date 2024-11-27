@@ -22,8 +22,25 @@ using namespace FSteg;
 
 class App
 {
+private:
+
+		  string fn;
+		  Mat		imgIn;
+		  Mat		imgOut;
+		  Mat		imgSobel;
+		  Mat		imgGray;
+		  Mat		imgBinary;
+
+		  int ksize;
+
 public:
     
+		  App(){}
+		  App(string arquivo) {}
+
+		  ~App(){}
+
+
     void run()
     {
         int ksize = 0, N;

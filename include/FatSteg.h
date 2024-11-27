@@ -19,8 +19,13 @@ namespace FSteg
 {
     inline bool checaSequencia(const Mat sobelImage, int &startY, int &startX, int blockLen,
                                int &initY, int &initX)
+
+				// Sugestão
+				// Point ptoInicio
+				// Point ptoTrabalho
     {
         int contaSequencia = 0;
+		  int i,j;		// i = cols, j = rows
 
         for (int i = startY; i < sobelImage.rows; i++)
         {
@@ -47,8 +52,7 @@ namespace FSteg
                 {
                     startY = i;
                     startX = j;
-                    cout << "\n\n"
-                         << "Sequência de " << blockLen << " pixels encontrada.\n";
+                    cout << "\nSequência de " << blockLen << " pixels encontrada.\n";
                     return true;
                 }
             }
@@ -188,8 +192,7 @@ namespace FSteg
 
             if (checaSequencia(img_bin, startY, startX, blockLen, initY, initX))
             {
-                cout << "Início da sequência: (" << initY << ", " << initX << ")\n";
-                cout << "Fim da sequência: (" << startY << ", " << startX << ")\n";
+                cout << "Início da sequência: (" << initY << ", " << initX << ") Fim da sequência: (" << startY << ", " << startX << ")\n";
 
                 // vetor de posições inicias dos blocos
                 positions.push_back(Point(initX, initY));
