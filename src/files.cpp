@@ -3,7 +3,7 @@
 // da imagem
 #include <iostream>
 #include <string>
-#include <opencv/core.hpp>
+#include <opencv2/core.hpp>
 
 File *Steganopragh::open(void)
 {

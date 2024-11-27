@@ -1,7 +1,7 @@
 {
     "nome": "cg.png",
     "ksize": 9,
-    "nome_out": "teste.png",
+    "nome_out": "resources/output_images/teste.png",
     "mensagem": "caiocaiocaiocaiocaiocaiocaiocaiocaiocaiocaiocaiocaiocaiocaiocaiocaiocaiocaiocaiocaiocaiocaiocaio",
     "Ninicial": 607,
     "blockLen": 28,
