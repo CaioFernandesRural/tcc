@@ -2,7 +2,7 @@
     "nome": "cg.png",
     "ksize": 9,
     "nome_out": "resources/output_images/teste.png",
-    "mensagem": "caiocaiocaiocaiocaiocaiocaiocaiocaiocaiocaiocaiocaiocaiocaiocaiocaiocaiocaiocaiocaiocaiocaiocaio",
+    "mensagem": "Ola Mundo",
     "Ninicial": 607,
     "blockLen": 28,
     "threshold": 10
