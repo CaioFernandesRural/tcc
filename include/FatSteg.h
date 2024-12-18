@@ -7,7 +7,7 @@
 #include <opencv2/imgcodecs.hpp>
 #include <opencv2/imgproc.hpp>
 #include <opencv2/highgui.hpp>
-#include <stdexcept>         // Para runtime_error
+#include <stdexcept> // Para runtime_error
 #include <nlohmann/json.hpp>
 
 using namespace cv;
@@ -17,27 +17,23 @@ using json = nlohmann::json;
 
 namespace FSteg
 {
-     bool checaSequencia(const Mat sobelImage, int &startY, int &startX, int blockLen,
-                               int &initY, int &initX)
+    bool checaSequencia(const Mat sobelImage, Point &ptoInicio, int blockLen, Point &ptoTrabalho)
 
-				// Sugestão
-				// Point ptoInicio
-				// Point ptoTrabalho
     {
         int contaSequencia = 0;
-		  int i,j;		// i = cols, j = rows
+        int i, j; // i = cols, j = rows
 
-        for (int i = startY; i < sobelImage.rows; i++)
+        for (int i = ptoInicio.y; i < sobelImage.rows; i++)
         {
-            for (int j = (i == startY ? startX : 0); j < sobelImage.cols; j++)
+            for (int j = (i == ptoInicio.y ? ptoInicio.x : 0); j < sobelImage.cols; j++)
             {
                 if (sobelImage.at<uchar>(i, j) == 255)
                 {
                     // Armazena a posição do início da sequência
                     if (contaSequencia == 0)
                     {
-                        initY = i;
-                        initX = j;
+                        ptoTrabalho.y = i;
+                        ptoTrabalho.x = j;
                     }
                     contaSequencia++;
                 }
@@ -50,8 +46,8 @@ namespace FSteg
                 // Verifica se a sequência foi encontrada
                 if (contaSequencia == blockLen)
                 {
-                    startY = i;
-                    startX = j;
+                    ptoInicio.x = j;
+                    ptoInicio.y = i;
                     cout << "\nSequência de " << blockLen << " pixels encontrada.\n";
                     return true;
                 }
@@ -61,7 +57,7 @@ namespace FSteg
     }
 
     // Função auxiliar para definir o LSB de um pixel
-     void setLSB(Mat &image, Point local, int bitValue)
+    void setLSB(Mat &image, Point local, int bitValue)
     {
         // pixel é alterado diretamente na imagem
         Vec3b &pixel = image.at<Vec3b>(local.y, local.x);
@@ -77,12 +73,12 @@ namespace FSteg
         cout << "\n"
              << pixel << "\n";
     }
-    
-     void insertBlock(Mat &image, char carga, Point ptoInicial, Point ptoSeguinte)
-    {
-				static int called = 0;
 
-				++called;
+    void insertBlock(Mat &image, char carga, Point ptoInicial, Point ptoSeguinte)
+    {
+        static int called = 0;
+
+        ++called;
 
         vector<int> bitValues(8);
 
@@ -153,22 +149,22 @@ namespace FSteg
                 cout << "Erro: imagem muito pequena para inserir todos os bits." << endl;
                 return;
             }
-				else
-				{
-            cout << "Inserindo locBit[" << bitIndex << "] = " << locBits[bitIndex]
-                 << " na posição (" << i << ", " << j << ")" << endl;
+            else
+            {
+                cout << "Inserindo locBit[" << bitIndex << "] = " << locBits[bitIndex]
+                     << " na posição (" << i << ", " << j << ")" << endl;
 
-				cout << "---- 1" << endl;
-            setLSB(image, Point(i, j), locBits[bitIndex]);
-				cout << "---- 2" << endl;
-            bitIndex++;
-            i++; // Avança para o próximo pixel na coluna
-				}
-				cout << "called ." << called << endl;
+                cout << "---- 1" << endl;
+                setLSB(image, Point(i, j), locBits[bitIndex]);
+                cout << "---- 2" << endl;
+                bitIndex++;
+                i++; // Avança para o próximo pixel na coluna
+            }
+            cout << "called ." << called << endl;
         }
     }
 
-     void encodeMessage(Mat &image, const Mat img_bin, const string message, json conf)
+    void encodeMessage(Mat &image, const Mat img_bin, const string message, json conf)
     {
         vector<Point> positions;
 
@@ -177,34 +173,36 @@ namespace FSteg
         string delimitada = message + '\0';
 
         // coordenadas atuais da sequência de busca de blocos
-        int startX = 0;
-        int startY = 0;
+        Point ptoInicio;
+        ptoInicio.x = 0;
+        ptoInicio.y = 0;
 
         for (size_t i = 0; i < delimitada.length(); i++)
         {
-            int initX;
-            int initY;
+            Point ptoTrabalho;
+            ptoTrabalho.x = 0;
+            ptoTrabalho.y = 0;
 
-            if (startX != 0 || startY != 0)
+            if (ptoInicio.x != 0 || ptoInicio.y != 0)
             {
-                startX++;
-                if (startX > image.cols)
+                ptoInicio.x++;
+                if (ptoInicio.x > image.cols)
                 {
-                    startX = 0;
-                    startY++;
+                    ptoInicio.x = 0;
+                    ptoInicio.y++;
                 }
-                if (startY > image.rows)
+                if (ptoInicio.y > image.rows)
                 {
                     cerr << "deu pau";
                 }
             }
 
-            if (checaSequencia(img_bin, startY, startX, blockLen, initY, initX))
+            if (checaSequencia(img_bin, ptoInicio, blockLen, ptoTrabalho))
             {
-                cout << "Início da sequência: (" << initY << ", " << initX << ") Fim da sequência: (" << startY << ", " << startX << ")\n";
+                cout << "Início da sequência: (" << ptoTrabalho.y << ", " << ptoTrabalho.x << ") Fim da sequência: (" << ptoInicio.y << ", " << ptoInicio.x << ")\n";
 
                 // vetor de posições inicias dos blocos
-                positions.push_back(Point(initX, initY));
+                positions.push_back(ptoTrabalho);
             }
             else
             {
@@ -221,11 +219,11 @@ namespace FSteg
             char caractere = delimitada[i];
             Point pos = positions[i];
             Point posProx;
-			  
-				if ( i < positions.size() - 1 )	
-						  posProx = positions[i + 1];
-				else
-						  posProx = Point(-1,-1);
+
+            if (i < positions.size() - 1)
+                posProx = positions[i + 1];
+            else
+                posProx = Point(-1, -1);
 
             cout << "\n"
                  << "Bloco em posição inicial: (" << pos.x << ", " << pos.y << ")\n";
@@ -234,12 +232,12 @@ namespace FSteg
     }
 
     // Função para extrair o LSB de um pixel em uma imagem
-     int extractLSB(const Vec3b pixel)
+    int extractLSB(const Vec3b pixel)
     {
         return pixel[0] % 2; // Retorna o LSB do canal azul
     }
 
-     char decodeBloco(const Mat image, int &N)
+    char decodeBloco(const Mat image, int &N)
     {
         int y = N / image.cols;
         int x = N % image.cols;
@@ -309,7 +307,7 @@ namespace FSteg
         return caractere;
     }
 
-     string decodeImagem(const Mat image, int inicialN)
+    string decodeImagem(const Mat image, int inicialN)
     {
         string mensagem;
         int N = inicialN;
