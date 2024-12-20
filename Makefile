@@ -36,7 +36,11 @@ $(BINPATH)%: $(ARCHIVEPATH)%.cpp
 	-$(CXX) $(CXXFLAGS) $< -o $@ $(CFLAGS) $(LIBS)
 
 # Compilar apenas os arquivos de src/
-src: $(SRCTARGETS)
+#fiz essa gambiarra pois pelas dependências só funciona se todas as classes forem compiladas juntas
+src: bin/fatApp $(SRCTARGETS)
+
+bin/fatApp:
+	$(CXX) -std=c++11 -Wall -g src/Processador.cpp src/Encode.cpp src/Decode.cpp src/fatApp.cpp -o bin/fatApp -g `pkg-config --cflags opencv4 --cflags` `pkg-config --libs opencv4 --libs`
 
 # Compilar apenas os arquivos de archive/
 archive: $(ARCHIVETARGETS)

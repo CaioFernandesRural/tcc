@@ -7,9 +7,10 @@
 #include <opencv2/highgui.hpp>
 #include <nlohmann/json.hpp> // Biblioteca para manipulação de JSON
 #include <stdexcept>         // Para runtime_error
-#include "../include/ResourceManager.h"
-#include "../include/ProcessadorImagem.h"
-#include "../include/FatSteg.h"
+#include "../include/ResourceManager.hpp"
+#include "../include/Processador.hpp"
+#include "../include/Encode.hpp"
+#include "../include/Decode.hpp"
 
 using namespace cv;
 using namespace std;
@@ -17,8 +18,6 @@ using namespace std;
 using json = nlohmann::json;
 
 using namespace ResManager;
-using namespace ImgProc;
-using namespace FSteg;
 
 class App
 {
@@ -47,6 +46,10 @@ public:
         Mat img, img_sobel, img_gray, imgOri, img_Bin;
         string nome, nome_out, mensagem;
 
+        Encode Encoder;
+        Decode Decoder;
+        Processador Processador;
+
         json conf = lerConfig("resources/config.json");
         nome = getInputImagePath(conf["nome"]);
         ksize = conf["ksize"];
@@ -65,7 +68,7 @@ public:
         }
 
         // Converter para escala de cinza
-        img_gray = converteCinza(imgOri);
+        img_gray = Processador.converteCinza(imgOri);
 
         // Solicitar o tamanho do kernel do Sobel
         try
@@ -85,7 +88,7 @@ public:
         }
 
         // Aplicar o filtro Sobel para detectar bordas
-        img_sobel = aplicaSobel(img_gray, ksize);
+        img_sobel = Processador.aplicaSobel(img_gray, ksize);
 
         // Salvar a imagem Sobel original antes da binarização
 
@@ -99,7 +102,7 @@ public:
 
         // Recebe endereço da img_sobel
 
-        img_Bin = binarizaImagem(img_sobel, threshold);
+        img_Bin = Processador.binarizaImagem(img_sobel, threshold);
         // Salvar a imagem Sobel binarizada
         imwrite(getOutputImagePath("imagem_binarizada.png"), img_Bin);
 
@@ -112,7 +115,7 @@ public:
 
         // Codificar a mensagem na imagem
         Mat imgWithMessage = imgOri.clone();
-        encodeMessage(imgWithMessage, img_Bin, mensagem, conf);
+        Encoder.encodeMessage(imgWithMessage, img_Bin, mensagem, conf);
 
         // Salvar a imagem com a mensagem inserida
         imwrite(nome_out, imgWithMessage);
@@ -124,7 +127,7 @@ public:
         // cin.ignore();
         // cout << "Digite o valor de N do primeiro bloco: ";
         // cin >> N;
-        string recoveredMessage = decodeImagem(imgWithMessage, N);
+        string recoveredMessage = Decoder.decodeImagem(imgWithMessage, N);
 
         // // Mostrar a mensagem recuperada
         cout << "Mensagem decodificada: " << recoveredMessage << endl;
