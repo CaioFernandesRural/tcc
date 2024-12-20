@@ -7,8 +7,8 @@ CXX = g++
 endif
 
 CXXFLAGS = -std=c++11 -Wall -g
-LIBS += `pkg-config --libs opencv4 --libs exiv2`
-CFLAGS += -g `pkg-config --cflags  opencv4 --cflags exiv2`
+LIBS += `pkg-config --libs opencv4 --libs`
+CFLAGS += -g `pkg-config --cflags  opencv4 --cflags`
 
 SRCPATH = src/
 BINPATH = bin/
