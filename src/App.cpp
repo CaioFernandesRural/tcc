@@ -61,6 +61,10 @@ void App::compararImagens()
     {
         for (int j = 0; j < imgIn.cols; ++j)
         {
+            cout << "LSB do pixel [0, 0] da original: " << (imgIn.at<Vec3b>(0, 0)[0] & 0x01) << endl;
+            cout << "LSB do pixel [0, 0] da modificada: " << (imgOut.at<Vec3b>(0, 0)[0] & 0x01) << endl;
+
+        
             uchar originalBit = imgIn.at<Vec3b>(i, j)[0] & 0x01;
             uchar encodedBit = imgIn.at<Vec3b>(i, j)[0] & 0x01;
             diffImage.at<uchar>(i, j) = (originalBit != encodedBit) ? 255 : 0;
@@ -77,12 +81,12 @@ void App::run()
         carregarConfiguracao();
         processarImagem();
         salvarResultados();
+        compararImagens();
 
         int nInicial = manager.lerConfig(manager.getConfigPath())["Ninicial"];
         string recoveredMessage = decoder.decodeImagem(imgIn, nInicial);
         cout << "Mensagem decodificada: " << recoveredMessage << endl;
 
-        compararImagens();
     }
     catch (const exception &e)
     {
