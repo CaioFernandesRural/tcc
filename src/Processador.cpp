@@ -8,21 +8,21 @@ Processador::Processador() {}
 
 Processador::~Processador() {}
 
-Mat converteCinza(const Mat image)
+Mat Processador::converteCinza(const Mat image)
 {
     Mat img_cinza;
     cvtColor(image, img_cinza, COLOR_BGR2GRAY);
     return img_cinza;
 }
 
-Mat aplicaSobel(const Mat img_cinza, int ksize)
+Mat Processador::aplicaSobel(const Mat img_cinza, int ksize)
 {
     Mat img_sobel;
     Sobel(img_cinza, img_sobel, CV_8U, 1, 0, ksize, 1, 1, BORDER_DEFAULT);
     return img_sobel;
 }
 
-Mat binarizaImagem(Mat img_sobel, int threshold)
+Mat Processador::binarizaImagem(Mat img_sobel, int threshold)
 {
     for (int i = 0; i < img_sobel.rows; ++i)
     {
