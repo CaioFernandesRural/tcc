@@ -41,16 +41,18 @@ void App::processarImagem()
 
     imgSobel = processador.aplicaSobel(imgGray, ksize);
 
-    imgBinary = processador.binarizaImagem(imgSobel, threshold);
+    imgBinary = imgSobel.clone();
+    imgBinary = processador.binarizaImagem(imgBinary, threshold);
 
-    encoder.encodeMessage(imgIn, imgBinary, message, manager.lerConfig(manager.getConfigPath()));
+    imgOut = imgIn.clone(); // Cria uma cópia de imgIn para receber a mensagem
+    encoder.encodeMessage(imgOut, imgBinary, message, manager.lerConfig(manager.getConfigPath()));
 }
 
 void App::salvarResultados()
 {
     imwrite(manager.getOutputImagePath("sobel_original.png"), imgSobel);
     imwrite(manager.getOutputImagePath("imagem_binarizada.png"), imgBinary);
-    imwrite(outputFileName, imgIn);
+    imwrite(outputFileName, imgOut);
 }
 
 void App::compararImagens()
@@ -61,18 +63,15 @@ void App::compararImagens()
     {
         for (int j = 0; j < imgIn.cols; ++j)
         {
-            cout << "LSB do pixel [0, 0] da original: " << (imgIn.at<Vec3b>(0, 0)[0] & 0x01) << endl;
-            cout << "LSB do pixel [0, 0] da modificada: " << (imgOut.at<Vec3b>(0, 0)[0] & 0x01) << endl;
-
-        
             uchar originalBit = imgIn.at<Vec3b>(i, j)[0] & 0x01;
-            uchar encodedBit = imgIn.at<Vec3b>(i, j)[0] & 0x01;
+            uchar encodedBit = imgOut.at<Vec3b>(i, j)[0] & 0x01; // Comparar com a imagem codificada
             diffImage.at<uchar>(i, j) = (originalBit != encodedBit) ? 255 : 0;
         }
     }
 
     imwrite(manager.getOutputImagePath("imagem_diferenca.png"), diffImage);
 }
+
 
 void App::run()
 {
