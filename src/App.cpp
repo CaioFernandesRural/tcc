@@ -14,7 +14,6 @@ void App::carregarConfiguracao()
         inputFileName = manager.getInputImagePath(conf["nome"]);
         ksize = conf["ksize"];
         threshold = conf["threshold"];
-        outputFileName = manager.getOutputImagePath(conf["nome_out"]);
         message = conf["mensagem"];
     }
     catch (const runtime_error &e)
@@ -52,7 +51,7 @@ void App::salvarResultados()
 {
     imwrite(manager.getOutputImagePath("sobel_original.png"), imgSobel);
     imwrite(manager.getOutputImagePath("imagem_binarizada.png"), imgBinary);
-    imwrite(outputFileName, imgOut);
+    imwrite(manager.getOutputImagePath("teste.png"), imgOut);
 }
 
 void App::compararImagens()
@@ -83,7 +82,7 @@ void App::run()
         compararImagens();
 
         int nInicial = manager.lerConfig(manager.getConfigPath())["Ninicial"];
-        string recoveredMessage = decoder.decodeImagem(imgIn, nInicial);
+        string recoveredMessage = decoder.decodeImagem(imgOut, nInicial);
         cout << "Mensagem decodificada: " << recoveredMessage << endl;
 
     }

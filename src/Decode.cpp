@@ -12,6 +12,10 @@ int Decode::extractLSB(const Vec3b pixel)
 
 char Decode::decodeBloco(const Mat image, int &N)
 {
+    if (image.empty()) {
+        throw runtime_error("Imagem não carregada corretamente.");
+    }
+
     int y = N / image.cols;
     int x = N % image.cols;
 
@@ -29,7 +33,7 @@ char Decode::decodeBloco(const Mat image, int &N)
         {
             throw runtime_error("Fim da imagem atingido durante a decodificação.");
         }
-
+        cout << "x: " << x << ", y: " << y << ", N: " << N << endl;
         Vec3b pixel = image.at<Vec3b>(y, x);
         int lsb = extractLSB(pixel);
 
@@ -58,7 +62,7 @@ char Decode::decodeBloco(const Mat image, int &N)
         {
             throw runtime_error("Fim da imagem atingido durante a decodificação.");
         }
-
+        cout << "x: " << x << ", y: " << y << ", N: " << N << endl;
         Vec3b pixel = image.at<Vec3b>(y, x);
         int lsb = extractLSB(pixel);
 
