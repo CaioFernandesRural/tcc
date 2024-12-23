@@ -7,48 +7,33 @@ CXX = g++
 endif
 
 CXXFLAGS = -std=c++11 -Wall -g
-LIBS += `pkg-config --libs opencv4 --libs exiv2`
-CFLAGS += -g `pkg-config --cflags  opencv4 --cflags exiv2`
+LIBS += `pkg-config --libs opencv4`
+CFLAGS += -g `pkg-config --cflags opencv4`
 
 SRCPATH = src/
 BINPATH = bin/
+OBJPATH = obj/
 ARCHIVEPATH = archive/
 
-# Detectar arquivos .cpp no diretório src/ e archive/
+# Detectar arquivos .cpp no diretório src/
 SRCFILES := $(wildcard $(SRCPATH)*.cpp)
-ARCHIVEFILES := $(wildcard $(ARCHIVEPATH)*.cpp)
+OBJFILES := $(SRCFILES:$(SRCPATH)%.cpp=$(OBJPATH)%.o)
 
-# Gerar a lista de binários correspondentes
-SRCTARGETS := $(SRCFILES:$(SRCPATH)%.cpp=$(BINPATH)%)
-ARCHIVETARGETS := $(ARCHIVEFILES:$(ARCHIVEPATH)%.cpp=$(BINPATH)%)
-
-TARGETS := $(SRCTARGETS) $(ARCHIVETARGETS)
-
-# Criação do diretório de binários, caso não existam
+# Criação de diretórios necessários
 $(shell mkdir -p $(BINPATH))
+$(shell mkdir -p $(OBJPATH))
 $(shell mkdir -p resources/output_images)
 
-# Regras para compilar arquivos .cpp
-$(BINPATH)%: $(SRCPATH)%.cpp
-	-$(CXX) $(CXXFLAGS) $< -o $@ $(CFLAGS) $(LIBS)
+# Alvo principal
+bin/main: $(OBJFILES)
+	$(CXX) $(CXXFLAGS) $^ -o $@ $(LIBS)
 
-$(BINPATH)%: $(ARCHIVEPATH)%.cpp
-	-$(CXX) $(CXXFLAGS) $< -o $@ $(CFLAGS) $(LIBS)
+# Regra para compilar arquivos .cpp em objetos .o
+$(OBJPATH)%.o: $(SRCPATH)%.cpp
+	$(CXX) $(CXXFLAGS) -c $< -o $@ $(CFLAGS)
 
-# Compilar apenas os arquivos de src/
-src: $(SRCTARGETS)
-
-# Compilar apenas os arquivos de archive/
-archive: $(ARCHIVETARGETS)
-
-# Alvos para cada programa
-all: $(TARGETS)
-
-# Limpar arquivos executáveis e imagens
+# Limpar arquivos compilados
 clean:
-	@ rm -rf $(BINPATH)*
-	@ rm -rf *.o
-	@ rm -rf *.core
-	@ find . -type f -name '*.png' ! -name 'cg.png' -delete
+	@rm -rf $(BINPATH)* $(OBJPATH)* resources/output_images/*
 
 .PHONY: all clean

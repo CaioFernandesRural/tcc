@@ -1,8 +1,7 @@
 {
     "nome": "cg.png",
     "ksize": 9,
-    "nome_out": "resources/output_images/teste.png",
-    "mensagem": "Vamos todos cantar de coração A cruz de malta é o meu pendão Tu tens um nome do heróico Português Vasco da Gama",
+    "mensagem": "Upa, upa, pocotó Upa, upa, pocotó , Ela quica no upa-upa, ela senta no pocotó",
     "Ninicial": 607,
     "blockLen": 28,
     "threshold": 10

@@ -1,0 +1,1 @@
+g++ -std=c++11 -Wall -g src/Processador.cpp src/Encode.cpp src/Decode.cpp src/fatApp.cpp -o bin/fatApp -g `pkg-config --cflags  opencv4 --cflags` `pkg-config --libs opencv4 --libs`
