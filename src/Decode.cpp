@@ -88,8 +88,8 @@ string Decode::decodeImagem(const Mat image, int inicialN)
 
     do
     {
-        cout << caractere;
         caractere = decodeBloco(image, N);
+        cout << caractere;
 
         mensagem += caractere;
 

@@ -8,7 +8,6 @@ bool Encode::checaSequencia(const Mat sobelImage, Point &ptoInicio, int blockLen
 
 {
     int contaSequencia = 0;
-    int i, j; // i = cols, j = rows
 
     for (int i = ptoInicio.y; i < sobelImage.rows; i++)
     {
@@ -63,9 +62,6 @@ void Encode::setLSB(Mat &image, Point local, int bitValue)
 
 void Encode::insertBlock(Mat &image, char carga, Point ptoInicial, Point ptoSeguinte)
 {
-    static int called = 0;
-
-    ++called;
 
     vector<int> bitValues(8);
 
@@ -141,13 +137,10 @@ void Encode::insertBlock(Mat &image, char carga, Point ptoInicial, Point ptoSegu
             cout << "Inserindo locBit[" << bitIndex << "] = " << locBits[bitIndex]
                  << " na posição (" << i << ", " << j << ")" << endl;
 
-            cout << "---- 1" << endl;
             setLSB(image, Point(i, j), locBits[bitIndex]);
-            cout << "---- 2" << endl;
             bitIndex++;
             i++; // Avança para o próximo pixel na coluna
         }
-        cout << "called ." << called << endl;
     }
 }
 
