@@ -1,8 +1,8 @@
 #include "../include/Decode.hpp"
 
-//Decode::Decode() {}
+// Decode::Decode() {}
 
-//Decode::~Decode() {}
+// Decode::~Decode() {}
 
 // Função para extrair o LSB de um pixel em uma imagem
 int Decode::extractLSB(const Vec3b pixel)

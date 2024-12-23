@@ -1,7 +1,9 @@
 bin/*
+obj/*
 !bin/.gitkeep
 
 *.out
+*.o
 *.core
 *.bak
 *.vscode
