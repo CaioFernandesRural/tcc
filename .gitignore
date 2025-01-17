@@ -1,11 +1,11 @@
 bin/*
 obj/*
 !bin/.gitkeep
+resources/output_images/*
 
 *.out
 *.o
 *.core
 *.bak
 *.vscode
-*.png
 !cg.png

@@ -186,8 +186,7 @@ void Encode::encodeMessage(Mat &image, const Mat img_bin, const string message, 
         }
         else
         {
-            cerr << "\nA imagem não tem blocos o suficiente\n";
-            abort();
+            throw std::runtime_error("Imagem não tem blocos o suficiente.");
         }
     }
 

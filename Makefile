@@ -6,7 +6,7 @@ else
 CXX = g++
 endif
 
-CXXFLAGS = -std=c++11 -Wall -g
+CXXFLAGS = -std=c++17 -Wall -g
 LIBS += `pkg-config --libs opencv4`
 CFLAGS += -g `pkg-config --cflags opencv4`
 
