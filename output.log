@@ -12,13 +12,9 @@ Início da sequência: (125, 114) Fim da sequência: (125, 141)
 
 Sequência de 28 pixels encontrada.
 Início da sequência: (162, 231) Fim da sequência: (162, 258)
-
-A imagem não tem blocos o suficiente
 Erro durante a execução: Imagem não tem blocos o suficiente.
 
 Trantando a imagem: Sem título3.jpg
-
-A imagem não tem blocos o suficiente
 Erro durante a execução: Imagem não tem blocos o suficiente.
 
 Trantando a imagem: cg.png
@@ -490,6 +486,8 @@ Bits de carga: 00000000
 
 [222, 196, 178]
 
+
+Insira N inicial de: cg.png
 x: 607, y: 0, N: 607
 [Caractere] Bit 0: LSB = 0, Caractere (parcial) =  
 x: 608, y: 0, N: 607
@@ -1257,287 +1255,305 @@ Bits de carga: 00000000
 
 [2, 28, 44]
 
-x: 607, y: 0, N: 607
+
+Insira N inicial de: shutterstock_2261596665-1.jpg
+x: 125, y: 136, N: 163325
 [Caractere] Bit 0: LSB = 0, Caractere (parcial) =  
-x: 608, y: 0, N: 607
-[Caractere] Bit 1: LSB = 0, Caractere (parcial) =  
-x: 609, y: 0, N: 607
-[Caractere] Bit 2: LSB = 1, Caractere (parcial) = 
-x: 610, y: 0, N: 607
-[Caractere] Bit 3: LSB = 0, Caractere (parcial) = 
-x: 611, y: 0, N: 607
-[Caractere] Bit 4: LSB = 0, Caractere (parcial) = 
-x: 612, y: 0, N: 607
-[Caractere] Bit 5: LSB = 0, Caractere (parcial) = 
-x: 613, y: 0, N: 607
-[Caractere] Bit 6: LSB = 0, Caractere (parcial) = 
-x: 614, y: 0, N: 607
-[Caractere] Bit 7: LSB = 0, Caractere (parcial) =  
-x: 615, y: 0, N: 607
-[newN] Bit 8: LSB = 0, newN (parcial) = 0
-x: 616, y: 0, N: 607
-[newN] Bit 9: LSB = 0, newN (parcial) = 0
-x: 617, y: 0, N: 607
-[newN] Bit 10: LSB = 0, newN (parcial) = 0
-x: 618, y: 0, N: 607
-[newN] Bit 11: LSB = 1, newN (parcial) = 1
-x: 619, y: 0, N: 607
-[newN] Bit 12: LSB = 1, newN (parcial) = 3
-x: 620, y: 0, N: 607
-[newN] Bit 13: LSB = 0, newN (parcial) = 6
-x: 621, y: 0, N: 607
-[newN] Bit 14: LSB = 0, newN (parcial) = 12
-x: 622, y: 0, N: 607
-[newN] Bit 15: LSB = 1, newN (parcial) = 25
-x: 623, y: 0, N: 607
-[newN] Bit 16: LSB = 1, newN (parcial) = 51
-x: 624, y: 0, N: 607
-[newN] Bit 17: LSB = 0, newN (parcial) = 102
-x: 625, y: 0, N: 607
-[newN] Bit 18: LSB = 1, newN (parcial) = 205
-x: 626, y: 0, N: 607
-[newN] Bit 19: LSB = 0, newN (parcial) = 410
-x: 627, y: 0, N: 607
-[newN] Bit 20: LSB = 0, newN (parcial) = 820
-x: 628, y: 0, N: 607
-[newN] Bit 21: LSB = 1, newN (parcial) = 1641
-x: 629, y: 0, N: 607
-[newN] Bit 22: LSB = 0, newN (parcial) = 3282
-x: 630, y: 0, N: 607
-[newN] Bit 23: LSB = 1, newN (parcial) = 6565
-x: 631, y: 0, N: 607
-[newN] Bit 24: LSB = 1, newN (parcial) = 13131
-x: 632, y: 0, N: 607
-[newN] Bit 25: LSB = 1, newN (parcial) = 26263
-x: 633, y: 0, N: 607
-[newN] Bit 26: LSB = 0, newN (parcial) = 52526
-x: 634, y: 0, N: 607
-[newN] Bit 27: LSB = 1, newN (parcial) = 105053
- x: 653, y: 87, N: 105053
-[Caractere] Bit 0: LSB = 0, Caractere (parcial) =  
-x: 654, y: 87, N: 105053
+x: 126, y: 136, N: 163325
 [Caractere] Bit 1: LSB = 1, Caractere (parcial) = 
-x: 655, y: 87, N: 105053
+x: 127, y: 136, N: 163325
 [Caractere] Bit 2: LSB = 1, Caractere (parcial) = 
-x: 656, y: 87, N: 105053
+x: 128, y: 136, N: 163325
 [Caractere] Bit 3: LSB = 1, Caractere (parcial) = 
-x: 657, y: 87, N: 105053
+x: 129, y: 136, N: 163325
 [Caractere] Bit 4: LSB = 0, Caractere (parcial) = 
-x: 658, y: 87, N: 105053
-[Caractere] Bit 5: LSB = 0, Caractere (parcial) = 
-x: 659, y: 87, N: 105053
-[Caractere] Bit 6: LSB = 0, Caractere (parcial) = 8
-x: 660, y: 87, N: 105053
-[Caractere] Bit 7: LSB = 1, Caractere (parcial) = q
-x: 661, y: 87, N: 105053
+x: 130, y: 136, N: 163325
+[Caractere] Bit 5: LSB = 1, Caractere (parcial) = 
+x: 131, y: 136, N: 163325
+[Caractere] Bit 6: LSB = 1, Caractere (parcial) = ;
+x: 132, y: 136, N: 163325
+[Caractere] Bit 7: LSB = 0, Caractere (parcial) = v
+x: 133, y: 136, N: 163325
 [newN] Bit 8: LSB = 0, newN (parcial) = 0
-x: 662, y: 87, N: 105053
+x: 134, y: 136, N: 163325
 [newN] Bit 9: LSB = 0, newN (parcial) = 0
-x: 663, y: 87, N: 105053
-[newN] Bit 10: LSB = 0, newN (parcial) = 0
-x: 664, y: 87, N: 105053
-[newN] Bit 11: LSB = 0, newN (parcial) = 0
-x: 665, y: 87, N: 105053
-[newN] Bit 12: LSB = 1, newN (parcial) = 1
-x: 666, y: 87, N: 105053
-[newN] Bit 13: LSB = 1, newN (parcial) = 3
-x: 667, y: 87, N: 105053
-[newN] Bit 14: LSB = 1, newN (parcial) = 7
-x: 668, y: 87, N: 105053
-[newN] Bit 15: LSB = 0, newN (parcial) = 14
-x: 669, y: 87, N: 105053
-[newN] Bit 16: LSB = 1, newN (parcial) = 29
-x: 670, y: 87, N: 105053
-[newN] Bit 17: LSB = 0, newN (parcial) = 58
-x: 671, y: 87, N: 105053
-[newN] Bit 18: LSB = 1, newN (parcial) = 117
-x: 672, y: 87, N: 105053
-[newN] Bit 19: LSB = 0, newN (parcial) = 234
-x: 673, y: 87, N: 105053
-[newN] Bit 20: LSB = 0, newN (parcial) = 468
-x: 674, y: 87, N: 105053
-[newN] Bit 21: LSB = 1, newN (parcial) = 937
-x: 675, y: 87, N: 105053
-[newN] Bit 22: LSB = 1, newN (parcial) = 1875
-x: 676, y: 87, N: 105053
-[newN] Bit 23: LSB = 1, newN (parcial) = 3751
-x: 677, y: 87, N: 105053
-[newN] Bit 24: LSB = 0, newN (parcial) = 7502
-x: 678, y: 87, N: 105053
-[newN] Bit 25: LSB = 0, newN (parcial) = 15004
-x: 679, y: 87, N: 105053
-[newN] Bit 26: LSB = 0, newN (parcial) = 30008
-x: 680, y: 87, N: 105053
-[newN] Bit 27: LSB = 1, newN (parcial) = 60017
-qx: 17, y: 50, N: 60017
+x: 135, y: 136, N: 163325
+[newN] Bit 10: LSB = 1, newN (parcial) = 1
+x: 136, y: 136, N: 163325
+[newN] Bit 11: LSB = 0, newN (parcial) = 2
+x: 137, y: 136, N: 163325
+[newN] Bit 12: LSB = 1, newN (parcial) = 5
+x: 138, y: 136, N: 163325
+[newN] Bit 13: LSB = 0, newN (parcial) = 10
+x: 139, y: 136, N: 163325
+[newN] Bit 14: LSB = 0, newN (parcial) = 20
+x: 140, y: 136, N: 163325
+[newN] Bit 15: LSB = 1, newN (parcial) = 41
+x: 141, y: 136, N: 163325
+[newN] Bit 16: LSB = 0, newN (parcial) = 82
+x: 142, y: 136, N: 163325
+[newN] Bit 17: LSB = 1, newN (parcial) = 165
+x: 143, y: 136, N: 163325
+[newN] Bit 18: LSB = 0, newN (parcial) = 330
+x: 144, y: 136, N: 163325
+[newN] Bit 19: LSB = 1, newN (parcial) = 661
+x: 145, y: 136, N: 163325
+[newN] Bit 20: LSB = 0, newN (parcial) = 1322
+x: 146, y: 136, N: 163325
+[newN] Bit 21: LSB = 1, newN (parcial) = 2645
+x: 147, y: 136, N: 163325
+[newN] Bit 22: LSB = 1, newN (parcial) = 5291
+x: 148, y: 136, N: 163325
+[newN] Bit 23: LSB = 0, newN (parcial) = 10582
+x: 149, y: 136, N: 163325
+[newN] Bit 24: LSB = 1, newN (parcial) = 21165
+x: 150, y: 136, N: 163325
+[newN] Bit 25: LSB = 1, newN (parcial) = 42331
+x: 151, y: 136, N: 163325
+[newN] Bit 26: LSB = 1, newN (parcial) = 84663
+x: 152, y: 136, N: 163325
+[newN] Bit 27: LSB = 1, newN (parcial) = 169327
+vx: 127, y: 141, N: 169327
 [Caractere] Bit 0: LSB = 0, Caractere (parcial) =  
-x: 18, y: 50, N: 60017
+x: 128, y: 141, N: 169327
+[Caractere] Bit 1: LSB = 1, Caractere (parcial) = 
+x: 129, y: 141, N: 169327
+[Caractere] Bit 2: LSB = 1, Caractere (parcial) = 
+x: 130, y: 141, N: 169327
+[Caractere] Bit 3: LSB = 0, Caractere (parcial) = 
+x: 131, y: 141, N: 169327
+[Caractere] Bit 4: LSB = 0, Caractere (parcial) = 
+x: 132, y: 141, N: 169327
+[Caractere] Bit 5: LSB = 0, Caractere (parcial) = 
+x: 133, y: 141, N: 169327
+[Caractere] Bit 6: LSB = 0, Caractere (parcial) = 0
+x: 134, y: 141, N: 169327
+[Caractere] Bit 7: LSB = 1, Caractere (parcial) = a
+x: 135, y: 141, N: 169327
+[newN] Bit 8: LSB = 0, newN (parcial) = 0
+x: 136, y: 141, N: 169327
+[newN] Bit 9: LSB = 0, newN (parcial) = 0
+x: 137, y: 141, N: 169327
+[newN] Bit 10: LSB = 1, newN (parcial) = 1
+x: 138, y: 141, N: 169327
+[newN] Bit 11: LSB = 1, newN (parcial) = 3
+x: 139, y: 141, N: 169327
+[newN] Bit 12: LSB = 1, newN (parcial) = 7
+x: 140, y: 141, N: 169327
+[newN] Bit 13: LSB = 0, newN (parcial) = 14
+x: 141, y: 141, N: 169327
+[newN] Bit 14: LSB = 1, newN (parcial) = 29
+x: 142, y: 141, N: 169327
+[newN] Bit 15: LSB = 0, newN (parcial) = 58
+x: 143, y: 141, N: 169327
+[newN] Bit 16: LSB = 1, newN (parcial) = 117
+x: 144, y: 141, N: 169327
+[newN] Bit 17: LSB = 0, newN (parcial) = 234
+x: 145, y: 141, N: 169327
+[newN] Bit 18: LSB = 1, newN (parcial) = 469
+x: 146, y: 141, N: 169327
+[newN] Bit 19: LSB = 1, newN (parcial) = 939
+x: 147, y: 141, N: 169327
+[newN] Bit 20: LSB = 0, newN (parcial) = 1878
+x: 148, y: 141, N: 169327
+[newN] Bit 21: LSB = 1, newN (parcial) = 3757
+x: 149, y: 141, N: 169327
+[newN] Bit 22: LSB = 0, newN (parcial) = 7514
+x: 150, y: 141, N: 169327
+[newN] Bit 23: LSB = 0, newN (parcial) = 15028
+x: 151, y: 141, N: 169327
+[newN] Bit 24: LSB = 1, newN (parcial) = 30057
+x: 152, y: 141, N: 169327
+[newN] Bit 25: LSB = 0, newN (parcial) = 60114
+x: 153, y: 141, N: 169327
+[newN] Bit 26: LSB = 1, newN (parcial) = 120229
+x: 154, y: 141, N: 169327
+[newN] Bit 27: LSB = 1, newN (parcial) = 240459
+ax: 459, y: 200, N: 240459
+[Caractere] Bit 0: LSB = 0, Caractere (parcial) =  
+x: 460, y: 200, N: 240459
+[Caractere] Bit 1: LSB = 1, Caractere (parcial) = 
+x: 461, y: 200, N: 240459
+[Caractere] Bit 2: LSB = 1, Caractere (parcial) = 
+x: 462, y: 200, N: 240459
+[Caractere] Bit 3: LSB = 1, Caractere (parcial) = 
+x: 463, y: 200, N: 240459
+[Caractere] Bit 4: LSB = 0, Caractere (parcial) = 
+x: 464, y: 200, N: 240459
+[Caractere] Bit 5: LSB = 0, Caractere (parcial) = 
+x: 465, y: 200, N: 240459
+[Caractere] Bit 6: LSB = 1, Caractere (parcial) = 9
+x: 466, y: 200, N: 240459
+[Caractere] Bit 7: LSB = 1, Caractere (parcial) = s
+x: 467, y: 200, N: 240459
+[newN] Bit 8: LSB = 0, newN (parcial) = 0
+x: 468, y: 200, N: 240459
+[newN] Bit 9: LSB = 1, newN (parcial) = 1
+x: 469, y: 200, N: 240459
+[newN] Bit 10: LSB = 0, newN (parcial) = 2
+x: 470, y: 200, N: 240459
+[newN] Bit 11: LSB = 0, newN (parcial) = 4
+x: 471, y: 200, N: 240459
+[newN] Bit 12: LSB = 1, newN (parcial) = 9
+x: 472, y: 200, N: 240459
+[newN] Bit 13: LSB = 1, newN (parcial) = 19
+x: 473, y: 200, N: 240459
+[newN] Bit 14: LSB = 1, newN (parcial) = 39
+x: 474, y: 200, N: 240459
+[newN] Bit 15: LSB = 0, newN (parcial) = 78
+x: 475, y: 200, N: 240459
+[newN] Bit 16: LSB = 1, newN (parcial) = 157
+x: 476, y: 200, N: 240459
+[newN] Bit 17: LSB = 1, newN (parcial) = 315
+x: 477, y: 200, N: 240459
+[newN] Bit 18: LSB = 0, newN (parcial) = 630
+x: 478, y: 200, N: 240459
+[newN] Bit 19: LSB = 0, newN (parcial) = 1260
+x: 479, y: 200, N: 240459
+[newN] Bit 20: LSB = 0, newN (parcial) = 2520
+x: 480, y: 200, N: 240459
+[newN] Bit 21: LSB = 1, newN (parcial) = 5041
+x: 481, y: 200, N: 240459
+[newN] Bit 22: LSB = 1, newN (parcial) = 10083
+x: 482, y: 200, N: 240459
+[newN] Bit 23: LSB = 0, newN (parcial) = 20166
+x: 483, y: 200, N: 240459
+[newN] Bit 24: LSB = 0, newN (parcial) = 40332
+x: 484, y: 200, N: 240459
+[newN] Bit 25: LSB = 0, newN (parcial) = 80664
+x: 485, y: 200, N: 240459
+[newN] Bit 26: LSB = 0, newN (parcial) = 161328
+x: 486, y: 200, N: 240459
+[newN] Bit 27: LSB = 0, newN (parcial) = 322656
+sx: 1056, y: 268, N: 322656
+[Caractere] Bit 0: LSB = 0, Caractere (parcial) =  
+x: 1057, y: 268, N: 322656
+[Caractere] Bit 1: LSB = 1, Caractere (parcial) = 
+x: 1058, y: 268, N: 322656
+[Caractere] Bit 2: LSB = 1, Caractere (parcial) = 
+x: 1059, y: 268, N: 322656
+[Caractere] Bit 3: LSB = 0, Caractere (parcial) = 
+x: 1060, y: 268, N: 322656
+[Caractere] Bit 4: LSB = 0, Caractere (parcial) = 
+x: 1061, y: 268, N: 322656
+[Caractere] Bit 5: LSB = 0, Caractere (parcial) = 
+x: 1062, y: 268, N: 322656
+[Caractere] Bit 6: LSB = 1, Caractere (parcial) = 1
+x: 1063, y: 268, N: 322656
+[Caractere] Bit 7: LSB = 1, Caractere (parcial) = c
+x: 1064, y: 268, N: 322656
+[newN] Bit 8: LSB = 0, newN (parcial) = 0
+x: 1065, y: 268, N: 322656
+[newN] Bit 9: LSB = 1, newN (parcial) = 1
+x: 1066, y: 268, N: 322656
+[newN] Bit 10: LSB = 0, newN (parcial) = 2
+x: 1067, y: 268, N: 322656
+[newN] Bit 11: LSB = 1, newN (parcial) = 5
+x: 1068, y: 268, N: 322656
+[newN] Bit 12: LSB = 0, newN (parcial) = 10
+x: 1069, y: 268, N: 322656
+[newN] Bit 13: LSB = 1, newN (parcial) = 21
+x: 1070, y: 268, N: 322656
+[newN] Bit 14: LSB = 1, newN (parcial) = 43
+x: 1071, y: 268, N: 322656
+[newN] Bit 15: LSB = 1, newN (parcial) = 87
+x: 1072, y: 268, N: 322656
+[newN] Bit 16: LSB = 0, newN (parcial) = 174
+x: 1073, y: 268, N: 322656
+[newN] Bit 17: LSB = 1, newN (parcial) = 349
+x: 1074, y: 268, N: 322656
+[newN] Bit 18: LSB = 0, newN (parcial) = 698
+x: 1075, y: 268, N: 322656
+[newN] Bit 19: LSB = 1, newN (parcial) = 1397
+x: 1076, y: 268, N: 322656
+[newN] Bit 20: LSB = 1, newN (parcial) = 2795
+x: 1077, y: 268, N: 322656
+[newN] Bit 21: LSB = 0, newN (parcial) = 5590
+x: 1078, y: 268, N: 322656
+[newN] Bit 22: LSB = 1, newN (parcial) = 11181
+x: 1079, y: 268, N: 322656
+[newN] Bit 23: LSB = 1, newN (parcial) = 22363
+x: 1080, y: 268, N: 322656
+[newN] Bit 24: LSB = 1, newN (parcial) = 44727
+x: 1081, y: 268, N: 322656
+[newN] Bit 25: LSB = 0, newN (parcial) = 89454
+x: 1082, y: 268, N: 322656
+[newN] Bit 26: LSB = 1, newN (parcial) = 178909
+x: 1083, y: 268, N: 322656
+[newN] Bit 27: LSB = 1, newN (parcial) = 357819
+cx: 219, y: 298, N: 357819
+[Caractere] Bit 0: LSB = 0, Caractere (parcial) =  
+x: 220, y: 298, N: 357819
+[Caractere] Bit 1: LSB = 1, Caractere (parcial) = 
+x: 221, y: 298, N: 357819
+[Caractere] Bit 2: LSB = 1, Caractere (parcial) = 
+x: 222, y: 298, N: 357819
+[Caractere] Bit 3: LSB = 0, Caractere (parcial) = 
+x: 223, y: 298, N: 357819
+[Caractere] Bit 4: LSB = 1, Caractere (parcial) = 
+x: 224, y: 298, N: 357819
+[Caractere] Bit 5: LSB = 1, Caractere (parcial) = 
+x: 225, y: 298, N: 357819
+[Caractere] Bit 6: LSB = 1, Caractere (parcial) = 7
+x: 226, y: 298, N: 357819
+[Caractere] Bit 7: LSB = 1, Caractere (parcial) = o
+x: 227, y: 298, N: 357819
+[newN] Bit 8: LSB = 0, newN (parcial) = 0
+x: 228, y: 298, N: 357819
+[newN] Bit 9: LSB = 1, newN (parcial) = 1
+x: 229, y: 298, N: 357819
+[newN] Bit 10: LSB = 1, newN (parcial) = 3
+x: 230, y: 298, N: 357819
+[newN] Bit 11: LSB = 0, newN (parcial) = 6
+x: 231, y: 298, N: 357819
+[newN] Bit 12: LSB = 1, newN (parcial) = 13
+x: 232, y: 298, N: 357819
+[newN] Bit 13: LSB = 1, newN (parcial) = 27
+x: 233, y: 298, N: 357819
+[newN] Bit 14: LSB = 1, newN (parcial) = 55
+x: 234, y: 298, N: 357819
+[newN] Bit 15: LSB = 0, newN (parcial) = 110
+x: 235, y: 298, N: 357819
+[newN] Bit 16: LSB = 0, newN (parcial) = 220
+x: 236, y: 298, N: 357819
+[newN] Bit 17: LSB = 1, newN (parcial) = 441
+x: 237, y: 298, N: 357819
+[newN] Bit 18: LSB = 0, newN (parcial) = 882
+x: 238, y: 298, N: 357819
+[newN] Bit 19: LSB = 0, newN (parcial) = 1764
+x: 239, y: 298, N: 357819
+[newN] Bit 20: LSB = 1, newN (parcial) = 3529
+x: 240, y: 298, N: 357819
+[newN] Bit 21: LSB = 0, newN (parcial) = 7058
+x: 241, y: 298, N: 357819
+[newN] Bit 22: LSB = 0, newN (parcial) = 14116
+x: 242, y: 298, N: 357819
+[newN] Bit 23: LSB = 0, newN (parcial) = 28232
+x: 243, y: 298, N: 357819
+[newN] Bit 24: LSB = 1, newN (parcial) = 56465
+x: 244, y: 298, N: 357819
+[newN] Bit 25: LSB = 1, newN (parcial) = 112931
+x: 245, y: 298, N: 357819
+[newN] Bit 26: LSB = 1, newN (parcial) = 225863
+x: 246, y: 298, N: 357819
+[newN] Bit 27: LSB = 0, newN (parcial) = 451726
+ox: 526, y: 376, N: 451726
+[Caractere] Bit 0: LSB = 0, Caractere (parcial) =  
+x: 527, y: 376, N: 451726
 [Caractere] Bit 1: LSB = 0, Caractere (parcial) =  
-x: 19, y: 50, N: 60017
+x: 528, y: 376, N: 451726
 [Caractere] Bit 2: LSB = 0, Caractere (parcial) =  
-x: 20, y: 50, N: 60017
+x: 529, y: 376, N: 451726
 [Caractere] Bit 3: LSB = 0, Caractere (parcial) =  
-x: 21, y: 50, N: 60017
-[Caractere] Bit 4: LSB = 1, Caractere (parcial) = 
-x: 22, y: 50, N: 60017
-[Caractere] Bit 5: LSB = 0, Caractere (parcial) = 
-x: 23, y: 50, N: 60017
-[Caractere] Bit 6: LSB = 0, Caractere (parcial) = 
-x: 24, y: 50, N: 60017
-[Caractere] Bit 7: LSB = 1, Caractere (parcial) = 	
-x: 25, y: 50, N: 60017
-[newN] Bit 8: LSB = 0, newN (parcial) = 0
-x: 26, y: 50, N: 60017
-[newN] Bit 9: LSB = 0, newN (parcial) = 0
-x: 27, y: 50, N: 60017
-[newN] Bit 10: LSB = 0, newN (parcial) = 0
-x: 28, y: 50, N: 60017
-[newN] Bit 11: LSB = 0, newN (parcial) = 0
-x: 29, y: 50, N: 60017
-[newN] Bit 12: LSB = 0, newN (parcial) = 0
-x: 30, y: 50, N: 60017
-[newN] Bit 13: LSB = 1, newN (parcial) = 1
-x: 31, y: 50, N: 60017
-[newN] Bit 14: LSB = 1, newN (parcial) = 3
-x: 32, y: 50, N: 60017
-[newN] Bit 15: LSB = 0, newN (parcial) = 6
-x: 33, y: 50, N: 60017
-[newN] Bit 16: LSB = 0, newN (parcial) = 12
-x: 34, y: 50, N: 60017
-[newN] Bit 17: LSB = 1, newN (parcial) = 25
-x: 35, y: 50, N: 60017
-[newN] Bit 18: LSB = 0, newN (parcial) = 50
-x: 36, y: 50, N: 60017
-[newN] Bit 19: LSB = 1, newN (parcial) = 101
-x: 37, y: 50, N: 60017
-[newN] Bit 20: LSB = 0, newN (parcial) = 202
-x: 38, y: 50, N: 60017
-[newN] Bit 21: LSB = 0, newN (parcial) = 404
-x: 39, y: 50, N: 60017
-[newN] Bit 22: LSB = 0, newN (parcial) = 808
-x: 40, y: 50, N: 60017
-[newN] Bit 23: LSB = 0, newN (parcial) = 1616
-x: 41, y: 50, N: 60017
-[newN] Bit 24: LSB = 1, newN (parcial) = 3233
-x: 42, y: 50, N: 60017
-[newN] Bit 25: LSB = 0, newN (parcial) = 6466
-x: 43, y: 50, N: 60017
-[newN] Bit 26: LSB = 1, newN (parcial) = 12933
-x: 44, y: 50, N: 60017
-[newN] Bit 27: LSB = 1, newN (parcial) = 25867
-	x: 667, y: 21, N: 25867
-[Caractere] Bit 0: LSB = 1, Caractere (parcial) = 
-x: 668, y: 21, N: 25867
-[Caractere] Bit 1: LSB = 0, Caractere (parcial) = 
-x: 669, y: 21, N: 25867
-[Caractere] Bit 2: LSB = 0, Caractere (parcial) = 
-x: 670, y: 21, N: 25867
-[Caractere] Bit 3: LSB = 0, Caractere (parcial) = 
-x: 671, y: 21, N: 25867
-[Caractere] Bit 4: LSB = 1, Caractere (parcial) = 
-x: 672, y: 21, N: 25867
-[Caractere] Bit 5: LSB = 1, Caractere (parcial) = #
-x: 673, y: 21, N: 25867
-[Caractere] Bit 6: LSB = 1, Caractere (parcial) = G
-x: 674, y: 21, N: 25867
-[Caractere] Bit 7: LSB = 1, Caractere (parcial) = �
-x: 675, y: 21, N: 25867
-[newN] Bit 8: LSB = 0, newN (parcial) = 0
-x: 676, y: 21, N: 25867
-[newN] Bit 9: LSB = 0, newN (parcial) = 0
-x: 677, y: 21, N: 25867
-[newN] Bit 10: LSB = 0, newN (parcial) = 0
-x: 678, y: 21, N: 25867
-[newN] Bit 11: LSB = 0, newN (parcial) = 0
-x: 679, y: 21, N: 25867
-[newN] Bit 12: LSB = 0, newN (parcial) = 0
-x: 680, y: 21, N: 25867
-[newN] Bit 13: LSB = 1, newN (parcial) = 1
-x: 681, y: 21, N: 25867
-[newN] Bit 14: LSB = 1, newN (parcial) = 3
-x: 682, y: 21, N: 25867
-[newN] Bit 15: LSB = 1, newN (parcial) = 7
-x: 683, y: 21, N: 25867
-[newN] Bit 16: LSB = 0, newN (parcial) = 14
-x: 684, y: 21, N: 25867
-[newN] Bit 17: LSB = 0, newN (parcial) = 28
-x: 685, y: 21, N: 25867
-[newN] Bit 18: LSB = 1, newN (parcial) = 57
-x: 686, y: 21, N: 25867
-[newN] Bit 19: LSB = 0, newN (parcial) = 114
-x: 687, y: 21, N: 25867
-[newN] Bit 20: LSB = 0, newN (parcial) = 228
-x: 688, y: 21, N: 25867
-[newN] Bit 21: LSB = 1, newN (parcial) = 457
-x: 689, y: 21, N: 25867
-[newN] Bit 22: LSB = 0, newN (parcial) = 914
-x: 690, y: 21, N: 25867
-[newN] Bit 23: LSB = 0, newN (parcial) = 1828
-x: 691, y: 21, N: 25867
-[newN] Bit 24: LSB = 0, newN (parcial) = 3656
-x: 692, y: 21, N: 25867
-[newN] Bit 25: LSB = 0, newN (parcial) = 7312
-x: 693, y: 21, N: 25867
-[newN] Bit 26: LSB = 1, newN (parcial) = 14625
-x: 694, y: 21, N: 25867
-[newN] Bit 27: LSB = 0, newN (parcial) = 29250
-�x: 450, y: 24, N: 29250
-[Caractere] Bit 0: LSB = 1, Caractere (parcial) = 
-x: 451, y: 24, N: 29250
-[Caractere] Bit 1: LSB = 1, Caractere (parcial) = 
-x: 452, y: 24, N: 29250
-[Caractere] Bit 2: LSB = 1, Caractere (parcial) = 
-x: 453, y: 24, N: 29250
-[Caractere] Bit 3: LSB = 0, Caractere (parcial) = 
-x: 454, y: 24, N: 29250
-[Caractere] Bit 4: LSB = 1, Caractere (parcial) = 
-x: 455, y: 24, N: 29250
-[Caractere] Bit 5: LSB = 1, Caractere (parcial) = ;
-x: 456, y: 24, N: 29250
-[Caractere] Bit 6: LSB = 0, Caractere (parcial) = v
-x: 457, y: 24, N: 29250
-[Caractere] Bit 7: LSB = 0, Caractere (parcial) = �
-x: 458, y: 24, N: 29250
-[newN] Bit 8: LSB = 1, newN (parcial) = 1
-x: 459, y: 24, N: 29250
-[newN] Bit 9: LSB = 1, newN (parcial) = 3
-x: 460, y: 24, N: 29250
-[newN] Bit 10: LSB = 1, newN (parcial) = 7
-x: 461, y: 24, N: 29250
-[newN] Bit 11: LSB = 1, newN (parcial) = 15
-x: 462, y: 24, N: 29250
-[newN] Bit 12: LSB = 0, newN (parcial) = 30
-x: 463, y: 24, N: 29250
-[newN] Bit 13: LSB = 1, newN (parcial) = 61
-x: 464, y: 24, N: 29250
-[newN] Bit 14: LSB = 1, newN (parcial) = 123
-x: 465, y: 24, N: 29250
-[newN] Bit 15: LSB = 1, newN (parcial) = 247
-x: 466, y: 24, N: 29250
-[newN] Bit 16: LSB = 0, newN (parcial) = 494
-x: 467, y: 24, N: 29250
-[newN] Bit 17: LSB = 1, newN (parcial) = 989
-x: 468, y: 24, N: 29250
-[newN] Bit 18: LSB = 1, newN (parcial) = 1979
-x: 469, y: 24, N: 29250
-[newN] Bit 19: LSB = 1, newN (parcial) = 3959
-x: 470, y: 24, N: 29250
-[newN] Bit 20: LSB = 1, newN (parcial) = 7919
-x: 471, y: 24, N: 29250
-[newN] Bit 21: LSB = 0, newN (parcial) = 15838
-x: 472, y: 24, N: 29250
-[newN] Bit 22: LSB = 0, newN (parcial) = 31676
-x: 473, y: 24, N: 29250
-[newN] Bit 23: LSB = 0, newN (parcial) = 63352
-x: 474, y: 24, N: 29250
-[newN] Bit 24: LSB = 1, newN (parcial) = 126705
-x: 475, y: 24, N: 29250
-[newN] Bit 25: LSB = 1, newN (parcial) = 253411
-x: 476, y: 24, N: 29250
-[newN] Bit 26: LSB = 0, newN (parcial) = 506822
-x: 477, y: 24, N: 29250
-[newN] Bit 27: LSB = 0, newN (parcial) = 1013644
-�Erro durante a execução: Fim da imagem atingido durante a decodificação.
+x: 530, y: 376, N: 451726
+[Caractere] Bit 4: LSB = 0, Caractere (parcial) =  
+x: 531, y: 376, N: 451726
+[Caractere] Bit 5: LSB = 0, Caractere (parcial) =  
+x: 532, y: 376, N: 451726
+[Caractere] Bit 6: LSB = 0, Caractere (parcial) =  
+x: 533, y: 376, N: 451726
+[Caractere] Bit 7: LSB = 0, Caractere (parcial) =  
+ Mensagem decodificada: vasco 
 
 Trantando a imagem: Sem título2.jpg
 
@@ -2008,63 +2024,305 @@ Bits de carga: 00000000
 
 [130, 115, 108]
 
-x: 1, y: 2, N: 607
-[Caractere] Bit 0: LSB = 1, Caractere (parcial) = 
-x: 2, y: 2, N: 607
-[Caractere] Bit 1: LSB = 0, Caractere (parcial) = 
-x: 3, y: 2, N: 607
-[Caractere] Bit 2: LSB = 0, Caractere (parcial) = 
-x: 4, y: 2, N: 607
-[Caractere] Bit 3: LSB = 0, Caractere (parcial) = 
-x: 5, y: 2, N: 607
-[Caractere] Bit 4: LSB = 1, Caractere (parcial) = 
-x: 6, y: 2, N: 607
-[Caractere] Bit 5: LSB = 1, Caractere (parcial) = #
-x: 7, y: 2, N: 607
-[Caractere] Bit 6: LSB = 1, Caractere (parcial) = G
-x: 8, y: 2, N: 607
-[Caractere] Bit 7: LSB = 1, Caractere (parcial) = �
-x: 9, y: 2, N: 607
+
+Insira N inicial de: Sem título2.jpg
+x: 18, y: 6, N: 1836
+[Caractere] Bit 0: LSB = 0, Caractere (parcial) =  
+x: 19, y: 6, N: 1836
+[Caractere] Bit 1: LSB = 1, Caractere (parcial) = 
+x: 20, y: 6, N: 1836
+[Caractere] Bit 2: LSB = 1, Caractere (parcial) = 
+x: 21, y: 6, N: 1836
+[Caractere] Bit 3: LSB = 1, Caractere (parcial) = 
+x: 22, y: 6, N: 1836
+[Caractere] Bit 4: LSB = 0, Caractere (parcial) = 
+x: 23, y: 6, N: 1836
+[Caractere] Bit 5: LSB = 1, Caractere (parcial) = 
+x: 24, y: 6, N: 1836
+[Caractere] Bit 6: LSB = 1, Caractere (parcial) = ;
+x: 25, y: 6, N: 1836
+[Caractere] Bit 7: LSB = 0, Caractere (parcial) = v
+x: 26, y: 6, N: 1836
 [newN] Bit 8: LSB = 0, newN (parcial) = 0
-x: 10, y: 2, N: 607
+x: 27, y: 6, N: 1836
 [newN] Bit 9: LSB = 0, newN (parcial) = 0
-x: 11, y: 2, N: 607
-[newN] Bit 10: LSB = 1, newN (parcial) = 1
-x: 12, y: 2, N: 607
-[newN] Bit 11: LSB = 0, newN (parcial) = 2
-x: 13, y: 2, N: 607
-[newN] Bit 12: LSB = 1, newN (parcial) = 5
-x: 14, y: 2, N: 607
-[newN] Bit 13: LSB = 1, newN (parcial) = 11
-x: 15, y: 2, N: 607
-[newN] Bit 14: LSB = 1, newN (parcial) = 23
-x: 16, y: 2, N: 607
-[newN] Bit 15: LSB = 1, newN (parcial) = 47
-x: 17, y: 2, N: 607
-[newN] Bit 16: LSB = 1, newN (parcial) = 95
-x: 18, y: 2, N: 607
-[newN] Bit 17: LSB = 0, newN (parcial) = 190
-x: 19, y: 2, N: 607
-[newN] Bit 18: LSB = 1, newN (parcial) = 381
-x: 20, y: 2, N: 607
-[newN] Bit 19: LSB = 0, newN (parcial) = 762
-x: 21, y: 2, N: 607
-[newN] Bit 20: LSB = 0, newN (parcial) = 1524
-x: 22, y: 2, N: 607
-[newN] Bit 21: LSB = 1, newN (parcial) = 3049
-x: 23, y: 2, N: 607
-[newN] Bit 22: LSB = 1, newN (parcial) = 6099
-x: 24, y: 2, N: 607
-[newN] Bit 23: LSB = 0, newN (parcial) = 12198
-x: 25, y: 2, N: 607
-[newN] Bit 24: LSB = 0, newN (parcial) = 24396
-x: 26, y: 2, N: 607
-[newN] Bit 25: LSB = 1, newN (parcial) = 48793
-x: 27, y: 2, N: 607
-[newN] Bit 26: LSB = 0, newN (parcial) = 97586
-x: 28, y: 2, N: 607
-[newN] Bit 27: LSB = 1, newN (parcial) = 195173
-�Erro durante a execução: Fim da imagem atingido durante a decodificação.
+x: 28, y: 6, N: 1836
+[newN] Bit 10: LSB = 0, newN (parcial) = 0
+x: 29, y: 6, N: 1836
+[newN] Bit 11: LSB = 0, newN (parcial) = 0
+x: 30, y: 6, N: 1836
+[newN] Bit 12: LSB = 0, newN (parcial) = 0
+x: 31, y: 6, N: 1836
+[newN] Bit 13: LSB = 0, newN (parcial) = 0
+x: 32, y: 6, N: 1836
+[newN] Bit 14: LSB = 0, newN (parcial) = 0
+x: 33, y: 6, N: 1836
+[newN] Bit 15: LSB = 0, newN (parcial) = 0
+x: 34, y: 6, N: 1836
+[newN] Bit 16: LSB = 1, newN (parcial) = 1
+x: 35, y: 6, N: 1836
+[newN] Bit 17: LSB = 0, newN (parcial) = 2
+x: 36, y: 6, N: 1836
+[newN] Bit 18: LSB = 0, newN (parcial) = 4
+x: 37, y: 6, N: 1836
+[newN] Bit 19: LSB = 0, newN (parcial) = 8
+x: 38, y: 6, N: 1836
+[newN] Bit 20: LSB = 0, newN (parcial) = 16
+x: 39, y: 6, N: 1836
+[newN] Bit 21: LSB = 1, newN (parcial) = 33
+x: 40, y: 6, N: 1836
+[newN] Bit 22: LSB = 0, newN (parcial) = 66
+x: 41, y: 6, N: 1836
+[newN] Bit 23: LSB = 1, newN (parcial) = 133
+x: 42, y: 6, N: 1836
+[newN] Bit 24: LSB = 1, newN (parcial) = 267
+x: 43, y: 6, N: 1836
+[newN] Bit 25: LSB = 0, newN (parcial) = 534
+x: 44, y: 6, N: 1836
+[newN] Bit 26: LSB = 1, newN (parcial) = 1069
+x: 45, y: 6, N: 1836
+[newN] Bit 27: LSB = 1, newN (parcial) = 2139
+vx: 18, y: 7, N: 2139
+[Caractere] Bit 0: LSB = 0, Caractere (parcial) =  
+x: 19, y: 7, N: 2139
+[Caractere] Bit 1: LSB = 1, Caractere (parcial) = 
+x: 20, y: 7, N: 2139
+[Caractere] Bit 2: LSB = 1, Caractere (parcial) = 
+x: 21, y: 7, N: 2139
+[Caractere] Bit 3: LSB = 0, Caractere (parcial) = 
+x: 22, y: 7, N: 2139
+[Caractere] Bit 4: LSB = 0, Caractere (parcial) = 
+x: 23, y: 7, N: 2139
+[Caractere] Bit 5: LSB = 0, Caractere (parcial) = 
+x: 24, y: 7, N: 2139
+[Caractere] Bit 6: LSB = 0, Caractere (parcial) = 0
+x: 25, y: 7, N: 2139
+[Caractere] Bit 7: LSB = 1, Caractere (parcial) = a
+x: 26, y: 7, N: 2139
+[newN] Bit 8: LSB = 0, newN (parcial) = 0
+x: 27, y: 7, N: 2139
+[newN] Bit 9: LSB = 0, newN (parcial) = 0
+x: 28, y: 7, N: 2139
+[newN] Bit 10: LSB = 0, newN (parcial) = 0
+x: 29, y: 7, N: 2139
+[newN] Bit 11: LSB = 0, newN (parcial) = 0
+x: 30, y: 7, N: 2139
+[newN] Bit 12: LSB = 0, newN (parcial) = 0
+x: 31, y: 7, N: 2139
+[newN] Bit 13: LSB = 0, newN (parcial) = 0
+x: 32, y: 7, N: 2139
+[newN] Bit 14: LSB = 0, newN (parcial) = 0
+x: 33, y: 7, N: 2139
+[newN] Bit 15: LSB = 0, newN (parcial) = 0
+x: 34, y: 7, N: 2139
+[newN] Bit 16: LSB = 1, newN (parcial) = 1
+x: 35, y: 7, N: 2139
+[newN] Bit 17: LSB = 0, newN (parcial) = 2
+x: 36, y: 7, N: 2139
+[newN] Bit 18: LSB = 0, newN (parcial) = 4
+x: 37, y: 7, N: 2139
+[newN] Bit 19: LSB = 1, newN (parcial) = 9
+x: 38, y: 7, N: 2139
+[newN] Bit 20: LSB = 1, newN (parcial) = 19
+x: 39, y: 7, N: 2139
+[newN] Bit 21: LSB = 0, newN (parcial) = 38
+x: 40, y: 7, N: 2139
+[newN] Bit 22: LSB = 0, newN (parcial) = 76
+x: 41, y: 7, N: 2139
+[newN] Bit 23: LSB = 0, newN (parcial) = 152
+x: 42, y: 7, N: 2139
+[newN] Bit 24: LSB = 1, newN (parcial) = 305
+x: 43, y: 7, N: 2139
+[newN] Bit 25: LSB = 0, newN (parcial) = 610
+x: 44, y: 7, N: 2139
+[newN] Bit 26: LSB = 1, newN (parcial) = 1221
+x: 45, y: 7, N: 2139
+[newN] Bit 27: LSB = 0, newN (parcial) = 2442
+ax: 18, y: 8, N: 2442
+[Caractere] Bit 0: LSB = 0, Caractere (parcial) =  
+x: 19, y: 8, N: 2442
+[Caractere] Bit 1: LSB = 1, Caractere (parcial) = 
+x: 20, y: 8, N: 2442
+[Caractere] Bit 2: LSB = 1, Caractere (parcial) = 
+x: 21, y: 8, N: 2442
+[Caractere] Bit 3: LSB = 1, Caractere (parcial) = 
+x: 22, y: 8, N: 2442
+[Caractere] Bit 4: LSB = 0, Caractere (parcial) = 
+x: 23, y: 8, N: 2442
+[Caractere] Bit 5: LSB = 0, Caractere (parcial) = 
+x: 24, y: 8, N: 2442
+[Caractere] Bit 6: LSB = 1, Caractere (parcial) = 9
+x: 25, y: 8, N: 2442
+[Caractere] Bit 7: LSB = 1, Caractere (parcial) = s
+x: 26, y: 8, N: 2442
+[newN] Bit 8: LSB = 0, newN (parcial) = 0
+x: 27, y: 8, N: 2442
+[newN] Bit 9: LSB = 0, newN (parcial) = 0
+x: 28, y: 8, N: 2442
+[newN] Bit 10: LSB = 0, newN (parcial) = 0
+x: 29, y: 8, N: 2442
+[newN] Bit 11: LSB = 0, newN (parcial) = 0
+x: 30, y: 8, N: 2442
+[newN] Bit 12: LSB = 0, newN (parcial) = 0
+x: 31, y: 8, N: 2442
+[newN] Bit 13: LSB = 0, newN (parcial) = 0
+x: 32, y: 8, N: 2442
+[newN] Bit 14: LSB = 0, newN (parcial) = 0
+x: 33, y: 8, N: 2442
+[newN] Bit 15: LSB = 0, newN (parcial) = 0
+x: 34, y: 8, N: 2442
+[newN] Bit 16: LSB = 1, newN (parcial) = 1
+x: 35, y: 8, N: 2442
+[newN] Bit 17: LSB = 0, newN (parcial) = 2
+x: 36, y: 8, N: 2442
+[newN] Bit 18: LSB = 1, newN (parcial) = 5
+x: 37, y: 8, N: 2442
+[newN] Bit 19: LSB = 0, newN (parcial) = 10
+x: 38, y: 8, N: 2442
+[newN] Bit 20: LSB = 1, newN (parcial) = 21
+x: 39, y: 8, N: 2442
+[newN] Bit 21: LSB = 0, newN (parcial) = 42
+x: 40, y: 8, N: 2442
+[newN] Bit 22: LSB = 1, newN (parcial) = 85
+x: 41, y: 8, N: 2442
+[newN] Bit 23: LSB = 1, newN (parcial) = 171
+x: 42, y: 8, N: 2442
+[newN] Bit 24: LSB = 1, newN (parcial) = 343
+x: 43, y: 8, N: 2442
+[newN] Bit 25: LSB = 0, newN (parcial) = 686
+x: 44, y: 8, N: 2442
+[newN] Bit 26: LSB = 1, newN (parcial) = 1373
+x: 45, y: 8, N: 2442
+[newN] Bit 27: LSB = 0, newN (parcial) = 2746
+sx: 19, y: 9, N: 2746
+[Caractere] Bit 0: LSB = 0, Caractere (parcial) =  
+x: 20, y: 9, N: 2746
+[Caractere] Bit 1: LSB = 1, Caractere (parcial) = 
+x: 21, y: 9, N: 2746
+[Caractere] Bit 2: LSB = 1, Caractere (parcial) = 
+x: 22, y: 9, N: 2746
+[Caractere] Bit 3: LSB = 0, Caractere (parcial) = 
+x: 23, y: 9, N: 2746
+[Caractere] Bit 4: LSB = 0, Caractere (parcial) = 
+x: 24, y: 9, N: 2746
+[Caractere] Bit 5: LSB = 0, Caractere (parcial) = 
+x: 25, y: 9, N: 2746
+[Caractere] Bit 6: LSB = 1, Caractere (parcial) = 1
+x: 26, y: 9, N: 2746
+[Caractere] Bit 7: LSB = 1, Caractere (parcial) = c
+x: 27, y: 9, N: 2746
+[newN] Bit 8: LSB = 0, newN (parcial) = 0
+x: 28, y: 9, N: 2746
+[newN] Bit 9: LSB = 0, newN (parcial) = 0
+x: 29, y: 9, N: 2746
+[newN] Bit 10: LSB = 0, newN (parcial) = 0
+x: 30, y: 9, N: 2746
+[newN] Bit 11: LSB = 0, newN (parcial) = 0
+x: 31, y: 9, N: 2746
+[newN] Bit 12: LSB = 0, newN (parcial) = 0
+x: 32, y: 9, N: 2746
+[newN] Bit 13: LSB = 0, newN (parcial) = 0
+x: 33, y: 9, N: 2746
+[newN] Bit 14: LSB = 0, newN (parcial) = 0
+x: 34, y: 9, N: 2746
+[newN] Bit 15: LSB = 0, newN (parcial) = 0
+x: 35, y: 9, N: 2746
+[newN] Bit 16: LSB = 1, newN (parcial) = 1
+x: 36, y: 9, N: 2746
+[newN] Bit 17: LSB = 0, newN (parcial) = 2
+x: 37, y: 9, N: 2746
+[newN] Bit 18: LSB = 1, newN (parcial) = 5
+x: 38, y: 9, N: 2746
+[newN] Bit 19: LSB = 1, newN (parcial) = 11
+x: 39, y: 9, N: 2746
+[newN] Bit 20: LSB = 1, newN (parcial) = 23
+x: 40, y: 9, N: 2746
+[newN] Bit 21: LSB = 1, newN (parcial) = 47
+x: 41, y: 9, N: 2746
+[newN] Bit 22: LSB = 1, newN (parcial) = 95
+x: 42, y: 9, N: 2746
+[newN] Bit 23: LSB = 0, newN (parcial) = 190
+x: 43, y: 9, N: 2746
+[newN] Bit 24: LSB = 1, newN (parcial) = 381
+x: 44, y: 9, N: 2746
+[newN] Bit 25: LSB = 0, newN (parcial) = 762
+x: 45, y: 9, N: 2746
+[newN] Bit 26: LSB = 0, newN (parcial) = 1524
+x: 46, y: 9, N: 2746
+[newN] Bit 27: LSB = 1, newN (parcial) = 3049
+cx: 19, y: 10, N: 3049
+[Caractere] Bit 0: LSB = 0, Caractere (parcial) =  
+x: 20, y: 10, N: 3049
+[Caractere] Bit 1: LSB = 1, Caractere (parcial) = 
+x: 21, y: 10, N: 3049
+[Caractere] Bit 2: LSB = 1, Caractere (parcial) = 
+x: 22, y: 10, N: 3049
+[Caractere] Bit 3: LSB = 0, Caractere (parcial) = 
+x: 23, y: 10, N: 3049
+[Caractere] Bit 4: LSB = 1, Caractere (parcial) = 
+x: 24, y: 10, N: 3049
+[Caractere] Bit 5: LSB = 1, Caractere (parcial) = 
+x: 25, y: 10, N: 3049
+[Caractere] Bit 6: LSB = 1, Caractere (parcial) = 7
+x: 26, y: 10, N: 3049
+[Caractere] Bit 7: LSB = 1, Caractere (parcial) = o
+x: 27, y: 10, N: 3049
+[newN] Bit 8: LSB = 0, newN (parcial) = 0
+x: 28, y: 10, N: 3049
+[newN] Bit 9: LSB = 0, newN (parcial) = 0
+x: 29, y: 10, N: 3049
+[newN] Bit 10: LSB = 0, newN (parcial) = 0
+x: 30, y: 10, N: 3049
+[newN] Bit 11: LSB = 0, newN (parcial) = 0
+x: 31, y: 10, N: 3049
+[newN] Bit 12: LSB = 0, newN (parcial) = 0
+x: 32, y: 10, N: 3049
+[newN] Bit 13: LSB = 0, newN (parcial) = 0
+x: 33, y: 10, N: 3049
+[newN] Bit 14: LSB = 0, newN (parcial) = 0
+x: 34, y: 10, N: 3049
+[newN] Bit 15: LSB = 0, newN (parcial) = 0
+x: 35, y: 10, N: 3049
+[newN] Bit 16: LSB = 1, newN (parcial) = 1
+x: 36, y: 10, N: 3049
+[newN] Bit 17: LSB = 1, newN (parcial) = 3
+x: 37, y: 10, N: 3049
+[newN] Bit 18: LSB = 0, newN (parcial) = 6
+x: 38, y: 10, N: 3049
+[newN] Bit 19: LSB = 0, newN (parcial) = 12
+x: 39, y: 10, N: 3049
+[newN] Bit 20: LSB = 0, newN (parcial) = 24
+x: 40, y: 10, N: 3049
+[newN] Bit 21: LSB = 0, newN (parcial) = 48
+x: 41, y: 10, N: 3049
+[newN] Bit 22: LSB = 1, newN (parcial) = 97
+x: 42, y: 10, N: 3049
+[newN] Bit 23: LSB = 0, newN (parcial) = 194
+x: 43, y: 10, N: 3049
+[newN] Bit 24: LSB = 0, newN (parcial) = 388
+x: 44, y: 10, N: 3049
+[newN] Bit 25: LSB = 1, newN (parcial) = 777
+x: 45, y: 10, N: 3049
+[newN] Bit 26: LSB = 1, newN (parcial) = 1555
+x: 46, y: 10, N: 3049
+[newN] Bit 27: LSB = 1, newN (parcial) = 3111
+ox: 81, y: 10, N: 3111
+[Caractere] Bit 0: LSB = 0, Caractere (parcial) =  
+x: 82, y: 10, N: 3111
+[Caractere] Bit 1: LSB = 0, Caractere (parcial) =  
+x: 83, y: 10, N: 3111
+[Caractere] Bit 2: LSB = 0, Caractere (parcial) =  
+x: 84, y: 10, N: 3111
+[Caractere] Bit 3: LSB = 0, Caractere (parcial) =  
+x: 85, y: 10, N: 3111
+[Caractere] Bit 4: LSB = 0, Caractere (parcial) =  
+x: 86, y: 10, N: 3111
+[Caractere] Bit 5: LSB = 0, Caractere (parcial) =  
+x: 87, y: 10, N: 3111
+[Caractere] Bit 6: LSB = 0, Caractere (parcial) =  
+x: 88, y: 10, N: 3111
+[Caractere] Bit 7: LSB = 0, Caractere (parcial) =  
+ Mensagem decodificada: vasco 
 
 Trantando a imagem: rio-em-meio-as-pedras-170721_joao_machado_e_arasi-87.webp
 
@@ -2535,67 +2793,307 @@ Bits de carga: 00000000
 
 [2, 27, 23]
 
-x: 607, y: 0, N: 607
-[Caractere] Bit 0: LSB = 1, Caractere (parcial) = 
-x: 608, y: 0, N: 607
-[Caractere] Bit 1: LSB = 1, Caractere (parcial) = 
-x: 609, y: 0, N: 607
-[Caractere] Bit 2: LSB = 0, Caractere (parcial) = 
-x: 610, y: 0, N: 607
-[Caractere] Bit 3: LSB = 1, Caractere (parcial) = 
-x: 611, y: 0, N: 607
-[Caractere] Bit 4: LSB = 1, Caractere (parcial) = 
-x: 612, y: 0, N: 607
-[Caractere] Bit 5: LSB = 0, Caractere (parcial) = 6
-x: 613, y: 0, N: 607
-[Caractere] Bit 6: LSB = 1, Caractere (parcial) = m
-x: 614, y: 0, N: 607
-[Caractere] Bit 7: LSB = 0, Caractere (parcial) = �
-x: 615, y: 0, N: 607
-[newN] Bit 8: LSB = 1, newN (parcial) = 1
-x: 616, y: 0, N: 607
-[newN] Bit 9: LSB = 0, newN (parcial) = 2
-x: 617, y: 0, N: 607
-[newN] Bit 10: LSB = 0, newN (parcial) = 4
-x: 618, y: 0, N: 607
-[newN] Bit 11: LSB = 0, newN (parcial) = 8
-x: 619, y: 0, N: 607
-[newN] Bit 12: LSB = 1, newN (parcial) = 17
-x: 0, y: 1, N: 607
-[newN] Bit 13: LSB = 0, newN (parcial) = 34
-x: 1, y: 1, N: 607
-[newN] Bit 14: LSB = 1, newN (parcial) = 69
-x: 2, y: 1, N: 607
-[newN] Bit 15: LSB = 1, newN (parcial) = 139
-x: 3, y: 1, N: 607
-[newN] Bit 16: LSB = 1, newN (parcial) = 279
-x: 4, y: 1, N: 607
-[newN] Bit 17: LSB = 0, newN (parcial) = 558
-x: 5, y: 1, N: 607
-[newN] Bit 18: LSB = 1, newN (parcial) = 1117
-x: 6, y: 1, N: 607
-[newN] Bit 19: LSB = 1, newN (parcial) = 2235
-x: 7, y: 1, N: 607
-[newN] Bit 20: LSB = 0, newN (parcial) = 4470
-x: 8, y: 1, N: 607
-[newN] Bit 21: LSB = 0, newN (parcial) = 8940
-x: 9, y: 1, N: 607
-[newN] Bit 22: LSB = 0, newN (parcial) = 17880
-x: 10, y: 1, N: 607
-[newN] Bit 23: LSB = 1, newN (parcial) = 35761
-x: 11, y: 1, N: 607
-[newN] Bit 24: LSB = 0, newN (parcial) = 71522
-x: 12, y: 1, N: 607
-[newN] Bit 25: LSB = 1, newN (parcial) = 143045
-x: 13, y: 1, N: 607
-[newN] Bit 26: LSB = 0, newN (parcial) = 286090
-x: 14, y: 1, N: 607
-[newN] Bit 27: LSB = 0, newN (parcial) = 572180
-�Erro durante a execução: Fim da imagem atingido durante a decodificação.
+
+Insira N inicial de: rio-em-meio-as-pedras-170721_joao_machado_e_arasi-87.webp
+x: 219, y: 159, N: 98799
+[Caractere] Bit 0: LSB = 0, Caractere (parcial) =  
+x: 220, y: 159, N: 98799
+[Caractere] Bit 1: LSB = 1, Caractere (parcial) = 
+x: 221, y: 159, N: 98799
+[Caractere] Bit 2: LSB = 1, Caractere (parcial) = 
+x: 222, y: 159, N: 98799
+[Caractere] Bit 3: LSB = 1, Caractere (parcial) = 
+x: 223, y: 159, N: 98799
+[Caractere] Bit 4: LSB = 0, Caractere (parcial) = 
+x: 224, y: 159, N: 98799
+[Caractere] Bit 5: LSB = 1, Caractere (parcial) = 
+x: 225, y: 159, N: 98799
+[Caractere] Bit 6: LSB = 1, Caractere (parcial) = ;
+x: 226, y: 159, N: 98799
+[Caractere] Bit 7: LSB = 0, Caractere (parcial) = v
+x: 227, y: 159, N: 98799
+[newN] Bit 8: LSB = 0, newN (parcial) = 0
+x: 228, y: 159, N: 98799
+[newN] Bit 9: LSB = 0, newN (parcial) = 0
+x: 229, y: 159, N: 98799
+[newN] Bit 10: LSB = 0, newN (parcial) = 0
+x: 230, y: 159, N: 98799
+[newN] Bit 11: LSB = 1, newN (parcial) = 1
+x: 231, y: 159, N: 98799
+[newN] Bit 12: LSB = 1, newN (parcial) = 3
+x: 232, y: 159, N: 98799
+[newN] Bit 13: LSB = 0, newN (parcial) = 6
+x: 233, y: 159, N: 98799
+[newN] Bit 14: LSB = 1, newN (parcial) = 13
+x: 234, y: 159, N: 98799
+[newN] Bit 15: LSB = 0, newN (parcial) = 26
+x: 235, y: 159, N: 98799
+[newN] Bit 16: LSB = 1, newN (parcial) = 53
+x: 236, y: 159, N: 98799
+[newN] Bit 17: LSB = 1, newN (parcial) = 107
+x: 237, y: 159, N: 98799
+[newN] Bit 18: LSB = 0, newN (parcial) = 214
+x: 238, y: 159, N: 98799
+[newN] Bit 19: LSB = 1, newN (parcial) = 429
+x: 239, y: 159, N: 98799
+[newN] Bit 20: LSB = 0, newN (parcial) = 858
+x: 240, y: 159, N: 98799
+[newN] Bit 21: LSB = 0, newN (parcial) = 1716
+x: 241, y: 159, N: 98799
+[newN] Bit 22: LSB = 1, newN (parcial) = 3433
+x: 242, y: 159, N: 98799
+[newN] Bit 23: LSB = 1, newN (parcial) = 6867
+x: 243, y: 159, N: 98799
+[newN] Bit 24: LSB = 0, newN (parcial) = 13734
+x: 244, y: 159, N: 98799
+[newN] Bit 25: LSB = 0, newN (parcial) = 27468
+x: 245, y: 159, N: 98799
+[newN] Bit 26: LSB = 1, newN (parcial) = 54937
+x: 246, y: 159, N: 98799
+[newN] Bit 27: LSB = 0, newN (parcial) = 109874
+vx: 134, y: 177, N: 109874
+[Caractere] Bit 0: LSB = 0, Caractere (parcial) =  
+x: 135, y: 177, N: 109874
+[Caractere] Bit 1: LSB = 1, Caractere (parcial) = 
+x: 136, y: 177, N: 109874
+[Caractere] Bit 2: LSB = 1, Caractere (parcial) = 
+x: 137, y: 177, N: 109874
+[Caractere] Bit 3: LSB = 0, Caractere (parcial) = 
+x: 138, y: 177, N: 109874
+[Caractere] Bit 4: LSB = 0, Caractere (parcial) = 
+x: 139, y: 177, N: 109874
+[Caractere] Bit 5: LSB = 0, Caractere (parcial) = 
+x: 140, y: 177, N: 109874
+[Caractere] Bit 6: LSB = 0, Caractere (parcial) = 0
+x: 141, y: 177, N: 109874
+[Caractere] Bit 7: LSB = 1, Caractere (parcial) = a
+x: 142, y: 177, N: 109874
+[newN] Bit 8: LSB = 0, newN (parcial) = 0
+x: 143, y: 177, N: 109874
+[newN] Bit 9: LSB = 0, newN (parcial) = 0
+x: 144, y: 177, N: 109874
+[newN] Bit 10: LSB = 0, newN (parcial) = 0
+x: 145, y: 177, N: 109874
+[newN] Bit 11: LSB = 1, newN (parcial) = 1
+x: 146, y: 177, N: 109874
+[newN] Bit 12: LSB = 1, newN (parcial) = 3
+x: 147, y: 177, N: 109874
+[newN] Bit 13: LSB = 0, newN (parcial) = 6
+x: 148, y: 177, N: 109874
+[newN] Bit 14: LSB = 1, newN (parcial) = 13
+x: 149, y: 177, N: 109874
+[newN] Bit 15: LSB = 1, newN (parcial) = 27
+x: 150, y: 177, N: 109874
+[newN] Bit 16: LSB = 1, newN (parcial) = 55
+x: 151, y: 177, N: 109874
+[newN] Bit 17: LSB = 0, newN (parcial) = 110
+x: 152, y: 177, N: 109874
+[newN] Bit 18: LSB = 0, newN (parcial) = 220
+x: 153, y: 177, N: 109874
+[newN] Bit 19: LSB = 1, newN (parcial) = 441
+x: 154, y: 177, N: 109874
+[newN] Bit 20: LSB = 0, newN (parcial) = 882
+x: 155, y: 177, N: 109874
+[newN] Bit 21: LSB = 0, newN (parcial) = 1764
+x: 156, y: 177, N: 109874
+[newN] Bit 22: LSB = 1, newN (parcial) = 3529
+x: 157, y: 177, N: 109874
+[newN] Bit 23: LSB = 0, newN (parcial) = 7058
+x: 158, y: 177, N: 109874
+[newN] Bit 24: LSB = 0, newN (parcial) = 14116
+x: 159, y: 177, N: 109874
+[newN] Bit 25: LSB = 0, newN (parcial) = 28232
+x: 160, y: 177, N: 109874
+[newN] Bit 26: LSB = 1, newN (parcial) = 56465
+x: 161, y: 177, N: 109874
+[newN] Bit 27: LSB = 1, newN (parcial) = 112931
+ax: 91, y: 182, N: 112931
+[Caractere] Bit 0: LSB = 0, Caractere (parcial) =  
+x: 92, y: 182, N: 112931
+[Caractere] Bit 1: LSB = 1, Caractere (parcial) = 
+x: 93, y: 182, N: 112931
+[Caractere] Bit 2: LSB = 1, Caractere (parcial) = 
+x: 94, y: 182, N: 112931
+[Caractere] Bit 3: LSB = 1, Caractere (parcial) = 
+x: 95, y: 182, N: 112931
+[Caractere] Bit 4: LSB = 0, Caractere (parcial) = 
+x: 96, y: 182, N: 112931
+[Caractere] Bit 5: LSB = 0, Caractere (parcial) = 
+x: 97, y: 182, N: 112931
+[Caractere] Bit 6: LSB = 1, Caractere (parcial) = 9
+x: 98, y: 182, N: 112931
+[Caractere] Bit 7: LSB = 1, Caractere (parcial) = s
+x: 99, y: 182, N: 112931
+[newN] Bit 8: LSB = 0, newN (parcial) = 0
+x: 100, y: 182, N: 112931
+[newN] Bit 9: LSB = 0, newN (parcial) = 0
+x: 101, y: 182, N: 112931
+[newN] Bit 10: LSB = 0, newN (parcial) = 0
+x: 102, y: 182, N: 112931
+[newN] Bit 11: LSB = 1, newN (parcial) = 1
+x: 103, y: 182, N: 112931
+[newN] Bit 12: LSB = 1, newN (parcial) = 3
+x: 104, y: 182, N: 112931
+[newN] Bit 13: LSB = 1, newN (parcial) = 7
+x: 105, y: 182, N: 112931
+[newN] Bit 14: LSB = 1, newN (parcial) = 15
+x: 106, y: 182, N: 112931
+[newN] Bit 15: LSB = 0, newN (parcial) = 30
+x: 107, y: 182, N: 112931
+[newN] Bit 16: LSB = 1, newN (parcial) = 61
+x: 108, y: 182, N: 112931
+[newN] Bit 17: LSB = 1, newN (parcial) = 123
+x: 109, y: 182, N: 112931
+[newN] Bit 18: LSB = 0, newN (parcial) = 246
+x: 110, y: 182, N: 112931
+[newN] Bit 19: LSB = 0, newN (parcial) = 492
+x: 111, y: 182, N: 112931
+[newN] Bit 20: LSB = 0, newN (parcial) = 984
+x: 112, y: 182, N: 112931
+[newN] Bit 21: LSB = 1, newN (parcial) = 1969
+x: 113, y: 182, N: 112931
+[newN] Bit 22: LSB = 0, newN (parcial) = 3938
+x: 114, y: 182, N: 112931
+[newN] Bit 23: LSB = 1, newN (parcial) = 7877
+x: 115, y: 182, N: 112931
+[newN] Bit 24: LSB = 1, newN (parcial) = 15755
+x: 116, y: 182, N: 112931
+[newN] Bit 25: LSB = 1, newN (parcial) = 31511
+x: 117, y: 182, N: 112931
+[newN] Bit 26: LSB = 1, newN (parcial) = 63023
+x: 118, y: 182, N: 112931
+[newN] Bit 27: LSB = 0, newN (parcial) = 126046
+sx: 186, y: 203, N: 126046
+[Caractere] Bit 0: LSB = 0, Caractere (parcial) =  
+x: 187, y: 203, N: 126046
+[Caractere] Bit 1: LSB = 1, Caractere (parcial) = 
+x: 188, y: 203, N: 126046
+[Caractere] Bit 2: LSB = 1, Caractere (parcial) = 
+x: 189, y: 203, N: 126046
+[Caractere] Bit 3: LSB = 0, Caractere (parcial) = 
+x: 190, y: 203, N: 126046
+[Caractere] Bit 4: LSB = 0, Caractere (parcial) = 
+x: 191, y: 203, N: 126046
+[Caractere] Bit 5: LSB = 0, Caractere (parcial) = 
+x: 192, y: 203, N: 126046
+[Caractere] Bit 6: LSB = 1, Caractere (parcial) = 1
+x: 193, y: 203, N: 126046
+[Caractere] Bit 7: LSB = 1, Caractere (parcial) = c
+x: 194, y: 203, N: 126046
+[newN] Bit 8: LSB = 0, newN (parcial) = 0
+x: 195, y: 203, N: 126046
+[newN] Bit 9: LSB = 0, newN (parcial) = 0
+x: 196, y: 203, N: 126046
+[newN] Bit 10: LSB = 0, newN (parcial) = 0
+x: 197, y: 203, N: 126046
+[newN] Bit 11: LSB = 1, newN (parcial) = 1
+x: 198, y: 203, N: 126046
+[newN] Bit 12: LSB = 1, newN (parcial) = 3
+x: 199, y: 203, N: 126046
+[newN] Bit 13: LSB = 1, newN (parcial) = 7
+x: 200, y: 203, N: 126046
+[newN] Bit 14: LSB = 1, newN (parcial) = 15
+x: 201, y: 203, N: 126046
+[newN] Bit 15: LSB = 1, newN (parcial) = 31
+x: 202, y: 203, N: 126046
+[newN] Bit 16: LSB = 0, newN (parcial) = 62
+x: 203, y: 203, N: 126046
+[newN] Bit 17: LSB = 0, newN (parcial) = 124
+x: 204, y: 203, N: 126046
+[newN] Bit 18: LSB = 1, newN (parcial) = 249
+x: 205, y: 203, N: 126046
+[newN] Bit 19: LSB = 0, newN (parcial) = 498
+x: 206, y: 203, N: 126046
+[newN] Bit 20: LSB = 0, newN (parcial) = 996
+x: 207, y: 203, N: 126046
+[newN] Bit 21: LSB = 1, newN (parcial) = 1993
+x: 208, y: 203, N: 126046
+[newN] Bit 22: LSB = 0, newN (parcial) = 3986
+x: 209, y: 203, N: 126046
+[newN] Bit 23: LSB = 1, newN (parcial) = 7973
+x: 210, y: 203, N: 126046
+[newN] Bit 24: LSB = 0, newN (parcial) = 15946
+x: 211, y: 203, N: 126046
+[newN] Bit 25: LSB = 0, newN (parcial) = 31892
+x: 212, y: 203, N: 126046
+[newN] Bit 26: LSB = 0, newN (parcial) = 63784
+x: 213, y: 203, N: 126046
+[newN] Bit 27: LSB = 1, newN (parcial) = 127569
+cx: 469, y: 205, N: 127569
+[Caractere] Bit 0: LSB = 0, Caractere (parcial) =  
+x: 470, y: 205, N: 127569
+[Caractere] Bit 1: LSB = 1, Caractere (parcial) = 
+x: 471, y: 205, N: 127569
+[Caractere] Bit 2: LSB = 1, Caractere (parcial) = 
+x: 472, y: 205, N: 127569
+[Caractere] Bit 3: LSB = 0, Caractere (parcial) = 
+x: 473, y: 205, N: 127569
+[Caractere] Bit 4: LSB = 1, Caractere (parcial) = 
+x: 474, y: 205, N: 127569
+[Caractere] Bit 5: LSB = 1, Caractere (parcial) = 
+x: 475, y: 205, N: 127569
+[Caractere] Bit 6: LSB = 1, Caractere (parcial) = 7
+x: 476, y: 205, N: 127569
+[Caractere] Bit 7: LSB = 1, Caractere (parcial) = o
+x: 477, y: 205, N: 127569
+[newN] Bit 8: LSB = 0, newN (parcial) = 0
+x: 478, y: 205, N: 127569
+[newN] Bit 9: LSB = 0, newN (parcial) = 0
+x: 479, y: 205, N: 127569
+[newN] Bit 10: LSB = 1, newN (parcial) = 1
+x: 480, y: 205, N: 127569
+[newN] Bit 11: LSB = 0, newN (parcial) = 2
+x: 481, y: 205, N: 127569
+[newN] Bit 12: LSB = 0, newN (parcial) = 4
+x: 482, y: 205, N: 127569
+[newN] Bit 13: LSB = 0, newN (parcial) = 8
+x: 483, y: 205, N: 127569
+[newN] Bit 14: LSB = 0, newN (parcial) = 16
+x: 484, y: 205, N: 127569
+[newN] Bit 15: LSB = 1, newN (parcial) = 33
+x: 485, y: 205, N: 127569
+[newN] Bit 16: LSB = 0, newN (parcial) = 66
+x: 486, y: 205, N: 127569
+[newN] Bit 17: LSB = 0, newN (parcial) = 132
+x: 487, y: 205, N: 127569
+[newN] Bit 18: LSB = 1, newN (parcial) = 265
+x: 488, y: 205, N: 127569
+[newN] Bit 19: LSB = 0, newN (parcial) = 530
+x: 489, y: 205, N: 127569
+[newN] Bit 20: LSB = 0, newN (parcial) = 1060
+x: 490, y: 205, N: 127569
+[newN] Bit 21: LSB = 1, newN (parcial) = 2121
+x: 491, y: 205, N: 127569
+[newN] Bit 22: LSB = 1, newN (parcial) = 4243
+x: 492, y: 205, N: 127569
+[newN] Bit 23: LSB = 1, newN (parcial) = 8487
+x: 493, y: 205, N: 127569
+[newN] Bit 24: LSB = 1, newN (parcial) = 16975
+x: 494, y: 205, N: 127569
+[newN] Bit 25: LSB = 1, newN (parcial) = 33951
+x: 495, y: 205, N: 127569
+[newN] Bit 26: LSB = 0, newN (parcial) = 67902
+x: 496, y: 205, N: 127569
+[newN] Bit 27: LSB = 0, newN (parcial) = 135804
+ox: 24, y: 219, N: 135804
+[Caractere] Bit 0: LSB = 0, Caractere (parcial) =  
+x: 25, y: 219, N: 135804
+[Caractere] Bit 1: LSB = 0, Caractere (parcial) =  
+x: 26, y: 219, N: 135804
+[Caractere] Bit 2: LSB = 0, Caractere (parcial) =  
+x: 27, y: 219, N: 135804
+[Caractere] Bit 3: LSB = 0, Caractere (parcial) =  
+x: 28, y: 219, N: 135804
+[Caractere] Bit 4: LSB = 0, Caractere (parcial) =  
+x: 29, y: 219, N: 135804
+[Caractere] Bit 5: LSB = 0, Caractere (parcial) =  
+x: 30, y: 219, N: 135804
+[Caractere] Bit 6: LSB = 0, Caractere (parcial) =  
+x: 31, y: 219, N: 135804
+[Caractere] Bit 7: LSB = 0, Caractere (parcial) =  
+ Mensagem decodificada: vasco 
 
 Trantando a imagem: Sem título1.jpg
-
-A imagem não tem blocos o suficiente
 Erro durante a execução: Imagem não tem blocos o suficiente.
 
 Trantando a imagem: Dia-da-Arvore-Site-Capa-pv5306fpyuj9hsfy6alqh4gh2h9pv0upm6muay8nw6.jpg
@@ -3067,174 +3565,302 @@ Bits de carga: 00000000
 
 [16, 19, 24]
 
-x: 607, y: 0, N: 607
+
+Insira N inicial de: Dia-da-Arvore-Site-Capa-pv5306fpyuj9hsfy6alqh4gh2h9pv0upm6muay8nw6.jpg
+x: 754, y: 45, N: 44269
 [Caractere] Bit 0: LSB = 0, Caractere (parcial) =  
-x: 608, y: 0, N: 607
+x: 755, y: 45, N: 44269
 [Caractere] Bit 1: LSB = 1, Caractere (parcial) = 
-x: 609, y: 0, N: 607
-[Caractere] Bit 2: LSB = 0, Caractere (parcial) = 
-x: 610, y: 0, N: 607
-[Caractere] Bit 3: LSB = 1, Caractere (parcial) = 
-x: 611, y: 0, N: 607
-[Caractere] Bit 4: LSB = 0, Caractere (parcial) = 
-
-x: 612, y: 0, N: 607
-[Caractere] Bit 5: LSB = 0, Caractere (parcial) = 
-x: 613, y: 0, N: 607
-[Caractere] Bit 6: LSB = 0, Caractere (parcial) = (
-x: 614, y: 0, N: 607
-[Caractere] Bit 7: LSB = 0, Caractere (parcial) = P
-x: 615, y: 0, N: 607
+x: 756, y: 45, N: 44269
+[Caractere] Bit 2: LSB = 1, Caractere (parcial) = 
+x: 757, y: 45, N: 44269
+[Caractere] Bit 3: LSB = 1, Caractere (parcial) = 
+x: 758, y: 45, N: 44269
+[Caractere] Bit 4: LSB = 0, Caractere (parcial) = 
+x: 759, y: 45, N: 44269
+[Caractere] Bit 5: LSB = 1, Caractere (parcial) = 
+x: 760, y: 45, N: 44269
+[Caractere] Bit 6: LSB = 1, Caractere (parcial) = ;
+x: 761, y: 45, N: 44269
+[Caractere] Bit 7: LSB = 0, Caractere (parcial) = v
+x: 762, y: 45, N: 44269
 [newN] Bit 8: LSB = 0, newN (parcial) = 0
-x: 616, y: 0, N: 607
-[newN] Bit 9: LSB = 1, newN (parcial) = 1
-x: 617, y: 0, N: 607
-[newN] Bit 10: LSB = 1, newN (parcial) = 3
-x: 618, y: 0, N: 607
-[newN] Bit 11: LSB = 0, newN (parcial) = 6
-x: 619, y: 0, N: 607
-[newN] Bit 12: LSB = 0, newN (parcial) = 12
-x: 620, y: 0, N: 607
-[newN] Bit 13: LSB = 0, newN (parcial) = 24
-x: 621, y: 0, N: 607
-[newN] Bit 14: LSB = 0, newN (parcial) = 48
-x: 622, y: 0, N: 607
-[newN] Bit 15: LSB = 0, newN (parcial) = 96
-x: 623, y: 0, N: 607
-[newN] Bit 16: LSB = 0, newN (parcial) = 192
-x: 624, y: 0, N: 607
-[newN] Bit 17: LSB = 0, newN (parcial) = 384
-x: 625, y: 0, N: 607
-[newN] Bit 18: LSB = 1, newN (parcial) = 769
-x: 626, y: 0, N: 607
-[newN] Bit 19: LSB = 0, newN (parcial) = 1538
-x: 627, y: 0, N: 607
-[newN] Bit 20: LSB = 0, newN (parcial) = 3076
-x: 628, y: 0, N: 607
-[newN] Bit 21: LSB = 0, newN (parcial) = 6152
-x: 629, y: 0, N: 607
-[newN] Bit 22: LSB = 0, newN (parcial) = 12304
-x: 630, y: 0, N: 607
-[newN] Bit 23: LSB = 1, newN (parcial) = 24609
-x: 631, y: 0, N: 607
-[newN] Bit 24: LSB = 0, newN (parcial) = 49218
-x: 632, y: 0, N: 607
-[newN] Bit 25: LSB = 0, newN (parcial) = 98436
-x: 633, y: 0, N: 607
-[newN] Bit 26: LSB = 1, newN (parcial) = 196873
-x: 634, y: 0, N: 607
-[newN] Bit 27: LSB = 0, newN (parcial) = 393746
-Px: 177, y: 407, N: 393746
-[Caractere] Bit 0: LSB = 1, Caractere (parcial) = 
-x: 178, y: 407, N: 393746
-[Caractere] Bit 1: LSB = 0, Caractere (parcial) = 
-x: 179, y: 407, N: 393746
-[Caractere] Bit 2: LSB = 1, Caractere (parcial) = 
-x: 180, y: 407, N: 393746
-[Caractere] Bit 3: LSB = 0, Caractere (parcial) = 
-
-x: 181, y: 407, N: 393746
-[Caractere] Bit 4: LSB = 0, Caractere (parcial) = 
-x: 182, y: 407, N: 393746
-[Caractere] Bit 5: LSB = 0, Caractere (parcial) = (
-x: 183, y: 407, N: 393746
-[Caractere] Bit 6: LSB = 1, Caractere (parcial) = Q
-x: 184, y: 407, N: 393746
-[Caractere] Bit 7: LSB = 0, Caractere (parcial) = �
-x: 185, y: 407, N: 393746
-[newN] Bit 8: LSB = 0, newN (parcial) = 0
-x: 186, y: 407, N: 393746
-[newN] Bit 9: LSB = 1, newN (parcial) = 1
-x: 187, y: 407, N: 393746
-[newN] Bit 10: LSB = 0, newN (parcial) = 2
-x: 188, y: 407, N: 393746
-[newN] Bit 11: LSB = 0, newN (parcial) = 4
-x: 189, y: 407, N: 393746
-[newN] Bit 12: LSB = 0, newN (parcial) = 8
-x: 190, y: 407, N: 393746
-[newN] Bit 13: LSB = 1, newN (parcial) = 17
-x: 191, y: 407, N: 393746
-[newN] Bit 14: LSB = 0, newN (parcial) = 34
-x: 192, y: 407, N: 393746
-[newN] Bit 15: LSB = 1, newN (parcial) = 69
-x: 193, y: 407, N: 393746
-[newN] Bit 16: LSB = 0, newN (parcial) = 138
-x: 194, y: 407, N: 393746
-[newN] Bit 17: LSB = 1, newN (parcial) = 277
-x: 195, y: 407, N: 393746
-[newN] Bit 18: LSB = 1, newN (parcial) = 555
-x: 196, y: 407, N: 393746
-[newN] Bit 19: LSB = 1, newN (parcial) = 1111
-x: 197, y: 407, N: 393746
-[newN] Bit 20: LSB = 1, newN (parcial) = 2223
-x: 198, y: 407, N: 393746
-[newN] Bit 21: LSB = 1, newN (parcial) = 4447
-x: 199, y: 407, N: 393746
-[newN] Bit 22: LSB = 1, newN (parcial) = 8895
-x: 200, y: 407, N: 393746
-[newN] Bit 23: LSB = 1, newN (parcial) = 17791
-x: 201, y: 407, N: 393746
-[newN] Bit 24: LSB = 0, newN (parcial) = 35582
-x: 202, y: 407, N: 393746
-[newN] Bit 25: LSB = 1, newN (parcial) = 71165
-x: 203, y: 407, N: 393746
-[newN] Bit 26: LSB = 1, newN (parcial) = 142331
-x: 204, y: 407, N: 393746
-[newN] Bit 27: LSB = 1, newN (parcial) = 284663
-�x: 365, y: 294, N: 284663
+x: 763, y: 45, N: 44269
+[newN] Bit 9: LSB = 0, newN (parcial) = 0
+x: 764, y: 45, N: 44269
+[newN] Bit 10: LSB = 0, newN (parcial) = 0
+x: 765, y: 45, N: 44269
+[newN] Bit 11: LSB = 0, newN (parcial) = 0
+x: 766, y: 45, N: 44269
+[newN] Bit 12: LSB = 1, newN (parcial) = 1
+x: 767, y: 45, N: 44269
+[newN] Bit 13: LSB = 1, newN (parcial) = 3
+x: 768, y: 45, N: 44269
+[newN] Bit 14: LSB = 0, newN (parcial) = 6
+x: 769, y: 45, N: 44269
+[newN] Bit 15: LSB = 1, newN (parcial) = 13
+x: 770, y: 45, N: 44269
+[newN] Bit 16: LSB = 1, newN (parcial) = 27
+x: 771, y: 45, N: 44269
+[newN] Bit 17: LSB = 1, newN (parcial) = 55
+x: 772, y: 45, N: 44269
+[newN] Bit 18: LSB = 0, newN (parcial) = 110
+x: 773, y: 45, N: 44269
+[newN] Bit 19: LSB = 0, newN (parcial) = 220
+x: 774, y: 45, N: 44269
+[newN] Bit 20: LSB = 1, newN (parcial) = 441
+x: 775, y: 45, N: 44269
+[newN] Bit 21: LSB = 1, newN (parcial) = 883
+x: 776, y: 45, N: 44269
+[newN] Bit 22: LSB = 0, newN (parcial) = 1766
+x: 777, y: 45, N: 44269
+[newN] Bit 23: LSB = 0, newN (parcial) = 3532
+x: 778, y: 45, N: 44269
+[newN] Bit 24: LSB = 1, newN (parcial) = 7065
+x: 779, y: 45, N: 44269
+[newN] Bit 25: LSB = 0, newN (parcial) = 14130
+x: 780, y: 45, N: 44269
+[newN] Bit 26: LSB = 1, newN (parcial) = 28261
+x: 781, y: 45, N: 44269
+[newN] Bit 27: LSB = 1, newN (parcial) = 56523
+vx: 437, y: 58, N: 56523
 [Caractere] Bit 0: LSB = 0, Caractere (parcial) =  
-x: 366, y: 294, N: 284663
+x: 438, y: 58, N: 56523
+[Caractere] Bit 1: LSB = 1, Caractere (parcial) = 
+x: 439, y: 58, N: 56523
+[Caractere] Bit 2: LSB = 1, Caractere (parcial) = 
+x: 440, y: 58, N: 56523
+[Caractere] Bit 3: LSB = 0, Caractere (parcial) = 
+x: 441, y: 58, N: 56523
+[Caractere] Bit 4: LSB = 0, Caractere (parcial) = 
+x: 442, y: 58, N: 56523
+[Caractere] Bit 5: LSB = 0, Caractere (parcial) = 
+x: 443, y: 58, N: 56523
+[Caractere] Bit 6: LSB = 0, Caractere (parcial) = 0
+x: 444, y: 58, N: 56523
+[Caractere] Bit 7: LSB = 1, Caractere (parcial) = a
+x: 445, y: 58, N: 56523
+[newN] Bit 8: LSB = 0, newN (parcial) = 0
+x: 446, y: 58, N: 56523
+[newN] Bit 9: LSB = 0, newN (parcial) = 0
+x: 447, y: 58, N: 56523
+[newN] Bit 10: LSB = 0, newN (parcial) = 0
+x: 448, y: 58, N: 56523
+[newN] Bit 11: LSB = 1, newN (parcial) = 1
+x: 449, y: 58, N: 56523
+[newN] Bit 12: LSB = 0, newN (parcial) = 2
+x: 450, y: 58, N: 56523
+[newN] Bit 13: LSB = 0, newN (parcial) = 4
+x: 451, y: 58, N: 56523
+[newN] Bit 14: LSB = 0, newN (parcial) = 8
+x: 452, y: 58, N: 56523
+[newN] Bit 15: LSB = 1, newN (parcial) = 17
+x: 453, y: 58, N: 56523
+[newN] Bit 16: LSB = 0, newN (parcial) = 34
+x: 454, y: 58, N: 56523
+[newN] Bit 17: LSB = 1, newN (parcial) = 69
+x: 455, y: 58, N: 56523
+[newN] Bit 18: LSB = 0, newN (parcial) = 138
+x: 456, y: 58, N: 56523
+[newN] Bit 19: LSB = 0, newN (parcial) = 276
+x: 457, y: 58, N: 56523
+[newN] Bit 20: LSB = 1, newN (parcial) = 553
+x: 458, y: 58, N: 56523
+[newN] Bit 21: LSB = 1, newN (parcial) = 1107
+x: 459, y: 58, N: 56523
+[newN] Bit 22: LSB = 1, newN (parcial) = 2215
+x: 460, y: 58, N: 56523
+[newN] Bit 23: LSB = 1, newN (parcial) = 4431
+x: 461, y: 58, N: 56523
+[newN] Bit 24: LSB = 1, newN (parcial) = 8863
+x: 462, y: 58, N: 56523
+[newN] Bit 25: LSB = 1, newN (parcial) = 17727
+x: 463, y: 58, N: 56523
+[newN] Bit 26: LSB = 1, newN (parcial) = 35455
+x: 464, y: 58, N: 56523
+[newN] Bit 27: LSB = 1, newN (parcial) = 70911
+ax: 320, y: 73, N: 70911
+[Caractere] Bit 0: LSB = 0, Caractere (parcial) =  
+x: 321, y: 73, N: 70911
+[Caractere] Bit 1: LSB = 1, Caractere (parcial) = 
+x: 322, y: 73, N: 70911
+[Caractere] Bit 2: LSB = 1, Caractere (parcial) = 
+x: 323, y: 73, N: 70911
+[Caractere] Bit 3: LSB = 1, Caractere (parcial) = 
+x: 324, y: 73, N: 70911
+[Caractere] Bit 4: LSB = 0, Caractere (parcial) = 
+x: 325, y: 73, N: 70911
+[Caractere] Bit 5: LSB = 0, Caractere (parcial) = 
+x: 326, y: 73, N: 70911
+[Caractere] Bit 6: LSB = 1, Caractere (parcial) = 9
+x: 327, y: 73, N: 70911
+[Caractere] Bit 7: LSB = 1, Caractere (parcial) = s
+x: 328, y: 73, N: 70911
+[newN] Bit 8: LSB = 0, newN (parcial) = 0
+x: 329, y: 73, N: 70911
+[newN] Bit 9: LSB = 0, newN (parcial) = 0
+x: 330, y: 73, N: 70911
+[newN] Bit 10: LSB = 0, newN (parcial) = 0
+x: 331, y: 73, N: 70911
+[newN] Bit 11: LSB = 1, newN (parcial) = 1
+x: 332, y: 73, N: 70911
+[newN] Bit 12: LSB = 0, newN (parcial) = 2
+x: 333, y: 73, N: 70911
+[newN] Bit 13: LSB = 0, newN (parcial) = 4
+x: 334, y: 73, N: 70911
+[newN] Bit 14: LSB = 1, newN (parcial) = 9
+x: 335, y: 73, N: 70911
+[newN] Bit 15: LSB = 0, newN (parcial) = 18
+x: 336, y: 73, N: 70911
+[newN] Bit 16: LSB = 0, newN (parcial) = 36
+x: 337, y: 73, N: 70911
+[newN] Bit 17: LSB = 1, newN (parcial) = 73
+x: 338, y: 73, N: 70911
+[newN] Bit 18: LSB = 0, newN (parcial) = 146
+x: 339, y: 73, N: 70911
+[newN] Bit 19: LSB = 1, newN (parcial) = 293
+x: 340, y: 73, N: 70911
+[newN] Bit 20: LSB = 0, newN (parcial) = 586
+x: 341, y: 73, N: 70911
+[newN] Bit 21: LSB = 0, newN (parcial) = 1172
+x: 342, y: 73, N: 70911
+[newN] Bit 22: LSB = 0, newN (parcial) = 2344
+x: 343, y: 73, N: 70911
+[newN] Bit 23: LSB = 0, newN (parcial) = 4688
+x: 344, y: 73, N: 70911
+[newN] Bit 24: LSB = 0, newN (parcial) = 9376
+x: 345, y: 73, N: 70911
+[newN] Bit 25: LSB = 1, newN (parcial) = 18753
+x: 346, y: 73, N: 70911
+[newN] Bit 26: LSB = 0, newN (parcial) = 37506
+x: 347, y: 73, N: 70911
+[newN] Bit 27: LSB = 0, newN (parcial) = 75012
+sx: 553, y: 77, N: 75012
+[Caractere] Bit 0: LSB = 0, Caractere (parcial) =  
+x: 554, y: 77, N: 75012
+[Caractere] Bit 1: LSB = 1, Caractere (parcial) = 
+x: 555, y: 77, N: 75012
+[Caractere] Bit 2: LSB = 1, Caractere (parcial) = 
+x: 556, y: 77, N: 75012
+[Caractere] Bit 3: LSB = 0, Caractere (parcial) = 
+x: 557, y: 77, N: 75012
+[Caractere] Bit 4: LSB = 0, Caractere (parcial) = 
+x: 558, y: 77, N: 75012
+[Caractere] Bit 5: LSB = 0, Caractere (parcial) = 
+x: 559, y: 77, N: 75012
+[Caractere] Bit 6: LSB = 1, Caractere (parcial) = 1
+x: 560, y: 77, N: 75012
+[Caractere] Bit 7: LSB = 1, Caractere (parcial) = c
+x: 561, y: 77, N: 75012
+[newN] Bit 8: LSB = 0, newN (parcial) = 0
+x: 562, y: 77, N: 75012
+[newN] Bit 9: LSB = 0, newN (parcial) = 0
+x: 563, y: 77, N: 75012
+[newN] Bit 10: LSB = 0, newN (parcial) = 0
+x: 564, y: 77, N: 75012
+[newN] Bit 11: LSB = 1, newN (parcial) = 1
+x: 565, y: 77, N: 75012
+[newN] Bit 12: LSB = 1, newN (parcial) = 3
+x: 566, y: 77, N: 75012
+[newN] Bit 13: LSB = 1, newN (parcial) = 7
+x: 567, y: 77, N: 75012
+[newN] Bit 14: LSB = 0, newN (parcial) = 14
+x: 568, y: 77, N: 75012
+[newN] Bit 15: LSB = 1, newN (parcial) = 29
+x: 569, y: 77, N: 75012
+[newN] Bit 16: LSB = 0, newN (parcial) = 58
+x: 570, y: 77, N: 75012
+[newN] Bit 17: LSB = 0, newN (parcial) = 116
+x: 571, y: 77, N: 75012
+[newN] Bit 18: LSB = 1, newN (parcial) = 233
+x: 572, y: 77, N: 75012
+[newN] Bit 19: LSB = 1, newN (parcial) = 467
+x: 573, y: 77, N: 75012
+[newN] Bit 20: LSB = 0, newN (parcial) = 934
+x: 574, y: 77, N: 75012
+[newN] Bit 21: LSB = 1, newN (parcial) = 1869
+x: 575, y: 77, N: 75012
+[newN] Bit 22: LSB = 0, newN (parcial) = 3738
+x: 576, y: 77, N: 75012
+[newN] Bit 23: LSB = 1, newN (parcial) = 7477
+x: 577, y: 77, N: 75012
+[newN] Bit 24: LSB = 1, newN (parcial) = 14955
+x: 578, y: 77, N: 75012
+[newN] Bit 25: LSB = 0, newN (parcial) = 29910
+x: 579, y: 77, N: 75012
+[newN] Bit 26: LSB = 1, newN (parcial) = 59821
+x: 580, y: 77, N: 75012
+[newN] Bit 27: LSB = 0, newN (parcial) = 119642
+cx: 701, y: 123, N: 119642
+[Caractere] Bit 0: LSB = 0, Caractere (parcial) =  
+x: 702, y: 123, N: 119642
+[Caractere] Bit 1: LSB = 1, Caractere (parcial) = 
+x: 703, y: 123, N: 119642
+[Caractere] Bit 2: LSB = 1, Caractere (parcial) = 
+x: 704, y: 123, N: 119642
+[Caractere] Bit 3: LSB = 0, Caractere (parcial) = 
+x: 705, y: 123, N: 119642
+[Caractere] Bit 4: LSB = 1, Caractere (parcial) = 
+x: 706, y: 123, N: 119642
+[Caractere] Bit 5: LSB = 1, Caractere (parcial) = 
+x: 707, y: 123, N: 119642
+[Caractere] Bit 6: LSB = 1, Caractere (parcial) = 7
+x: 708, y: 123, N: 119642
+[Caractere] Bit 7: LSB = 1, Caractere (parcial) = o
+x: 709, y: 123, N: 119642
+[newN] Bit 8: LSB = 0, newN (parcial) = 0
+x: 710, y: 123, N: 119642
+[newN] Bit 9: LSB = 0, newN (parcial) = 0
+x: 711, y: 123, N: 119642
+[newN] Bit 10: LSB = 0, newN (parcial) = 0
+x: 712, y: 123, N: 119642
+[newN] Bit 11: LSB = 1, newN (parcial) = 1
+x: 713, y: 123, N: 119642
+[newN] Bit 12: LSB = 1, newN (parcial) = 3
+x: 714, y: 123, N: 119642
+[newN] Bit 13: LSB = 1, newN (parcial) = 7
+x: 715, y: 123, N: 119642
+[newN] Bit 14: LSB = 0, newN (parcial) = 14
+x: 716, y: 123, N: 119642
+[newN] Bit 15: LSB = 1, newN (parcial) = 29
+x: 717, y: 123, N: 119642
+[newN] Bit 16: LSB = 0, newN (parcial) = 58
+x: 718, y: 123, N: 119642
+[newN] Bit 17: LSB = 1, newN (parcial) = 117
+x: 719, y: 123, N: 119642
+[newN] Bit 18: LSB = 1, newN (parcial) = 235
+x: 720, y: 123, N: 119642
+[newN] Bit 19: LSB = 1, newN (parcial) = 471
+x: 721, y: 123, N: 119642
+[newN] Bit 20: LSB = 0, newN (parcial) = 942
+x: 722, y: 123, N: 119642
+[newN] Bit 21: LSB = 0, newN (parcial) = 1884
+x: 723, y: 123, N: 119642
+[newN] Bit 22: LSB = 1, newN (parcial) = 3769
+x: 724, y: 123, N: 119642
+[newN] Bit 23: LSB = 0, newN (parcial) = 7538
+x: 725, y: 123, N: 119642
+[newN] Bit 24: LSB = 0, newN (parcial) = 15076
+x: 726, y: 123, N: 119642
+[newN] Bit 25: LSB = 0, newN (parcial) = 30152
+x: 727, y: 123, N: 119642
+[newN] Bit 26: LSB = 0, newN (parcial) = 60304
+x: 728, y: 123, N: 119642
+[newN] Bit 27: LSB = 1, newN (parcial) = 120609
+ox: 701, y: 124, N: 120609
+[Caractere] Bit 0: LSB = 0, Caractere (parcial) =  
+x: 702, y: 124, N: 120609
 [Caractere] Bit 1: LSB = 0, Caractere (parcial) =  
-x: 367, y: 294, N: 284663
+x: 703, y: 124, N: 120609
 [Caractere] Bit 2: LSB = 0, Caractere (parcial) =  
-x: 368, y: 294, N: 284663
-[Caractere] Bit 3: LSB = 1, Caractere (parcial) = 
-x: 369, y: 294, N: 284663
-[Caractere] Bit 4: LSB = 1, Caractere (parcial) = 
-x: 370, y: 294, N: 284663
-[Caractere] Bit 5: LSB = 1, Caractere (parcial) = 
-x: 371, y: 294, N: 284663
-[Caractere] Bit 6: LSB = 1, Caractere (parcial) = 
-x: 372, y: 294, N: 284663
-[Caractere] Bit 7: LSB = 0, Caractere (parcial) = 
-x: 373, y: 294, N: 284663
-[newN] Bit 8: LSB = 1, newN (parcial) = 1
-x: 374, y: 294, N: 284663
-[newN] Bit 9: LSB = 1, newN (parcial) = 3
-x: 375, y: 294, N: 284663
-[newN] Bit 10: LSB = 0, newN (parcial) = 6
-x: 376, y: 294, N: 284663
-[newN] Bit 11: LSB = 0, newN (parcial) = 12
-x: 377, y: 294, N: 284663
-[newN] Bit 12: LSB = 0, newN (parcial) = 24
-x: 378, y: 294, N: 284663
-[newN] Bit 13: LSB = 1, newN (parcial) = 49
-x: 379, y: 294, N: 284663
-[newN] Bit 14: LSB = 0, newN (parcial) = 98
-x: 380, y: 294, N: 284663
-[newN] Bit 15: LSB = 1, newN (parcial) = 197
-x: 381, y: 294, N: 284663
-[newN] Bit 16: LSB = 0, newN (parcial) = 394
-x: 382, y: 294, N: 284663
-[newN] Bit 17: LSB = 1, newN (parcial) = 789
-x: 383, y: 294, N: 284663
-[newN] Bit 18: LSB = 0, newN (parcial) = 1578
-x: 384, y: 294, N: 284663
-[newN] Bit 19: LSB = 0, newN (parcial) = 3156
-x: 385, y: 294, N: 284663
-[newN] Bit 20: LSB = 1, newN (parcial) = 6313
-x: 386, y: 294, N: 284663
-[newN] Bit 21: LSB = 1, newN (parcial) = 12627
-x: 387, y: 294, N: 284663
-[newN] Bit 22: LSB = 1, newN (parcial) = 25255
-x: 388, y: 294, N: 284663
-[newN] Bit 23: LSB = 1, newN (parcial) = 50511
-x: 389, y: 294, N: 284663
-[newN] Bit 24: LSB = 0, newN (parcial) = 101022
-x: 390, y: 294, N: 284663
-[newN] Bit 25: LSB = 0, newN (parcial) = 202044
-x: 391, y: 294, N: 284663
-[newN] Bit 26: LSB = 0, newN (parcial) = 404088
-x: 392, y: 294, N: 284663
-[newN] Bit 27: LSB = 1, newN (parcial) = 808177
-Erro durante a execução: Fim da imagem atingido durante a decodificação.
+x: 704, y: 124, N: 120609
+[Caractere] Bit 3: LSB = 0, Caractere (parcial) =  
+x: 705, y: 124, N: 120609
+[Caractere] Bit 4: LSB = 0, Caractere (parcial) =  
+x: 706, y: 124, N: 120609
+[Caractere] Bit 5: LSB = 0, Caractere (parcial) =  
+x: 707, y: 124, N: 120609
+[Caractere] Bit 6: LSB = 0, Caractere (parcial) =  
+x: 708, y: 124, N: 120609
+[Caractere] Bit 7: LSB = 0, Caractere (parcial) =  
+ Mensagem decodificada: vasco 

@@ -47,14 +47,14 @@ void App::processarImagem()
     encoder.encodeMessage(imgOut, imgBinary, message, manager.lerConfig(manager.getConfigPath()));
 }
 
-void App::salvarResultados()
+void App::salvarResultados(string filename)
 {
-    imwrite(manager.getOutputImagePath("sobel_original.png"), imgSobel);
-    imwrite(manager.getOutputImagePath("imagem_binarizada.png"), imgBinary);
-    imwrite(manager.getOutputImagePath("teste.png"), imgOut);
+    imwrite(manager.getOutputImagePath(filename + "_sobel_original.png"), imgSobel);
+    imwrite(manager.getOutputImagePath(filename + "_imagem_binarizada.png"), imgBinary);
+    imwrite(manager.getOutputImagePath(filename + "_teste.png"), imgOut);
 }
 
-void App::compararImagens()
+void App::compararImagens(string filename)
 {
     Mat diffImage = Mat::zeros(imgIn.size(), CV_8UC1);
 
@@ -68,7 +68,7 @@ void App::compararImagens()
         }
     }
 
-    imwrite(manager.getOutputImagePath("imagem_diferenca.png"), diffImage);
+    imwrite(manager.getOutputImagePath(filename + "imagem_diferenca.png"), diffImage);
 }
 
 
@@ -78,8 +78,8 @@ void App::run()
     {
         carregarConfiguracao();
         processarImagem();
-        salvarResultados();
-        compararImagens();
+        salvarResultados(manager.lerConfig(manager.getConfigPath())["nome"]);
+        compararImagens("comparada");
 
         int nInicial = manager.lerConfig(manager.getConfigPath())["Ninicial"];
         string recoveredMessage = decoder.decodeImagem(imgOut, nInicial);

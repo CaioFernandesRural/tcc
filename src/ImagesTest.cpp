@@ -43,7 +43,6 @@ void ImagesTest::carregarConfiguracao(string filename)
     }
 }
 
-
 void ImagesTest::run() {
 
     vector<string> files = getNomes("./resources/input_images");
@@ -62,10 +61,17 @@ void ImagesTest::run() {
 
             carregarConfiguracao(fileName);
             processarImagem();
-            salvarResultados();
-            compararImagens();
+            salvarResultados(fileName);
+            compararImagens(fileName);
 
-            int nInicial = manager.lerConfig(manager.getConfigPath())["Ninicial"];
+            // aqui seu pau pq o N muda com cada imag
+            //int nInicial = manager.lerConfig(manager.getConfigPath())["Ninicial"];
+
+            int nInicial;
+
+            cout << "\n" << "Insira N inicial de: " << fileName << "\n";
+            cin >> nInicial;
+
             string recoveredMessage = decoder.decodeImagem(imgOut, nInicial);
             cout << "Mensagem decodificada: " << recoveredMessage << endl;
 

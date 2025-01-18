@@ -37,8 +37,8 @@ protected:
 
     void carregarConfiguracao();
     void processarImagem();
-    void salvarResultados();
-    void compararImagens();
+    void salvarResultados(string filename);
+    void compararImagens(string filename);
 
 public:
     App();
