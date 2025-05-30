@@ -15,7 +15,7 @@ namespace fs = filesystem;
 class ImagesTest : public App
 {
 private:
-    vector<string> getNomes(string folderPath);
+    map<string, int> getNomes(string folderPath);
     void carregarConfiguracao(string filename);
 
 public:

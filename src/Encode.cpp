@@ -4,6 +4,10 @@ Encode::Encode() {}
 
 Encode::~Encode() {}
 
+int Encode::getNinicial() const {
+    return nInicial;
+}
+
 bool Encode::checaSequencia(const Mat sobelImage, Point &ptoInicio, int blockLen, Point &ptoTrabalho)
 
 {
@@ -34,7 +38,8 @@ bool Encode::checaSequencia(const Mat sobelImage, Point &ptoInicio, int blockLen
             {
                 ptoInicio.x = j;
                 ptoInicio.y = i;
-                cout << "\nSequência de " << blockLen << " pixels encontrada.\n";
+                // Debugging:
+                //cout << "\nSequência de " << blockLen << " pixels encontrada.\n";
                 return true;
             }
         }
@@ -56,8 +61,9 @@ void Encode::setLSB(Mat &image, Point local, int bitValue)
     {
         pixel[0] &= ~1; // Força o LSB para 0
     } // Altera apenas o LSB do canal azul
-    cout << "\n"
-         << pixel << "\n";
+    // Debugging:
+    //cout << "\n"
+    //     << pixel << "\n";
 }
 
 void Encode::insertBlock(Mat &image, char carga, Point ptoInicial, Point ptoSeguinte)
@@ -68,18 +74,21 @@ void Encode::insertBlock(Mat &image, char carga, Point ptoInicial, Point ptoSegu
     int i = ptoInicial.x;
     int j = ptoInicial.y;
 
-    cout << "\n"
-         << "Inserindo bloco para o caractere: '" << carga << "'\n";
-    cout << "Localização inicial do bloco atual: " << ptoInicial << "\n";
-    // cout << "Localização do bloco anterior: " << loc1 << "\n";
+    // Debugging:
+    //cout << "\n"
+    //     << "Inserindo bloco para o caractere: '" << carga << "'\n";
+    //cout << "Localização inicial do bloco atual: " << ptoInicial << "\n";
+    //cout << "Localização do bloco anterior: " << loc1 << "\n";
 
-    cout << "Bits de carga: ";
+    //cout << "Bits de carga: ";
+
     for (int k = 7; k >= 0; --k)
     {
         bitValues[7 - k] = (carga >> k) & 1;
-        cout << bitValues[7 - k];
+        // Debugging:
+        //cout << bitValues[7 - k];
     }
-    cout << "\n";
+    //cout << "\n";
 
     // Loop para inserir os bits na imagem
     int bitIndex = 0;
@@ -99,28 +108,35 @@ void Encode::insertBlock(Mat &image, char carga, Point ptoInicial, Point ptoSegu
         bitIndex++;
         i++; // Avança para o próximo pixel na coluna
     }
-    cout << "\n";
+    //cout << "\n";
 
-    // declara y converte
+    // Calcula loc linearizado
     int loc = ptoSeguinte.y * image.cols + ptoSeguinte.x;
-    vector<int> locBits(20);
+
+    // Calcula quantos bits são necessários para representar loc
+    int total_pixels = image.rows * image.cols;
+    int bits_loc = std::floor(std::log2(total_pixels - 1)) + 1;
+
+    vector<int> locBits(bits_loc);
 
     // se chegar no final não precisa inserir o N
     if (carga == '\0')
     {
         return;
     }
+    // Debugging:
+    //cout << "\nBits de loc (" << loc << "): ";
 
-    cout << "\nBits de loc (" << loc << "): ";
-    for (int k = 19; k >= 0; --k)
+    for (int k = bits_loc - 1; k >= 0; --k)
     {
-        locBits[19 - k] = (loc >> k) & 1;
-        cout << locBits[19 - k]; // Exibe cada bit após calcular
+        locBits[bits_loc - 1 - k] = (loc >> k) & 1;
+        // Debugging:
+        //cout << locBits[bits_loc - 1 - k]; // Exibe cada bit após calcular
     }
-    cout << "\n";
+    //cout << "\n";
 
     bitIndex = 0;
-    while (bitIndex < 20)
+    while (bitIndex < bits_loc)
     {
         if (i >= image.cols)
         {
@@ -129,13 +145,14 @@ void Encode::insertBlock(Mat &image, char carga, Point ptoInicial, Point ptoSegu
         }
         if (j >= image.rows)
         {
-            cout << "Erro: imagem muito pequena para inserir todos os bits." << endl;
+            //cout << "Erro: imagem muito pequena para inserir todos os bits." << endl;
             return;
         }
         else
         {
-            cout << "Inserindo locBit[" << bitIndex << "] = " << locBits[bitIndex]
-                 << " na posição (" << i << ", " << j << ")" << endl;
+            // Debugging:
+            //cout << "Inserindo locBit[" << bitIndex << "] = " << locBits[bitIndex]
+            //     << " na posição (" << i << ", " << j << ")" << endl;
 
             setLSB(image, Point(i, j), locBits[bitIndex]);
             bitIndex++;
@@ -148,7 +165,13 @@ void Encode::encodeMessage(Mat &image, const Mat img_bin, const string message, 
 {
     vector<Point> positions;
 
-    int blockLen = conf["blockLen"];
+    //int blockLen = conf["blockLen"];
+
+    //calcular o maior N necessário
+    int total_pixels = image.rows * image.cols;
+    int bits_N = std::floor(std::log2(total_pixels - 1)) + 1;
+    int blockLen = bits_N + 8;
+
 
     string delimitada = message + '\0';
 
@@ -179,7 +202,8 @@ void Encode::encodeMessage(Mat &image, const Mat img_bin, const string message, 
 
         if (checaSequencia(img_bin, ptoInicio, blockLen, ptoTrabalho))
         {
-            cout << "Início da sequência: (" << ptoTrabalho.y << ", " << ptoTrabalho.x << ") Fim da sequência: (" << ptoInicio.y << ", " << ptoInicio.x << ")\n";
+            // Debugging:
+            //cout << "Início da sequência: (" << ptoTrabalho.y << ", " << ptoTrabalho.x << ") Fim da sequência: (" << ptoInicio.y << ", " << ptoInicio.x << ")\n";
 
             // vetor de posições inicias dos blocos
             positions.push_back(ptoTrabalho);
@@ -192,6 +216,7 @@ void Encode::encodeMessage(Mat &image, const Mat img_bin, const string message, 
 
     // printa o N inicial (para testes)
     cout << "\n N inicial: " << positions[0].y * image.cols + positions[0].x << "\n";
+    nInicial = positions[0].y * image.cols + positions[0].x;
 
     for (size_t i = 0; i < delimitada.length(); i++)
     {
@@ -203,9 +228,9 @@ void Encode::encodeMessage(Mat &image, const Mat img_bin, const string message, 
             posProx = positions[i + 1];
         else
             posProx = Point(-1, -1);
-
-        cout << "\n"
-             << "Bloco em posição inicial: (" << pos.x << ", " << pos.y << ")\n";
+        // Debugging:
+        //cout << "\n"
+        //     << "Bloco em posição inicial: (" << pos.x << ", " << pos.y << ")\n";
         insertBlock(image, caractere, pos, posProx);
     }
 }

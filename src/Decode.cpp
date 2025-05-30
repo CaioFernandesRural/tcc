@@ -22,6 +22,11 @@ char Decode::decodeBloco(const Mat image, int &N)
     char caractere = 0;
     int newN = 0;
 
+    // Primeiro: calcula dinamicamente o blockLen = bits_N + 8
+    int total_pixels = image.rows * image.cols;
+    int bits_N = std::floor(std::log2(total_pixels - 1)) + 1;
+    int blockLen = bits_N + 8;
+
     for (int i = 0; i < 8; ++i)
     {
         if (x >= image.cols)
@@ -33,15 +38,16 @@ char Decode::decodeBloco(const Mat image, int &N)
         {
             throw runtime_error("Fim da imagem atingido durante a decodificação.");
         }
-        cout << "x: " << x << ", y: " << y << ", N: " << N << endl;
+        // Debugging:
+        //cout << "x: " << x << ", y: " << y << ", N: " << N << endl;
         Vec3b pixel = image.at<Vec3b>(y, x);
         int lsb = extractLSB(pixel);
 
         caractere = (caractere << 1) | lsb;
 
         // Debugging: print the values at each step
-        cout << "[Caractere] Bit " << i << ": LSB = " << lsb
-             << ", Caractere (parcial) = " << caractere << endl;
+        //cout << "[Caractere] Bit " << i << ": LSB = " << lsb
+        //     << ", Caractere (parcial) = " << caractere << endl;
 
         ++x;
     }
@@ -51,7 +57,7 @@ char Decode::decodeBloco(const Mat image, int &N)
         return caractere;
     }
 
-    for (int i = 8; i < 28; ++i)
+    for (int i = 8; i < blockLen; ++i)
     {
         if (x >= image.cols)
         {
@@ -62,15 +68,16 @@ char Decode::decodeBloco(const Mat image, int &N)
         {
             throw runtime_error("Fim da imagem atingido durante a decodificação.");
         }
-        cout << "x: " << x << ", y: " << y << ", N: " << N << endl;
+        // Debugging:
+        //cout << "x: " << x << ", y: " << y << ", N: " << N << endl;
         Vec3b pixel = image.at<Vec3b>(y, x);
         int lsb = extractLSB(pixel);
 
         newN = (newN << 1) | lsb;
 
-        // Debugging: print the values at each step
-        cout << "[newN] Bit " << i << ": LSB = " << lsb
-             << ", newN (parcial) = " << newN << endl;
+        // Debugging:
+        //cout << "[newN] Bit " << i << ": LSB = " << lsb
+        //     << ", newN (parcial) = " << newN << endl;
 
         ++x;
     }
@@ -93,7 +100,8 @@ string Decode::decodeImagem(const Mat image, int inicialN)
     do
     {
         caractere = decodeBloco(image, N);
-        cout << caractere;
+        // Debugging:
+        //cout << caractere;
 
         mensagem += caractere;
 

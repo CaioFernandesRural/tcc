@@ -6,6 +6,10 @@ App::App() : ksize(0), threshold(0) {}
 
 App::~App() {}
 
+Encode& App::getEncoder() {
+    return encoder;
+}
+
 void App::carregarConfiguracao()
 {
     try
@@ -44,6 +48,7 @@ void App::processarImagem()
     imgBinary = processador.binarizaImagem(imgBinary, threshold);
 
     imgOut = imgIn.clone(); // Cria uma cópia de imgIn para receber a mensagem
+
     encoder.encodeMessage(imgOut, imgBinary, message, manager.lerConfig(manager.getConfigPath()));
 }
 

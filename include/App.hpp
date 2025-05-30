@@ -24,8 +24,7 @@ private:
     string outputFileName;
 
     Processador processador;
-    Encode encoder;
-
+    
 protected:
     string inputFileName;
     int ksize;
@@ -34,6 +33,7 @@ protected:
     Mat imgOut;
     ResManager manager;
     Decode decoder;
+    Encode encoder;
 
     void carregarConfiguracao();
     void processarImagem();
@@ -45,6 +45,7 @@ public:
     ~App();
 
     void run();
+    Encode& getEncoder();
 };
 
 #endif // APP_H

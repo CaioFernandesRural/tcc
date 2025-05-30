@@ -22,12 +22,14 @@ private:
     void setLSB(Mat &image, Point local, int bitValue);
     void insertBlock(Mat &image, char carga, Point ptoInicial, Point ptoSeguinte);
     int extractLSB(const Vec3b pixel);
+    int nInicial = 0;
 
 public:
     Encode();
     ~Encode();
 
     void encodeMessage(Mat &image, const Mat img_bin, const string message, const json conf);
+    int getNinicial() const;
 };
 
 #endif // ENCODE_H

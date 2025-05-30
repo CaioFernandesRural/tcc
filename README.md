@@ -42,10 +42,10 @@ Este checklist reúne **somente os testes mais importantes e amplamente utilizad
 
 ## 0. Refatorção
 
-- Processamento independente
-- Só passar o nome da imagem, sem depender do config
-- Calcular o tamanho dos blocos de acordo com o tamanho da imagem
-- salvar os nomes das imagens de saída com seus Ns iniciais num json
+- ~~Processamento independente~~
+- ~~Só passar o nome da imagem, sem depender do config~~ (vai lendo o config iterativo)
+- ~~Calcular o tamanho dos blocos de acordo com o tamanho da imagem~~
+- ~~salvar os nomes das imagens de saída com seus Ns iniciais num json~~
 
 ## 🧪 1. Testes de Imperceptibilidade
 
