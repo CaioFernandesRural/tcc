@@ -3,6 +3,12 @@
 
 #include "../include/App.hpp"
 
+#include "../include/PSNRCalculator.hpp"
+#include "../include/SSIMCalculator.hpp"
+#include "../include/FSIMCalculator.hpp"
+#include "../include/HistogramAnalyser.hpp"
+#include "../include/ChiSquareAnalyser.hpp"
+
 #include <iostream>
 #include <stdexcept>
 #include <filesystem>

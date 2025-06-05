@@ -51,13 +51,13 @@ Este checklist reúne **somente os testes mais importantes e amplamente utilizad
 
 > Avaliam a diferença entre a imagem original e a esteganografada.
 
-- [ ] **PSNR (Peak Signal-to-Noise Ratio)**  
+- [x] **PSNR (Peak Signal-to-Noise Ratio)**  
   Medida objetiva de distorção (ideal ≥ 40 dB).
 
-- [ ] **SSIM (Structural Similarity Index)**  
+- [x] **SSIM (Structural Similarity Index)**  
   Compara percepção visual baseada em estrutura (ideal ≥ 0.9).
 
-- [ ] **FSIM (Feature Similarity Index)**  
+- [x] **FSIM (Feature Similarity Index)**  
   Mede similaridade com base em características visuais relevantes.
 
 ---
@@ -66,7 +66,7 @@ Este checklist reúne **somente os testes mais importantes e amplamente utilizad
 
 > Avaliam se a imagem esteganografada pode ser detectada.
 
-- [ ] **Histogram Analysis**  
+- [x] **Histogram Analysis**  
   Verifica visualmente e estatisticamente alterações na distribuição dos pixels.
 
 - [ ] **Chi-square Analysis**  

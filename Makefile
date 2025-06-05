@@ -24,6 +24,10 @@ $(shell mkdir -p $(BINPATH))
 $(shell mkdir -p $(OBJPATH))
 $(shell mkdir -p resources/output_images)
 
+# Para os histogramas
+$(shell mkdir -p resources/output_histograms)
+
+
 # Alvo principal
 bin/main: $(OBJFILES)
 	$(CXX) $(CXXFLAGS) $^ -o $@ $(LIBS)

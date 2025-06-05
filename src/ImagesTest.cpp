@@ -79,6 +79,34 @@ void ImagesTest::run() {
             string recoveredMessage = decoder.decodeImagem(imgOut, nInicial);
             cout << "Mensagem decodificada: " << recoveredMessage << endl;
 
+            // === Testes ===
+            string originalPath = manager.getInputImagePath(fileName);
+            string stegoPath = manager.getOutputImagePath(fileName + "_teste.png");
+
+            cv::Mat original = cv::imread(originalPath);
+            cv::Mat stego = cv::imread(stegoPath);
+
+            double psnr = PSNRCalculator::compute(original, stego);
+            cout << "PSNR: " << psnr << " dB" << endl;
+
+            double ssim = SSIMCalculator::compute(original, stego);
+            cout << "SSIM: " << ssim << endl;
+
+            double fsim = FSIMCalculator::compute(original, stego);
+            cout << "FSIM: " << fsim << endl;
+
+            double histSim = HistogramAnalyzer::compare(original, stego);
+            cout << "Histogram Similarity (Correlação média): " << histSim << endl;
+
+            // Exportar CSV de histograma
+            std::string csvFile = fileName + "_hist.csv";
+            HistogramAnalyzer::exportToCSV(original, stego, csvFile);
+            cout << "Histograma exportado para CSV: " << csvFile << endl;
+
+            double chi2 = ChiSquareAnalyzer::analyze(stego);
+            cout << "Chi-square médio (detecção LSB): " << chi2 << endl;
+
+
         }
         catch (const exception &e)
         {
