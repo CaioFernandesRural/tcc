@@ -82,9 +82,11 @@ void ImagesTest::run() {
             // === Testes ===
             string originalPath = manager.getInputImagePath(fileName);
             string stegoPath = manager.getOutputImagePath(fileName + "_teste.png");
+            string binPath = manager.getOutputImagePath(fileName + "_imagem_binarizada.png");
 
             cv::Mat original = cv::imread(originalPath);
             cv::Mat stego = cv::imread(stegoPath);
+            cv::Mat bin = cv::imread(binPath);
 
             double psnr = PSNRCalculator::compute(original, stego);
             cout << "PSNR: " << psnr << " dB" << endl;
@@ -99,13 +101,28 @@ void ImagesTest::run() {
             cout << "Histogram Similarity (Correlação média): " << histSim << endl;
 
             // Exportar CSV de histograma
-            std::string csvFile = fileName + "_hist.csv";
+            string csvFile = fileName + "_hist.csv";
             HistogramAnalyzer::exportToCSV(original, stego, csvFile);
             cout << "Histograma exportado para CSV: " << csvFile << endl;
 
             double chi2 = ChiSquareAnalyzer::analyze(stego);
             cout << "Chi-square médio (detecção LSB): " << chi2 << endl;
 
+            double rsDiff = RSAnalyzer::analyze(stego);
+            cout << "RS Analysis (|R - S| / (R + S)): " << rsDiff << endl;
+            
+            int blockCapacity = CapacityAnalyser::analyze(bin);
+            cout << "Max Payload (bytes): " << blockCapacity - 1 << endl;
+
+            // Cálculo de bpp (bits por pixel)
+            int totalPixels = bin.rows * bin.cols;
+            int totalBits = (blockCapacity - 1) * 8;
+            double bpp = static_cast<double>(totalBits) / static_cast<double>(totalPixels);
+
+            cout << "bpp: " << fixed << setprecision(6) << bpp << endl;
+
+            double ber = BERAnalyser::analyse(message, recoveredMessage);
+            cout << "BER (Bit Error Ratio): " << std::fixed << std::setprecision(6) << ber << endl;
 
         }
         catch (const exception &e)

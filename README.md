@@ -69,13 +69,13 @@ Este checklist reúne **somente os testes mais importantes e amplamente utilizad
 - [x] **Histogram Analysis**  
   Verifica visualmente e estatisticamente alterações na distribuição dos pixels.
 
-- [ ] **Chi-square Analysis**  
+- [x] **Chi-square Analysis**  
   Detecta padrões estatísticos típicos de métodos baseados em LSB.
 
-- [ ] **RS Analysis (Regular/Singular)**  
+- [x] **RS Analysis (Regular/Singular)**  
   Teste clássico para avaliar segurança de métodos baseados em bits.
 
-- [ ] **SPAM (Subtractive Pixel Adjacency Matrix)**  
+- [-] **SPAM (Subtractive Pixel Adjacency Matrix)**  
   Análise universal com SVM baseada em padrões de vizinhança de pixels.
 
 ---
@@ -84,8 +84,8 @@ Este checklist reúne **somente os testes mais importantes e amplamente utilizad
 
 > Avalia quanto de informação é possível esconder sem perder qualidade.
 
-- [ ] **Payload Capacity (em bits)**
-- [ ] **BPP (Bits per Pixel)**
+- [x] **Payload Capacity (em bits)**
+- [x] **BPP (Bits per Pixel)**
 
 ---
 
@@ -93,7 +93,7 @@ Este checklist reúne **somente os testes mais importantes e amplamente utilizad
 
 > Avalia a integridade da mensagem após ataques ou compressões.
 
-- [ ] **BER (Bit Error Ratio)**  
+- [x] **BER (Bit Error Ratio)**  
   Compara bit a bit a mensagem original e a extraída.
 
 ---

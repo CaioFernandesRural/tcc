@@ -8,11 +8,16 @@
 #include "../include/FSIMCalculator.hpp"
 #include "../include/HistogramAnalyser.hpp"
 #include "../include/ChiSquareAnalyser.hpp"
+#include "../include/RSAnalyser.hpp"
+#include "../include/CapacityAnalyser.hpp"
+#include "../include/BERAnalyser.hpp"
 
 #include <iostream>
 #include <stdexcept>
 #include <filesystem>
 #include <vector>
+#include <iomanip>
+
 
 using namespace std;
 namespace fs = filesystem;
