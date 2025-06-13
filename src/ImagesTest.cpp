@@ -49,6 +49,8 @@ void ImagesTest::run() {
 
     map<string, int> files = getNomes("./resources/input_images");
 
+    MetricsLogger logger;
+
     // Exibe os nomes dos arquivos
     //cout << "Arquivos encontrados na pasta:" << endl;
     // for (const auto& fileName : files) {
@@ -124,13 +126,29 @@ void ImagesTest::run() {
             double ber = BERAnalyser::analyse(message, recoveredMessage);
             cout << "BER (Bit Error Ratio): " << std::fixed << std::setprecision(6) << ber << endl;
 
+            // após calcular todas as métricas para fileName:
+            MetricsLogger::Row row;
+            row["image"] = fileName;
+            row["psnr"]  = std::to_string(psnr);
+            row["ssim"]  = std::to_string(ssim);
+            row["fsim"]  = std::to_string(fsim);
+            row["histSim"] = std::to_string(histSim);
+            row["chi2"]    = std::to_string(chi2);
+            row["rsDiff"]  = std::to_string(rsDiff);
+            row["maxBytes"] = std::to_string(blockCapacity - 1);
+            row["bpp"] =  std::to_string(bpp);
+            row["ber"] = std::to_string(ber);
+
+// adiciona ao logger
+logger.addRow(row);
+        
         }
         catch (const exception &e)
         {
             cerr << "Erro durante a execução: " << e.what() << endl;
         }
     } 
-
+    logger.exportCSV("metrics.csv");
 
     return;
 
