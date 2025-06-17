@@ -44,7 +44,7 @@ bool checaSequencia(const Mat &sobelImage, int &startY, int &startX, int length,
             if (contaSequencia == length) {
                 startY = i;
                 startX = j;
-                cout << "\n\n" << "Sequência de " << length << " pixels encontrada.\n";
+                //cout << "\n\n" << "Sequência de " << length << " pixels encontrada.\n";
                 return true;
             }
         }

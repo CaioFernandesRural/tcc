@@ -8,6 +8,7 @@
 #include "../include/Processador.hpp"
 #include "../include/Encode.hpp"
 #include "../include/Decode.hpp"
+#include "../include/CapacityAnalyser.hpp"
 
 using namespace std;
 using namespace cv;
@@ -16,33 +17,37 @@ using json = nlohmann::json;
 class App
 {
 private:
-    string inputFileName;
-    Mat imgIn;
-    Mat imgOut;
     Mat imgSobel;
     Mat imgGray;
-    Mat imgBinary;
 
+    string outputFileName;
+
+    Processador processador;
+
+protected:
+    
+    Mat imgBinary;
+    Mat imgIn;
+    Mat imgOut;
+    string inputFileName;
     int ksize;
     int threshold;
-    string outputFileName;
     string message;
-
     ResManager manager;
-    Processador processador;
-    Encode encoder;
     Decode decoder;
+    Encode encoder;
 
     void carregarConfiguracao();
     void processarImagem();
-    void salvarResultados();
-    void compararImagens();
+    void salvarResultados(string filename);
+    void compararImagens(string filename);
 
 public:
     App();
     ~App();
 
     void run();
+    Encode& getEncoder();
 };
 
 #endif // APP_H

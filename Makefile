@@ -6,7 +6,7 @@ else
 CXX = g++
 endif
 
-CXXFLAGS = -std=c++11 -Wall -g
+CXXFLAGS = -std=c++17 -Wall -g
 LIBS += `pkg-config --libs opencv4`
 CFLAGS += -g `pkg-config --cflags opencv4`
 
@@ -23,6 +23,10 @@ OBJFILES := $(SRCFILES:$(SRCPATH)%.cpp=$(OBJPATH)%.o)
 $(shell mkdir -p $(BINPATH))
 $(shell mkdir -p $(OBJPATH))
 $(shell mkdir -p resources/output_images)
+
+# Para os histogramas
+$(shell mkdir -p resources/output_histograms)
+
 
 # Alvo principal
 bin/main: $(OBJFILES)

@@ -57,13 +57,14 @@ void insertBlock(Mat &image, char carga, int loc1, int loc2, size_t &bitIndex) {
     cout << "Localização do bloco anterior: " << loc1 << "\n";
 
     // Inserir os 8 bits de carga
-    cout << "Bits de carga: ";
+    //cout << "Bits de carga: ";
+
     for (int i = 0; i < 8; ++i) {
         int bitValue = (carga >> (7 - i)) & 1;
         setLSB(image, loc2 + i, bitValue);
-        cout << bitValue;
+        //cout << bitValue;
     }
-    cout << "\n";
+    //cout << "\n";
 
     // Inserir os 4 bits do marcador de fim de carga
     cout << "Marcador de fim de carga (4 bits): ";
