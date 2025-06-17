@@ -60,7 +60,7 @@ void ImagesTest::run() {
     for (auto& [fileName, nInicial] : files) {
         try
         {
-            cout << "\nTrantando a imagem: " << fileName << endl;
+            cout << "\nTratando a imagem: " << fileName << endl;
 
             carregarConfiguracao(fileName);
             processarImagem();
@@ -74,42 +74,35 @@ void ImagesTest::run() {
             cout << "Mensagem decodificada: " << recoveredMessage << endl;
 
             // === Testes ===
-            string originalPath = manager.getInputImagePath(fileName);
-            string stegoPath = manager.getOutputImagePath(fileName + "_teste.png");
-            string binPath = manager.getOutputImagePath(fileName + "_imagem_binarizada.png");
 
-            cv::Mat original = cv::imread(originalPath);
-            cv::Mat stego = cv::imread(stegoPath);
-            cv::Mat bin = cv::imread(binPath);
-
-            double psnr = PSNRCalculator::compute(original, stego);
+            double psnr = PSNRCalculator::compute(imgIn, imgOut);
             cout << "PSNR: " << psnr << " dB" << endl;
 
-            double ssim = SSIMCalculator::compute(original, stego);
+            double ssim = SSIMCalculator::compute(imgIn, imgOut);
             cout << "SSIM: " << ssim << endl;
 
-            double fsim = FSIMCalculator::compute(original, stego);
+            double fsim = FSIMCalculator::compute(imgIn, imgOut);
             cout << "FSIM: " << fsim << endl;
 
-            double histSim = HistogramAnalyzer::compare(original, stego);
+            double histSim = HistogramAnalyzer::compare(imgIn, imgOut);
             cout << "Histogram Similarity (Correlação média): " << histSim << endl;
 
             // Exportar CSV de histograma
             string csvFile = fileName + "_hist.csv";
-            HistogramAnalyzer::exportToCSV(original, stego, csvFile);
+            HistogramAnalyzer::exportToCSV(imgIn, imgOut, csvFile);
             cout << "Histograma exportado para CSV: " << csvFile << endl;
 
-            double chi2 = ChiSquareAnalyzer::analyze(stego);
+            double chi2 = ChiSquareAnalyzer::analyze(imgOut);
             cout << "Chi-square médio (detecção LSB): " << chi2 << endl;
 
-            double rsDiff = RSAnalyzer::analyze(stego);
+            double rsDiff = RSAnalyzer::analyze(imgOut);
             cout << "RS Analysis (|R - S| / (R + S)): " << rsDiff << endl;
             
             int blockCapacity = CapacityAnalyser::analyze(imgBinary);
             cout << "Max Payload (bytes): " << blockCapacity - 1 << endl;
 
             // Cálculo de bpp (bits por pixel)
-            int totalPixels = bin.rows * bin.cols;
+            int totalPixels = imgBinary.rows * imgBinary.cols;
             int totalBits = (blockCapacity - 1) * 8;
             double bpp = static_cast<double>(totalBits) / static_cast<double>(totalPixels);
 

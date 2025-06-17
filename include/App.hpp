@@ -8,6 +8,7 @@
 #include "../include/Processador.hpp"
 #include "../include/Encode.hpp"
 #include "../include/Decode.hpp"
+#include "../include/CapacityAnalyser.hpp"
 
 using namespace std;
 using namespace cv;

@@ -9,7 +9,6 @@
 #include "../include/HistogramAnalyser.hpp"
 #include "../include/ChiSquareAnalyser.hpp"
 #include "../include/RSAnalyser.hpp"
-#include "../include/CapacityAnalyser.hpp"
 #include "../include/BERAnalyser.hpp"
 #include "../include/MetricsLogger.hpp"
 

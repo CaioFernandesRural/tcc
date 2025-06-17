@@ -49,6 +49,9 @@ void App::processarImagem()
 
     imgOut = imgIn.clone(); // Cria uma cópia de imgIn para receber a mensagem
 
+    int blockCapacity = CapacityAnalyser::analyze(imgBinary);
+    message = string(blockCapacity - 1, 'a');
+
     encoder.encodeMessage(imgOut, imgBinary, message, manager.lerConfig(manager.getConfigPath()));
 }
 
