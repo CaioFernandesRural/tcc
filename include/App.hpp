@@ -16,21 +16,22 @@ using json = nlohmann::json;
 class App
 {
 private:
-    Mat imgIn;
     Mat imgSobel;
     Mat imgGray;
-    Mat imgBinary;
 
     string outputFileName;
 
     Processador processador;
-    
+
 protected:
+    
+    Mat imgBinary;
+    Mat imgIn;
+    Mat imgOut;
     string inputFileName;
     int ksize;
     int threshold;
     string message;
-    Mat imgOut;
     ResManager manager;
     Decode decoder;
     Encode encoder;

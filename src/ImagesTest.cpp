@@ -67,14 +67,6 @@ void ImagesTest::run() {
             salvarResultados(fileName);
             compararImagens(fileName);
 
-            // aqui deu pau pq o N muda com cada imag
-            //int nInicial = manager.lerConfig(manager.getConfigPath())["Ninicial"];
-
-            //int nInicial;
-
-            //cout << "\n" << "Insira N inicial de: " << fileName << "\n";
-            //cin >> nInicial;
-
             int nInicial = encoder.getNinicial();
             files[fileName] = nInicial;
 
@@ -113,7 +105,7 @@ void ImagesTest::run() {
             double rsDiff = RSAnalyzer::analyze(stego);
             cout << "RS Analysis (|R - S| / (R + S)): " << rsDiff << endl;
             
-            int blockCapacity = CapacityAnalyser::analyze(bin);
+            int blockCapacity = CapacityAnalyser::analyze(imgBinary);
             cout << "Max Payload (bytes): " << blockCapacity - 1 << endl;
 
             // Cálculo de bpp (bits por pixel)

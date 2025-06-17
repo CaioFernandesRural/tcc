@@ -213,9 +213,8 @@ void Encode::encodeMessage(Mat &image, const Mat img_bin, const string message, 
             throw std::runtime_error("Imagem não tem blocos o suficiente.");
         }
     }
-
     // printa o N inicial (para testes)
-    cout << "\n N inicial: " << positions[0].y * image.cols + positions[0].x << "\n";
+    //cout << "\n N inicial: " << positions[0].y * image.cols + positions[0].x << "\n";
     nInicial = positions[0].y * image.cols + positions[0].x;
 
     for (size_t i = 0; i < delimitada.length(); i++)
