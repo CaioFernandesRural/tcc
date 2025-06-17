@@ -17,17 +17,28 @@
 #include <filesystem>
 #include <vector>
 #include <iomanip>
-
+#include <map>
 
 using namespace std;
 namespace fs = filesystem;
-
 
 class ImagesTest : public App
 {
 private:
     map<string, int> getNomes(string folderPath);
     void carregarConfiguracao(string filename);
+
+    // Variáveis de métricas (visíveis para outros métodos, se quiser)
+    double psnr;
+    double ssim;
+    double fsim;
+    double histSim;
+    double chi2;
+    double rsDiff;
+    int blockCapacity;
+    double bpp;
+    double ber;
+    string recoveredMessage;
 
 public:
     ImagesTest();

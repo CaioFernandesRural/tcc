@@ -75,9 +75,6 @@ Este checklist reúne **somente os testes mais importantes e amplamente utilizad
 - [x] **RS Analysis (Regular/Singular)**  
   Teste clássico para avaliar segurança de métodos baseados em bits.
 
-- [-] **SPAM (Subtractive Pixel Adjacency Matrix)**  
-  Análise universal com SVM baseada em padrões de vizinhança de pixels.
-
 ---
 
 ## 📦 3. Teste de Capacidade
