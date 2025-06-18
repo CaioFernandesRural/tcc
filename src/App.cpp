@@ -91,7 +91,7 @@ void App::run()
 
         int nInicial = manager.lerConfig(manager.getConfigPath())["Ninicial"];
         string recoveredMessage = decoder.decodeImagem(imgOut, nInicial);
-        cout << "Mensagem decodificada: " << recoveredMessage << endl;
+        //cout << "Mensagem decodificada: " << recoveredMessage << endl;
 
     }
     catch (const exception &e)

@@ -38,6 +38,24 @@ $(OBJPATH)%.o: $(SRCPATH)%.cpp
 
 # Limpar arquivos compilados
 clean:
-	@rm -rf $(BINPATH)* $(OBJPATH)* resources/output_images/*
+	@rm -rf $(BINPATH)* $(OBJPATH)* resources/output_images/* resources/input_images/* resources/output_histograms/*
 
 .PHONY: all clean
+
+# ===== Targets extras para baixar e preparar a base de imagens DIV2K =====
+
+.PHONY: get_imagebase prepare_inputs
+
+get_imagebase:
+	@echo "Baixando base de imagens DIV2K (Train HR)..."
+	@mkdir -p resources/image_base
+	@wget -c https://data.vision.ee.ethz.ch/cvl/DIV2K/DIV2K_train_HR.zip -O resources/image_base/DIV2K_train_HR.zip
+	@echo "Extraindo imagens..."
+	@unzip -n resources/image_base/DIV2K_train_HR.zip -d resources/image_base/
+	@echo "Base de imagens disponível em resources/image_base/DIV2K_train_HR/"
+
+prepare_inputs:
+	@echo "Preparando pasta resources/input_images/ com as imagens da base..."
+	@mkdir -p resources/input_images
+	@cp resources/image_base/DIV2K_train_HR/*.png resources/input_images/
+	@echo "Cópia concluída. Input images disponíveis em resources/input_images/"

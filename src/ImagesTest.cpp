@@ -64,7 +64,7 @@ void ImagesTest::run() {
 
             // Decodificação
             recoveredMessage = decoder.decodeImagem(imgOut, nInicial);
-            cout << "Mensagem decodificada: " << recoveredMessage << endl;
+            //cout << "Mensagem decodificada: " << recoveredMessage << endl;
 
             // === Cálculo de Métricas ===
             psnr = PSNRCalculator::compute(imgIn, imgOut);
@@ -84,21 +84,21 @@ void ImagesTest::run() {
             ber = BERAnalyser::analyse(message, recoveredMessage);
 
             // === Exibição das métricas ===
-            cout << fixed << setprecision(6);
-            cout << "PSNR: " << psnr << " dB" << endl;
-            cout << "SSIM: " << ssim << endl;
-            cout << "FSIM: " << fsim << endl;
-            cout << "Histogram Similarity: " << histSim << endl;
-            cout << "Chi-square médio: " << chi2 << endl;
-            cout << "RS Analysis (|R - S| / (R + S)): " << rsDiff << endl;
-            cout << "Max Payload (bytes): " << blockCapacity - 1 << endl;
-            cout << "bpp: " << bpp << endl;
-            cout << "BER: " << ber << endl;
+            // cout << fixed << setprecision(6);
+            // cout << "PSNR: " << psnr << " dB" << endl;
+            // cout << "SSIM: " << ssim << endl;
+            // cout << "FSIM: " << fsim << endl;
+            // cout << "Histogram Similarity: " << histSim << endl;
+            // cout << "Chi-square médio: " << chi2 << endl;
+            // cout << "RS Analysis (|R - S| / (R + S)): " << rsDiff << endl;
+            // cout << "Max Payload (bytes): " << blockCapacity - 1 << endl;
+            // cout << "bpp: " << bpp << endl;
+            // cout << "BER: " << ber << endl;
 
             // Exporta CSV de histograma
             string csvFile = fileName + "_hist.csv";
             HistogramAnalyzer::exportToCSV(imgIn, imgOut, csvFile);
-            cout << "Histograma exportado para: " << csvFile << endl;
+            // cout << "Histograma exportado para: " << csvFile << endl;
 
             // === Gravação no Logger ===
             MetricsLogger::Row row;
