@@ -120,6 +120,6 @@ void ImagesTest::run() {
         }
     }
 
-    logger.exportCSV("metrics.csv");
+    logger.exportCSV("analysis/metrics.csv");
     cout << "\n=== Exportação de métricas finalizada ===" << endl;
 }

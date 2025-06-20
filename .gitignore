@@ -6,6 +6,8 @@ resources/input_images/*
 resources/output_histograms/*
 resources/image_base/*
 
+analysis/plots/*
+
 *.csv
 *.out
 *.o
