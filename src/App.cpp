@@ -57,7 +57,7 @@ void App::processarImagem()
 
 void App::salvarResultados(string filename)
 {
-    imwrite(manager.getOutputImagePath(filename + "_sobel_original.png"), imgSobel);
+    //imwrite(manager.getOutputImagePath(filename + "_sobel_original.png"), imgSobel);
     imwrite(manager.getOutputImagePath(filename + "_imagem_binarizada.png"), imgBinary);
     imwrite(manager.getOutputImagePath(filename + "_teste.png"), imgOut);
 }
