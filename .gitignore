@@ -8,7 +8,6 @@ resources/image_base/*
 
 analysis/plots/*
 
-*.csv
 *.out
 *.o
 *.core

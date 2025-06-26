@@ -40,6 +40,12 @@ $(OBJPATH)%.o: $(SRCPATH)%.cpp
 clean:
 	@rm -rf $(BINPATH)* $(OBJPATH)* resources/output_images/* resources/input_images/* resources/output_histograms/*
 
+analysis_clean:
+	@rm -rf analysis/plots/* analysis/metrics.csv
+
+super_clean:
+	@rm -rf $(BINPATH)* $(OBJPATH)* resources/output_images/* resources/input_images/* resources/output_histograms/* analysis/plots/* analysis/metrics.csv resources/image_base/*
+
 .PHONY: all clean
 
 # ===== Targets extras para baixar e preparar a base de imagens DIV2K =====
