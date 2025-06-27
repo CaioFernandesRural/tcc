@@ -2,8 +2,11 @@ bin/*
 obj/*
 !bin/.gitkeep
 resources/output_images/*
+resources/input_images/*
+resources/output_histograms/*
+resources/image_base/*
 
-*.csv
+
 *.out
 *.o
 *.core

@@ -15,8 +15,8 @@ double PSNRCalculator::compute(const cv::Mat& original, const cv::Mat& stego) {
     diff.convertTo(diff, CV_32F);
     diff = diff.mul(diff);
 
-    double mse = cv::sum(diff)[0] / (double)(original.total() * original.channels());
-    if (mse <= 1e-10) return INFINITY;
+    cv::Scalar sum_sq_diff = cv::sum(diff);
+    double mse = (sum_sq_diff.val[0] + sum_sq_diff.val[1] + sum_sq_diff.val[2]) / (double)(original.total() * original.channels());
 
     double psnr = 10.0 * log10((255 * 255) / mse);
     return psnr;
