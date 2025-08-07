@@ -1,0 +1,3 @@
+pag 4 2.1.1 2.1.2 ele diz claramente que as medidas mais comum necessitam de um ponto de referência
+
+esse SSIM parece que me pega
