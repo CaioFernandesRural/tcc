@@ -1,0 +1,246 @@
+Perfeito 🚀 vou juntar tudo em uma **lista única, completa e já com a ordem corrigida** (primeiro resultados → depois resumo). Assim você tem um roteiro final para preencher o trabalho.
+
+---
+
+# 📌 Lista Completa em Ordem Corrigida
+
+### **1. Trabalhos Relacionados**
+
+* **Ações:**
+
+  * Substituir os placeholders `[Autor, Ano]` por artigos reais.
+  * Resumir cada artigo em 3–4 linhas (objetivo, método, resultado, limitação).
+  * Colocar as referências na bibliografia.
+
+---
+
+### **2. Resultados Experimentais**
+
+⚠️ Parte mais trabalhosa, precisa rodar seu algoritmo.
+
+**Exportar dados brutos (por imagem):**
+
+* Imperceptibilidade → PSNR, SSIM, FSIM.
+* Segurança → χ², RS-Diff, correlação de histogramas.
+* Capacidade → maxBytes, bpp.
+* Robustez → BER (com e sem ataques simples: compressão, ruído, resize).
+
+**Calcular e resumir:**
+
+* Médias + desvios padrão.
+* Preencher as tabelas:
+
+  * **Tabela 1** – PSNR, SSIM, FSIM.
+  * **Tabela 2** – χ² e RS-Diff.
+  * **Tabela 3** – maxBytes e bpp.
+  * **Tabela 4** – BER.
+
+**Gerar gráficos:**
+
+* **Figura 1** → Comparação visual original vs estego.
+* **Figura 2** → Histogramas orig vs estego em 2 imagens.
+* **Figura 3** → Histogramas (segurança).
+* **Figura 4** → Barras comparando maxBytes/bpp.
+* **Figura 5** → Barras ou boxplot de BER.
+
+---
+
+### **3. Resumo**
+
+* Escrever as 3–4 frases finais usando os resultados:
+
+  * PSNR médio > 40 dB (imperceptibilidade).
+  * SSIM/FSIM ≈ 1 (qualidade preservada).
+  * χ² e RS-Diff baixos (segurança).
+  * BER ≈ 0 (recuperabilidade).
+  * Conclusão: combinação LSB + Sobel + blocos encadeados = simples, eficaz, segura.
+
+---
+
+### **4. Discussão dos Resultados**
+
+* Substituir os placeholders (X, Y, Z) pelos valores médios obtidos.
+* Relacionar cada valor com os 4 pilares:
+
+  * Imperceptibilidade → PSNR, SSIM, FSIM.
+  * Segurança → χ², RS-Diff, histogramas.
+  * Capacidade → maxBytes e bpp.
+  * Robustez → BER.
+
+---
+
+### **5. Bibliografia**
+
+* Completar todos os “\[referência]” espalhados no texto.
+* Inserir artigos usados nos Trabalhos Relacionados.
+* Padronizar no estilo exigido (ABNT ou IEEE).
+
+---
+
+# 🚦 Ordem Final de Preenchimento
+
+1. Trabalhos Relacionados.
+2. Resultados experimentais (dados → tabelas → gráficos).
+3. Resumo (com os números reais).
+4. Discussão (trocar placeholders X, Y, Z pelos resultados).
+5. Bibliografia.
+
+---
+
+Quer que eu já monte um **modelo pronto de tabelas em Word/Markdown** (com títulos e colunas certas), para você só preencher com os números depois que rodar os testes?
+
+Boa! 💡 Vamos organizar uma **lista clara de todas as figuras e tabelas** que você precisa extrair/criar, com os nomes já prontos para usar no texto. Assim, quando você gerar cada gráfico ou tabela, já sabe exatamente onde vai encaixar no trabalho.
+
+---
+
+# 📊 Lista de Figuras e Tabelas
+
+### **Tabelas**
+
+* **Tabela 1 – Valores médios e desvio padrão de PSNR, SSIM e FSIM**
+  (imperceptibilidade, qualidade visual)
+
+* **Tabela 2 – Valores médios de χ² e RS-Diff**
+  (segurança contra esteganálise estatística)
+
+* **Tabela 3 – Médias de maxBytes e bpp em diferentes tipos de imagens**
+  (capacidade de inserção em imagens complexas vs homogêneas)
+
+* **Tabela 4 – Valores médios de BER**
+  (robustez na recuperação da mensagem, com e sem ataques)
+
+---
+
+### **Figuras**
+
+* **Figura 1 – Comparação visual entre imagem original e imagem estego**
+  (imperceptibilidade, exemplo de caso representativo)
+
+* **Figura 2 – Histogramas comparativos (original x estego) em duas imagens representativas**
+  (análise visual da preservação estatística)
+
+* **Figura 3 – Exemplos de histogramas de segurança (χ² e RS-Diff)**
+  (mostrar que não houve balanceamento artificial perceptível)
+
+* **Figura 4 – Gráfico de barras comparando maxBytes e bpp**
+  (capacidade de diferentes imagens, exemplo: Baboon vs Peppers)
+
+* **Figura 5 – Boxplot ou gráfico de barras do BER**
+  (robustez, mostrando variação entre imagens/testes)
+
+---
+
+# 🚦 Resumindo
+
+Você precisa extrair/preencher:
+
+* **4 Tabelas** (PSNR/SSIM/FSIM, χ²/RS-Diff, maxBytes/bpp, BER).
+* **5 Figuras** (visual original x estego, histogramas comparativos, histogramas segurança, gráfico de capacidade, gráfico de BER).
+
+---
+
+Quer que eu prepare um **modelo de nomes de arquivos** (tipo `tabela1_psnr.xlsx`, `figura4_bpp.png`) pra você salvar/exportar os resultados já organizados? Isso ajuda muito a não se perder quando for inserir no PDF final.
+
+Boa! 💡 Vamos organizar uma **lista clara de todas as figuras e tabelas** que você precisa extrair/criar, com os nomes já prontos para usar no texto. Assim, quando você gerar cada gráfico ou tabela, já sabe exatamente onde vai encaixar no trabalho.
+
+---
+
+# 📊 Lista de Figuras e Tabelas
+
+### **Tabelas**
+
+* **Tabela 1 – Valores médios e desvio padrão de PSNR, SSIM e FSIM**
+  (imperceptibilidade, qualidade visual)
+
+* **Tabela 2 – Valores médios de χ² e RS-Diff**
+  (segurança contra esteganálise estatística)
+
+* **Tabela 3 – Médias de maxBytes e bpp em diferentes tipos de imagens**
+  (capacidade de inserção em imagens complexas vs homogêneas)
+
+* **Tabela 4 – Valores médios de BER**
+  (robustez na recuperação da mensagem, com e sem ataques)
+
+---
+
+### **Figuras**
+
+* **Figura 1 – Comparação visual entre imagem original e imagem estego**
+  (imperceptibilidade, exemplo de caso representativo)
+
+* **Figura 2 – Histogramas comparativos (original x estego) em duas imagens representativas**
+  (análise visual da preservação estatística)
+
+* **Figura 3 – Exemplos de histogramas de segurança (χ² e RS-Diff)**
+  (mostrar que não houve balanceamento artificial perceptível)
+
+* **Figura 4 – Gráfico de barras comparando maxBytes e bpp**
+  (capacidade de diferentes imagens, exemplo: Baboon vs Peppers)
+
+* **Figura 5 – Boxplot ou gráfico de barras do BER**
+  (robustez, mostrando variação entre imagens/testes)
+
+---
+
+# 🚦 Resumindo
+
+Você precisa extrair/preencher:
+
+* **4 Tabelas** (PSNR/SSIM/FSIM, χ²/RS-Diff, maxBytes/bpp, BER).
+* **5 Figuras** (visual original x estego, histogramas comparativos, histogramas segurança, gráfico de capacidade, gráfico de BER).
+
+---
+
+Quer que eu prepare um **modelo de nomes de arquivos** (tipo `tabela1_psnr.xlsx`, `figura4_bpp.png`) pra você salvar/exportar os resultados já organizados? Isso ajuda muito a não se perder quando for inserir no PDF final.
+
+Boa! 💡 Vamos organizar uma **lista clara de todas as figuras e tabelas** que você precisa extrair/criar, com os nomes já prontos para usar no texto. Assim, quando você gerar cada gráfico ou tabela, já sabe exatamente onde vai encaixar no trabalho.
+
+---
+
+# 📊 Lista de Figuras e Tabelas
+
+### **Tabelas**
+
+* **Tabela 1 – Valores médios e desvio padrão de PSNR, SSIM e FSIM**
+  (imperceptibilidade, qualidade visual)
+
+* **Tabela 2 – Valores médios de χ² e RS-Diff**
+  (segurança contra esteganálise estatística)
+
+* **Tabela 3 – Médias de maxBytes e bpp em diferentes tipos de imagens**
+  (capacidade de inserção em imagens complexas vs homogêneas)
+
+* **Tabela 4 – Valores médios de BER**
+  (robustez na recuperação da mensagem, com e sem ataques)
+
+---
+
+### **Figuras**
+
+* **Figura 1 – Comparação visual entre imagem original e imagem estego**
+  (imperceptibilidade, exemplo de caso representativo)
+
+* **Figura 2 – Histogramas comparativos (original x estego) em duas imagens representativas**
+  (análise visual da preservação estatística)
+
+* **Figura 3 – Exemplos de histogramas de segurança (χ² e RS-Diff)**
+  (mostrar que não houve balanceamento artificial perceptível)
+
+* **Figura 4 – Gráfico de barras comparando maxBytes e bpp**
+  (capacidade de diferentes imagens, exemplo: Baboon vs Peppers)
+
+* **Figura 5 – Boxplot ou gráfico de barras do BER**
+  (robustez, mostrando variação entre imagens/testes)
+
+---
+
+# 🚦 Resumindo
+
+Você precisa extrair/preencher:
+
+* **4 Tabelas** (PSNR/SSIM/FSIM, χ²/RS-Diff, maxBytes/bpp, BER).
+* **5 Figuras** (visual original x estego, histogramas comparativos, histogramas segurança, gráfico de capacidade, gráfico de BER).
+
+---
+
+Quer que eu prepare um **modelo de nomes de arquivos** (tipo `tabela1_psnr.xlsx`, `figura4_bpp.png`) pra você salvar/exportar os resultados já organizados? Isso ajuda muito a não se perder quando for inserir no PDF final.
