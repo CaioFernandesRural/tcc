@@ -2,8 +2,10 @@ WHERE := $(shell uname -s)
 
 ifeq ($(WHERE), FreeBSD)
 CXX = clang++
+INCLUDE += -I /usr/local/include -I/usr/include
 else
 CXX = g++
+INCLUDE += -I /usr/include
 endif
 
 CXXFLAGS = -std=c++17 -Wall -g
@@ -30,11 +32,11 @@ $(shell mkdir -p resources/output_histograms)
 
 # Alvo principal
 bin/main: $(OBJFILES)
-	$(CXX) $(CXXFLAGS) $^ -o $@ $(LIBS)
+	$(CXX) $(CXXFLAGS) $^ -o $@ $(LIBS) $(INCLUDE)
 
 # Regra para compilar arquivos .cpp em objetos .o
 $(OBJPATH)%.o: $(SRCPATH)%.cpp
-	$(CXX) $(CXXFLAGS) -c $< -o $@ $(CFLAGS)
+	$(CXX) $(CXXFLAGS) -c $< -o $@ $(CFLAGS) $(INCLUDE)
 
 # Limpar arquivos compilados
 clean:
