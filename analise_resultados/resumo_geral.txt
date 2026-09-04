@@ -1,0 +1,36 @@
+============================================================
+ANÁLISE DOS RESULTADOS EXPERIMENTAIS
+============================================================
+
+Total de imagens analisadas: 800
+
+IMPERCEPTIBILIDADE
+----------------------------------------
+PSNR médio: 74.547425 dB
+PSNR mediano: 73.893925 dB
+PSNR mínimo: 63.165839 dB
+PSNR máximo: 105.285202 dB
+SSIM médio: 0.99987017
+FSIM médio: 0.99980216
+
+SEGURANÇA
+----------------------------------------
+HistSim médio: 0.99998321
+Chi-Square médio: 418.197978
+RS-Diff médio: 0.457627
+
+CAPACIDADE
+----------------------------------------
+MaxBytes médio: 2286.06
+MaxBytes máximo: 17372
+BPP médio: 0.00653493
+
+RECUPERABILIDADE
+----------------------------------------
+BER médio: 0.00000000
+BER máximo: 0.00000000
+Recuperação perfeita: 100.00%
+
+OUTLIERS
+----------------------------------------
+Total de outliers detectados: 453
