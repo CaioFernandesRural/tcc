@@ -1,0 +1,67 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Página-1" id="HE7gMNDTCu4qOzXd3GRK">
+    <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="s0yRVHNNQjzRK5wsx5ZM-1" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;span style=&quot;font-size:12.0pt;line-height:150%;&lt;br/&gt;font-family:&amp;quot;Arial&amp;quot;,sans-serif;mso-fareast-font-family:Aptos;mso-fareast-theme-font:&lt;br/&gt;minor-latin;mso-bidi-font-family:&amp;quot;Times New Roman&amp;quot;;mso-bidi-theme-font:minor-bidi;&lt;br/&gt;background:red;mso-highlight:red;mso-ansi-language:PT-BR;mso-fareast-language:&lt;br/&gt;EN-US;mso-bidi-language:AR-SA&quot;&gt;pré processamento da imagem – criação do mapa de&lt;br/&gt;bordas – verificação de capacidade/ criação de vetor de coordenadas – inserção&lt;br/&gt;dos blocos&lt;/span&gt;" vertex="1">
+          <mxGeometry height="30" width="490" x="200" y="150" as="geometry" />
+        </mxCell>
+        <mxCell id="a5TRzcmZV6RYpAmRNWVT-3" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="carrega configuração" vertex="1">
+          <mxGeometry height="30" width="130" x="70" y="230" as="geometry" />
+        </mxCell>
+        <mxCell id="a5TRzcmZV6RYpAmRNWVT-4" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="processar" vertex="1">
+          <mxGeometry height="30" width="60" x="283.5" y="230" as="geometry" />
+        </mxCell>
+        <mxCell id="a5TRzcmZV6RYpAmRNWVT-5" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="salva resultados" vertex="1">
+          <mxGeometry height="30" width="100" x="550" y="230" as="geometry" />
+        </mxCell>
+        <mxCell id="a5TRzcmZV6RYpAmRNWVT-6" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;div&gt;decodifica com o N inicial&lt;/div&gt;" vertex="1">
+          <mxGeometry height="30" width="190" x="690" y="230" as="geometry" />
+        </mxCell>
+        <mxCell id="a5TRzcmZV6RYpAmRNWVT-7" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="ksize" vertex="1">
+          <mxGeometry height="30" width="60" x="60" y="260" as="geometry" />
+        </mxCell>
+        <mxCell id="a5TRzcmZV6RYpAmRNWVT-8" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="treshold" vertex="1">
+          <mxGeometry height="30" width="60" x="60" y="295" as="geometry" />
+        </mxCell>
+        <mxCell id="a5TRzcmZV6RYpAmRNWVT-13" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="converte em cinza" vertex="1">
+          <mxGeometry height="30" width="60" x="283.5" y="265" as="geometry" />
+        </mxCell>
+        <mxCell id="a5TRzcmZV6RYpAmRNWVT-14" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="aplica sobel" vertex="1">
+          <mxGeometry height="30" width="60" x="283.5" y="300" as="geometry" />
+        </mxCell>
+        <mxCell id="a5TRzcmZV6RYpAmRNWVT-15" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="cria imagem binarizada" vertex="1">
+          <mxGeometry height="30" width="90" x="268.5" y="340" as="geometry" />
+        </mxCell>
+        <mxCell id="a5TRzcmZV6RYpAmRNWVT-16" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="mede a capacidade" vertex="1">
+          <mxGeometry height="30" width="60" x="283.5" y="380" as="geometry" />
+        </mxCell>
+        <mxCell id="a5TRzcmZV6RYpAmRNWVT-17" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="gera maior mensagem possível" vertex="1">
+          <mxGeometry height="30" width="60" x="283.5" y="430" as="geometry" />
+        </mxCell>
+        <mxCell id="a5TRzcmZV6RYpAmRNWVT-20" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="encodifica" vertex="1">
+          <mxGeometry height="30" width="60" x="417" y="230" as="geometry" />
+        </mxCell>
+        <mxCell id="a5TRzcmZV6RYpAmRNWVT-21" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="imagem estegaografada" vertex="1">
+          <mxGeometry height="30" width="60" x="570" y="265" as="geometry" />
+        </mxCell>
+        <mxCell id="a5TRzcmZV6RYpAmRNWVT-22" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="imagem binarizada" vertex="1">
+          <mxGeometry height="30" width="60" x="570" y="300" as="geometry" />
+        </mxCell>
+        <mxCell id="a5TRzcmZV6RYpAmRNWVT-24" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="imagem diferença" vertex="1">
+          <mxGeometry height="30" width="60" x="570" y="340" as="geometry" />
+        </mxCell>
+        <mxCell id="a5TRzcmZV6RYpAmRNWVT-25" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="calcula tamanho do N" vertex="1">
+          <mxGeometry height="30" width="73" x="410.5" y="265" as="geometry" />
+        </mxCell>
+        <mxCell id="a5TRzcmZV6RYpAmRNWVT-26" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="insere caractere demarcador" vertex="1">
+          <mxGeometry height="30" width="60" x="417" y="310" as="geometry" />
+        </mxCell>
+        <mxCell id="a5TRzcmZV6RYpAmRNWVT-27" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="percorre a imagem inserindo os LSBs" vertex="1">
+          <mxGeometry height="30" width="60" x="417" y="370" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
