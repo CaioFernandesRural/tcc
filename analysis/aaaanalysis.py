@@ -3,19 +3,16 @@ import numpy as np
 import matplotlib.pyplot as plt
 from pathlib import Path
 
-
 # ============================================================
 # CONFIGURAÇÃO
 # ============================================================
 
 ARQUIVO_CSV = "metrics.csv"
 PASTA_SAIDA = Path("analise_resultados")
-
 PASTA_SAIDA.mkdir(exist_ok=True)
 
-
 # ============================================================
-# CONFIGURAÇÃO DAS MÉTRICAS
+# MÉTRICAS
 # ============================================================
 
 METRICAS = [
@@ -30,7 +27,6 @@ METRICAS = [
     "ber"
 ]
 
-# BER não entra na correlação pois é constante
 METRICAS_CORRELACAO = [
     "psnr",
     "ssim",
@@ -42,606 +38,442 @@ METRICAS_CORRELACAO = [
     "bpp"
 ]
 
-
 # ============================================================
-# CONFIGURAÇÃO DAS IMAGENS
+# LEITURA
 # ============================================================
-#
-# Informe aqui as imagens que deseja utilizar nas Figuras 1,
-# 2 e 3.
-#
-# Exemplo:
-#
-# IMAGEM_ORIGINAL_1 = "testes/original_baboon.png"
-# IMAGEM_ESTego_1   = "testes/estego_baboon.png"
-#
-# Faça o mesmo para uma segunda imagem.
-#
 
-IMAGEM_ORIGINAL_1 = "original1.png"
-IMAGEM_ESTego_1 = "estego1.png"
+df = pd.read_csv(ARQUIVO_CSV)
 
-IMAGEM_ORIGINAL_2 = "original2.png"
-IMAGEM_ESTego_2 = "estego2.png"
+print("\nColunas encontradas:")
+print(df.columns.tolist())
 
+# Converte métricas para numérico
+for metrica in METRICAS:
+    if metrica in df.columns:
+        df[metrica] = pd.to_numeric(df[metrica], errors="coerce")
 
 # ============================================================
 # FUNÇÕES AUXILIARES
 # ============================================================
 
 def salvar_figura(nome):
-    """
-    Salva a figura em PNG com qualidade adequada para o TCC.
-    """
     caminho = PASTA_SAIDA / nome
-
-    plt.savefig(
-        caminho,
-        dpi=300,
-        bbox_inches="tight"
-    )
-
-    print(f"[OK] Figura salva: {caminho}")
+    plt.tight_layout()
+    plt.savefig(caminho, dpi=300, bbox_inches="tight")
+    plt.close()
+    print(f"[OK] Figura gerada: {caminho}")
 
 
-def carregar_imagem(caminho):
+def encontrar_coluna(possiveis):
     """
-    Carrega uma imagem utilizando OpenCV.
+    Procura uma coluna no CSV ignorando maiúsculas/minúsculas.
     """
-    import cv2
+    mapa = {c.lower(): c for c in df.columns}
 
-    imagem = cv2.imread(str(caminho))
-
-    if imagem is None:
-        raise FileNotFoundError(
-            f"Não foi possível carregar a imagem: {caminho}"
-        )
-
-    # OpenCV carrega em BGR.
-    # Converte para RGB para exibição correta no matplotlib.
-    return cv2.cvtColor(imagem, cv2.COLOR_BGR2RGB)
-
-
-def encontrar_coluna_imagem(df):
-    """
-    Tenta descobrir automaticamente qual coluna identifica
-    o nome da imagem.
-    """
-
-    candidatos = [
-        "image",
-        "imagem",
-        "filename",
-        "file",
-        "name",
-        "nome",
-        "imageName",
-        "image_name"
-    ]
-
-    for coluna in candidatos:
-        if coluna in df.columns:
-            return coluna
+    for nome in possiveis:
+        if nome.lower() in mapa:
+            return mapa[nome.lower()]
 
     return None
 
 
 # ============================================================
-# LEITURA DOS DADOS
+# TABELA 1
+# PSNR, SSIM E FSIM
+# Média + desvio padrão
 # ============================================================
 
-print("=" * 60)
-print("ANÁLISE DOS RESULTADOS")
-print("=" * 60)
+metricas_tabela1 = ["psnr", "ssim", "fsim"]
 
-df = pd.read_csv(ARQUIVO_CSV)
+tabela1 = pd.DataFrame({
+    "Métrica": ["PSNR", "SSIM", "FSIM"],
+    "Média": [
+        df["psnr"].mean(),
+        df["ssim"].mean(),
+        df["fsim"].mean()
+    ],
+    "Desvio padrão": [
+        df["psnr"].std(),
+        df["ssim"].std(),
+        df["fsim"].std()
+    ]
+})
 
-print(f"\nQuantidade de registros: {len(df)}")
-print("\nColunas encontradas:")
-print(list(df.columns))
-
-
-# ============================================================
-# VERIFICAÇÃO DAS MÉTRICAS
-# ============================================================
-
-for metrica in METRICAS:
-
-    if metrica not in df.columns:
-        print(
-            f"[AVISO] A coluna '{metrica}' não foi encontrada."
-        )
-    else:
-        df[metrica] = pd.to_numeric(
-            df[metrica],
-            errors="coerce"
-        )
-
-
-# ============================================================
-# ESTATÍSTICAS DESCRITIVAS
-# ============================================================
-
-print("\n")
-print("=" * 60)
-print("ESTATÍSTICAS")
-print("=" * 60)
-
-estatisticas = df[METRICAS].describe().T
-
-estatisticas["desvio_padrao"] = df[METRICAS].std()
-
-print(estatisticas)
-
-estatisticas.to_csv(
-    PASTA_SAIDA / "estatisticas_descritivas.csv"
+tabela1.to_csv(
+    PASTA_SAIDA / "tabela_1_psnr_ssim_fsim.csv",
+    index=False,
+    sep=";"
 )
 
+print("\nTabela 1:")
+print(tabela1.to_string(index=False))
 
 # ============================================================
 # FIGURA 1
-# ORIGINAL × ESTÉGO
+# ORIGINAL X ESTEGANOGRAFADA
 # ============================================================
 
-print("\nGerando Figura 1...")
+col_original = encontrar_coluna([
+    "original",
+    "imagem_original",
+    "original_path",
+    "originalPath",
+    "input"
+])
 
-try:
+col_stego = encontrar_coluna([
+    "stego",
+    "imagem_estego",
+    "stego_path",
+    "stegoPath",
+    "output",
+    "encoded"
+])
 
-    original1 = carregar_imagem(IMAGEM_ORIGINAL_1)
-    estego1 = carregar_imagem(IMAGEM_ESTego_1)
+if col_original and col_stego:
 
-    fig, ax = plt.subplots(
-        1,
-        2,
-        figsize=(12, 6)
-    )
+    original_path = Path(str(df.iloc[0][col_original]))
+    stego_path = Path(str(df.iloc[0][col_stego]))
 
-    ax[0].imshow(original1)
-    ax[0].set_title("Imagem original")
-    ax[0].axis("off")
+    if original_path.exists() and stego_path.exists():
 
-    ax[1].imshow(estego1)
-    ax[1].set_title("Imagem estego")
-    ax[1].axis("off")
+        import cv2
 
-    plt.tight_layout()
+        original = cv2.imread(str(original_path))
+        stego = cv2.imread(str(stego_path))
 
-    salvar_figura("figura_1_original_vs_estego.png")
+        original = cv2.cvtColor(original, cv2.COLOR_BGR2RGB)
+        stego = cv2.cvtColor(stego, cv2.COLOR_BGR2RGB)
 
-    plt.close()
+        plt.figure(figsize=(12, 5))
 
-except FileNotFoundError as erro:
+        plt.subplot(1, 2, 1)
+        plt.imshow(original)
+        plt.title("Imagem original")
+        plt.axis("off")
 
-    print(f"[AVISO] Figura 1 não gerada: {erro}")
+        plt.subplot(1, 2, 2)
+        plt.imshow(stego)
+        plt.title("Imagem estego")
+        plt.axis("off")
 
+        salvar_figura("figura_1_original_vs_estego.png")
 
-# ============================================================
-# FUNÇÃO PARA HISTOGRAMA RGB
-# ============================================================
+    else:
+        print("[AVISO] Caminhos das imagens não foram encontrados.")
 
-def plotar_histograma_rgb(imagem, ax, titulo):
-
-    canais = [
-        ("R", 0),
-        ("G", 1),
-        ("B", 2)
-    ]
-
-    for nome, canal in canais:
-
-        valores = imagem[:, :, canal].ravel()
-
-        ax.hist(
-            valores,
-            bins=256,
-            alpha=0.35,
-            density=True,
-            label=nome
-        )
-
-    ax.set_title(titulo)
-    ax.set_xlabel("Intensidade")
-    ax.set_ylabel("Frequência normalizada")
-    ax.set_xlim(0, 255)
-    ax.legend()
+else:
+    print("[AVISO] Colunas original/stego não encontradas.")
+    print("        Figura 1 não foi gerada.")
 
 
 # ============================================================
 # FIGURA 2
-# HISTOGRAMAS DE DUAS IMAGENS
+# HISTOGRAMAS COMPARATIVOS
+# Duas imagens representativas
 # ============================================================
 
-print("\nGerando Figura 2...")
+if col_original and col_stego:
 
-try:
+    import cv2
 
-    original1 = carregar_imagem(IMAGEM_ORIGINAL_1)
-    estego1 = carregar_imagem(IMAGEM_ESTego_1)
+    quantidade = min(2, len(df))
 
-    original2 = carregar_imagem(IMAGEM_ORIGINAL_2)
-    estego2 = carregar_imagem(IMAGEM_ESTego_2)
+    for i in range(quantidade):
 
-    fig, ax = plt.subplots(
-        2,
-        2,
-        figsize=(12, 8)
-    )
+        original_path = Path(str(df.iloc[i][col_original]))
+        stego_path = Path(str(df.iloc[i][col_stego]))
 
-    plotar_histograma_rgb(
-        original1,
-        ax[0, 0],
-        "Imagem 1 — Original"
-    )
+        if not original_path.exists() or not stego_path.exists():
+            continue
 
-    plotar_histograma_rgb(
-        estego1,
-        ax[0, 1],
-        "Imagem 1 — Estego"
-    )
+        original = cv2.imread(str(original_path))
+        stego = cv2.imread(str(stego_path))
 
-    plotar_histograma_rgb(
-        original2,
-        ax[1, 0],
-        "Imagem 2 — Original"
-    )
+        plt.figure(figsize=(12, 5))
 
-    plotar_histograma_rgb(
-        estego2,
-        ax[1, 1],
-        "Imagem 2 — Estego"
-    )
+        # Original
+        plt.subplot(1, 2, 1)
 
-    plt.tight_layout()
+        cores = ("b", "g", "r")
 
-    salvar_figura("figura_2_histogramas.png")
+        for canal, cor in enumerate(cores):
+            hist = cv2.calcHist(
+                [original],
+                [canal],
+                None,
+                [256],
+                [0, 256]
+            )
 
-    plt.close()
+            plt.plot(hist, color=cor)
 
-except FileNotFoundError as erro:
+        plt.title(f"Histograma - Original {i + 1}")
+        plt.xlim([0, 256])
+        plt.xlabel("Intensidade")
+        plt.ylabel("Frequência")
 
-    print(f"[AVISO] Figura 2 não gerada: {erro}")
+        # Estego
+        plt.subplot(1, 2, 2)
+
+        for canal, cor in enumerate(cores):
+            hist = cv2.calcHist(
+                [stego],
+                [canal],
+                None,
+                [256],
+                [0, 256]
+            )
+
+            plt.plot(hist, color=cor)
+
+        plt.title(f"Histograma - Estego {i + 1}")
+        plt.xlim([0, 256])
+        plt.xlabel("Intensidade")
+        plt.ylabel("Frequência")
+
+        salvar_figura(
+            f"figura_2_histograma_comparativo_{i + 1}.png"
+        )
+
+else:
+    print("[AVISO] Figura 2 não foi gerada.")
 
 
 # ============================================================
 # FIGURA 3
 # HISTOGRAMAS SOBREPOSTOS
+# Original x Estego
 # ============================================================
 
-print("\nGerando Figura 3...")
+if col_original and col_stego:
 
-try:
+    import cv2
 
-    original1 = carregar_imagem(IMAGEM_ORIGINAL_1)
-    estego1 = carregar_imagem(IMAGEM_ESTego_1)
+    for i in range(min(2, len(df))):
 
-    original2 = carregar_imagem(IMAGEM_ORIGINAL_2)
-    estego2 = carregar_imagem(IMAGEM_ESTego_2)
+        original_path = Path(str(df.iloc[i][col_original]))
+        stego_path = Path(str(df.iloc[i][col_stego]))
 
-    fig, ax = plt.subplots(
-        1,
-        2,
-        figsize=(13, 5)
-    )
+        if not original_path.exists() or not stego_path.exists():
+            continue
 
-    def hist_comparativo(original, estego, eixo, titulo):
+        original = cv2.imread(str(original_path))
+        stego = cv2.imread(str(stego_path))
 
-        for canal, nome in [
-            (0, "R"),
-            (1, "G"),
-            (2, "B")
-        ]:
+        plt.figure(figsize=(10, 6))
 
-            eixo.hist(
-                original[:, :, canal].ravel(),
-                bins=256,
-                alpha=0.25,
-                density=True,
-                label=f"Original {nome}"
+        cores = ("b", "g", "r")
+
+        for canal, cor in enumerate(cores):
+
+            hist_original = cv2.calcHist(
+                [original],
+                [canal],
+                None,
+                [256],
+                [0, 256]
             )
 
-            eixo.hist(
-                estego[:, :, canal].ravel(),
-                bins=256,
-                alpha=0.25,
-                density=True,
-                histtype="step",
-                linewidth=1.5,
-                label=f"Estego {nome}"
+            hist_stego = cv2.calcHist(
+                [stego],
+                [canal],
+                None,
+                [256],
+                [0, 256]
             )
 
-        eixo.set_title(titulo)
-        eixo.set_xlabel("Intensidade")
-        eixo.set_ylabel("Frequência normalizada")
-        eixo.set_xlim(0, 255)
-        eixo.legend(fontsize=8)
+            plt.plot(
+                hist_original,
+                color=cor,
+                linestyle="-",
+                alpha=0.8
+            )
 
-    hist_comparativo(
-        original1,
-        estego1,
-        ax[0],
-        "Imagem 1"
-    )
+            plt.plot(
+                hist_stego,
+                color=cor,
+                linestyle="--",
+                alpha=0.8
+            )
 
-    hist_comparativo(
-        original2,
-        estego2,
-        ax[1],
-        "Imagem 2"
-    )
+        plt.title(
+            f"Comparação dos histogramas - Imagem {i + 1}"
+        )
 
-    plt.tight_layout()
+        plt.xlabel("Intensidade")
+        plt.ylabel("Frequência")
+        plt.xlim([0, 256])
 
-    salvar_figura("figura_3_histogramas_comparativos.png")
+        salvar_figura(
+            f"figura_3_histogramas_sobrepostos_{i + 1}.png"
+        )
 
-    plt.close()
 
-except FileNotFoundError as erro:
+# ============================================================
+# TABELA 2
+# CHI² E RS-DIFF
+# ============================================================
 
-    print(f"[AVISO] Figura 3 não gerada: {erro}")
+tabela2 = pd.DataFrame({
+    "Métrica": ["χ²", "RS-Diff"],
+    "Média": [
+        df["chi2"].mean(),
+        df["rsDiff"].mean()
+    ],
+    "Desvio padrão": [
+        df["chi2"].std(),
+        df["rsDiff"].std()
+    ]
+})
+
+tabela2.to_csv(
+    PASTA_SAIDA / "tabela_2_chi2_rsdiff.csv",
+    index=False,
+    sep=";"
+)
+
+print("\nTabela 2:")
+print(tabela2.to_string(index=False))
 
 
 # ============================================================
 # FIGURA 4
-# CAPACIDADE
+# CAPACIDADE DAS IMAGENS
 # ============================================================
 
-print("\nGerando Figura 4...")
+col_nome = encontrar_coluna([
+    "image",
+    "imagem",
+    "filename",
+    "file",
+    "nome",
+    "name"
+])
 
-if "maxBytes" in df.columns and "bpp" in df.columns:
+plt.figure(figsize=(12, 6))
 
-    coluna_imagem = encontrar_coluna_imagem(df)
-
-    # --------------------------------------------------------
-    # Seleção das imagens
-    # --------------------------------------------------------
-
-    if coluna_imagem is not None:
-
-        dados = df.copy()
-
-        # Ordena pelas imagens com maior capacidade.
-        dados = dados.sort_values(
-            "maxBytes",
-            ascending=False
-        )
-
-        # Seleciona algumas imagens representativas.
-        dados = dados.head(10)
-
-        nomes = dados[coluna_imagem].astype(str)
-
-    else:
-
-        # Caso não exista coluna de nome da imagem,
-        # utiliza o índice dos registros.
-        dados = df.sort_values(
-            "maxBytes",
-            ascending=False
-        ).head(10)
-
-        nomes = [
-            f"Imagem {i + 1}"
-            for i in range(len(dados))
-        ]
-
-    # --------------------------------------------------------
-    # Gráfico
-    # --------------------------------------------------------
-
-    fig, ax1 = plt.subplots(
-        figsize=(12, 6)
-    )
-
-    x = np.arange(len(dados))
-    largura = 0.35
-
-    barras = ax1.bar(
-        x - largura / 2,
-        dados["maxBytes"],
-        largura,
-        label="maxBytes"
-    )
-
-    ax1.set_xlabel("Imagem")
-    ax1.set_ylabel("Capacidade máxima (bytes)")
-    ax1.set_xticks(x)
-    ax1.set_xticklabels(
-        nomes,
-        rotation=45,
-        ha="right"
-    )
-
-    ax2 = ax1.twinx()
-
-    ax2.bar(
-        x + largura / 2,
-        dados["bpp"],
-        largura,
-        alpha=0.6,
-        label="bpp"
-    )
-
-    ax2.set_ylabel("Bits por pixel (bpp)")
-
-    ax1.set_title(
-        "Capacidade de inserção nas imagens selecionadas"
-    )
-
-    plt.tight_layout()
-
-    salvar_figura("figura_4_capacidade.png")
-
-    plt.close()
-
+if col_nome:
+    nomes = df[col_nome].astype(str)
 else:
+    nomes = [f"Imagem {i + 1}" for i in range(len(df))]
 
-    print(
-        "[AVISO] Figura 4 não gerada: "
-        "colunas maxBytes e/ou bpp ausentes."
-    )
+plt.bar(
+    nomes,
+    df["maxBytes"]
+)
+
+plt.title("Capacidade máxima de inserção por imagem")
+plt.xlabel("Imagem")
+plt.ylabel("Capacidade (bytes)")
+plt.xticks(rotation=45, ha="right")
+
+salvar_figura("figura_4_capacidade.png")
+
+
+# ============================================================
+# TABELA 4
+# BER
+# ============================================================
+
+tabela4 = pd.DataFrame({
+    "Métrica": ["BER"],
+    "Média": [df["ber"].mean()],
+    "Desvio padrão": [df["ber"].std()],
+    "Mínimo": [df["ber"].min()],
+    "Máximo": [df["ber"].max()]
+})
+
+tabela4.to_csv(
+    PASTA_SAIDA / "tabela_4_ber.csv",
+    index=False,
+    sep=";"
+)
+
+print("\nTabela 4:")
+print(tabela4.to_string(index=False))
 
 
 # ============================================================
 # FIGURA 5
-# BER
+# VARIAÇÃO DO BER
 # ============================================================
 
-print("\nGerando Figura 5...")
+plt.figure(figsize=(12, 6))
 
-if "ber" in df.columns:
+plt.bar(
+    nomes,
+    df["ber"]
+)
 
-    ber = df["ber"].dropna()
+plt.title("Variação do BER entre as imagens")
+plt.xlabel("Imagem")
+plt.ylabel("BER")
+plt.xticks(rotation=45, ha="right")
 
-    fig, ax = plt.subplots(
-        figsize=(8, 6)
-    )
-
-    # Boxplot
-    ax.boxplot(
-        ber,
-        labels=["BER"]
-    )
-
-    # Pontos individuais
-    x_jitter = np.random.normal(
-        1,
-        0.04,
-        size=len(ber)
-    )
-
-    ax.scatter(
-        x_jitter,
-        ber,
-        alpha=0.45,
-        s=20
-    )
-
-    ax.set_ylabel("Bit Error Rate (BER)")
-    ax.set_title(
-        "Distribuição do Bit Error Rate"
-    )
-
-    # Média
-    media_ber = ber.mean()
-
-    ax.axhline(
-        media_ber,
-        linestyle="--",
-        linewidth=1,
-        label=f"Média = {media_ber:.6f}"
-    )
-
-    ax.legend()
-
-    plt.tight_layout()
-
-    salvar_figura("figura_5_ber.png")
-
-    plt.close()
-
-    print(f"Média BER: {media_ber:.10f}")
-
-else:
-
-    print(
-        "[AVISO] Figura 5 não gerada: "
-        "coluna ber ausente."
-    )
+salvar_figura("figura_5_ber.png")
 
 
 # ============================================================
-# MATRIZ DE CORRELAÇÃO
+# RELATÓRIO RESUMIDO
 # ============================================================
 
-print("\nGerando matriz de correlação...")
+resumo = pd.DataFrame({
+    "Métrica": METRICAS,
+    "Média": [
+        df[m].mean() if m in df.columns else np.nan
+        for m in METRICAS
+    ],
+    "Desvio padrão": [
+        df[m].std() if m in df.columns else np.nan
+        for m in METRICAS
+    ],
+    "Mínimo": [
+        df[m].min() if m in df.columns else np.nan
+        for m in METRICAS
+    ],
+    "Máximo": [
+        df[m].max() if m in df.columns else np.nan
+        for m in METRICAS
+    ]
+})
 
-metricas_disponiveis = [
+resumo.to_csv(
+    PASTA_SAIDA / "resumo_metricas.csv",
+    index=False,
+    sep=";"
+)
+
+
+# ============================================================
+# CORRELAÇÃO
+# ============================================================
+
+metricas_existentes = [
     m for m in METRICAS_CORRELACAO
     if m in df.columns
 ]
 
-if len(metricas_disponiveis) >= 2:
+if len(metricas_existentes) >= 2:
 
-    correlacao = df[
-        metricas_disponiveis
-    ].corr()
+    correlacao = df[metricas_existentes].corr()
 
-    fig, ax = plt.subplots(
-        figsize=(10, 8)
+    correlacao.to_csv(
+        PASTA_SAIDA / "correlacao_metricas.csv",
+        sep=";"
     )
-
-    imagem = ax.imshow(
-        correlacao,
-        interpolation="nearest",
-        aspect="auto"
-    )
-
-    ax.set_xticks(
-        np.arange(len(metricas_disponiveis))
-    )
-
-    ax.set_yticks(
-        np.arange(len(metricas_disponiveis))
-    )
-
-    ax.set_xticklabels(
-        metricas_disponiveis,
-        rotation=45,
-        ha="right"
-    )
-
-    ax.set_yticklabels(
-        metricas_disponiveis
-    )
-
-    # Valores dentro da matriz
-    for i in range(len(metricas_disponiveis)):
-
-        for j in range(len(metricas_disponiveis)):
-
-            valor = correlacao.iloc[i, j]
-
-            ax.text(
-                j,
-                i,
-                f"{valor:.2f}",
-                ha="center",
-                va="center"
-            )
-
-    ax.set_title(
-        "Correlação entre as métricas"
-    )
-
-    plt.colorbar(
-        imagem,
-        ax=ax,
-        label="Correlação de Pearson"
-    )
-
-    plt.tight_layout()
-
-    salvar_figura("matriz_correlacao.png")
-
-    plt.close()
 
 
 # ============================================================
-# RESUMO FINAL
+# FINAL
 # ============================================================
 
-print("\n")
-print("=" * 60)
+print("\n==============================================")
 print("ANÁLISE CONCLUÍDA")
-print("=" * 60)
+print("==============================================")
+print(f"Arquivos salvos em: {PASTA_SAIDA.resolve()}")
+print()
+print("Arquivos principais:")
 
-print(f"\nArquivos gerados em:")
-print( PASTA_SAIDA.resolve() )
-
-print("\nConteúdo esperado:")
-
-for arquivo in PASTA_SAIDA.iterdir():
-
-    print(
-        f" - {arquivo.name}"
-    )
+for arquivo in sorted(PASTA_SAIDA.iterdir()):
+    print(f" - {arquivo.name}")
