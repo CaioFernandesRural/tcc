@@ -1,0 +1,52 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Página-1" id="HE7gMNDTCu4qOzXd3GRK">
+    <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="urSqPdZIEgoGTflIIZ4j-24" edge="1" parent="1" source="urSqPdZIEgoGTflIIZ4j-14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="urSqPdZIEgoGTflIIZ4j-15" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="urSqPdZIEgoGTflIIZ4j-14" parent="1" style="whiteSpace=wrap;html=1;fillColor=#dae8fc;gradientColor=#7ea6e0;strokeColor=#6c8ebf;glass=1;shadow=1;rounded=1;" value="Pré-processamento da imagem" vertex="1">
+          <mxGeometry height="60" width="120" x="110" y="480" as="geometry" />
+        </mxCell>
+        <mxCell id="urSqPdZIEgoGTflIIZ4j-25" edge="1" parent="1" source="urSqPdZIEgoGTflIIZ4j-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="urSqPdZIEgoGTflIIZ4j-16" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="urSqPdZIEgoGTflIIZ4j-15" parent="1" style="whiteSpace=wrap;html=1;fillColor=#dae8fc;gradientColor=#7ea6e0;strokeColor=#6c8ebf;glass=1;shadow=1;rounded=1;" value="Criação do mapa de bordas" vertex="1">
+          <mxGeometry height="60" width="120" x="268.5" y="480" as="geometry" />
+        </mxCell>
+        <mxCell id="urSqPdZIEgoGTflIIZ4j-26" edge="1" parent="1" source="urSqPdZIEgoGTflIIZ4j-16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="urSqPdZIEgoGTflIIZ4j-17" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="urSqPdZIEgoGTflIIZ4j-16" parent="1" style="whiteSpace=wrap;html=1;fillColor=#dae8fc;gradientColor=#7ea6e0;strokeColor=#6c8ebf;glass=1;shadow=1;rounded=1;" value="Verificação da capacidade" vertex="1">
+          <mxGeometry height="60" width="120" x="427" y="480" as="geometry" />
+        </mxCell>
+        <mxCell id="urSqPdZIEgoGTflIIZ4j-27" edge="1" parent="1" source="urSqPdZIEgoGTflIIZ4j-17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="urSqPdZIEgoGTflIIZ4j-19" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="urSqPdZIEgoGTflIIZ4j-17" parent="1" style="whiteSpace=wrap;html=1;fillColor=#dae8fc;gradientColor=#7ea6e0;strokeColor=#6c8ebf;glass=1;shadow=1;rounded=1;" value="Criação do vetor de coordenadas" vertex="1">
+          <mxGeometry height="60" width="120" x="580" y="480" as="geometry" />
+        </mxCell>
+        <mxCell id="urSqPdZIEgoGTflIIZ4j-19" parent="1" style="whiteSpace=wrap;html=1;fillColor=#dae8fc;gradientColor=#7ea6e0;strokeColor=#6c8ebf;glass=1;shadow=1;rounded=1;" value="Inserção dos blocos" vertex="1">
+          <mxGeometry height="60" width="120" x="733" y="480" as="geometry" />
+        </mxCell>
+        <mxCell id="urSqPdZIEgoGTflIIZ4j-20" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;rounded=0;" value="Codificação" vertex="1">
+          <mxGeometry height="30" width="120" x="110" y="440" as="geometry" />
+        </mxCell>
+        <mxCell id="urSqPdZIEgoGTflIIZ4j-28" edge="1" parent="1" source="urSqPdZIEgoGTflIIZ4j-21" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="urSqPdZIEgoGTflIIZ4j-23" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="urSqPdZIEgoGTflIIZ4j-21" parent="1" style="whiteSpace=wrap;html=1;fillColor=#fff2cc;gradientColor=#ffd966;strokeColor=#d6b656;glass=1;shadow=1;rounded=1;" value="Recebimento da coordenada inicial" vertex="1">
+          <mxGeometry height="60" width="120" x="110" y="635" as="geometry" />
+        </mxCell>
+        <mxCell id="urSqPdZIEgoGTflIIZ4j-22" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;rounded=0;" value="Decodificação" vertex="1">
+          <mxGeometry height="30" width="120" x="110" y="600" as="geometry" />
+        </mxCell>
+        <mxCell id="urSqPdZIEgoGTflIIZ4j-23" parent="1" style="whiteSpace=wrap;html=1;fillColor=#fff2cc;gradientColor=#ffd966;strokeColor=#d6b656;rounded=1;glass=1;shadow=1;" value="Decodificação da mensagem" vertex="1">
+          <mxGeometry height="60" width="120" x="268.5" y="635" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
